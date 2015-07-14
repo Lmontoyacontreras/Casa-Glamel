@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block title %} Crear Categoria {% endblock%}
+
+{% block link%} {%endblock%}
+
+{% block user%} {{ user.username }} {% endblock %}
+
+{% block user2 %} {{ user.username }} {% endblock %}
+
+{% block page %} Ingresar Categoria {% endblock %}
+
+{% block page2 %} Ingresar Categoria {% endblock %}
+
+{% block contenido%}
+    <div class="col-md-12">
+          <form id="basicForm" action="#" class="form-horizontal" method="POST">
+          {% csrf_token %}
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                <div class="panel-btns">
+                  <a href="#" class="panel-close">&times;</a>
+                  <a href="#" class="minimize">&minus;</a>
+                </div>
+                <h4 class="panel-title">Categoria</h4>
+                <p>Bienvenido, por favor ingrese todos los datos</p>
+              </div>
+              <div class="panel-body">
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Nombre <span class="asterisk">*</span></label>
+                  <div class="col-sm-9">
+                     {{ form.nombre }}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Familia <span class="asterisk">*</span></label>
+                  <div class="col-sm-9">
+                    {{ form.famila_idfamilia }}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Descripcion <span class="asterisk">*</span></label>
+                  <div class="col-sm-9">
+                    {{ form.descripcion }}
+                  </div>
+                </div>
+              </div><!-- panel-body -->
+              <div class="panel-footer">
+                <div class="row">
+                  <div class="col-sm-9 col-sm-offset-3">
+                    <button class="btn btn-primary">Guardar</button>
+                    <button type="reset" class="btn btn-default">Reset</button>
+                  </div>
+                </div>
+              </div>
+            
+          </div><!-- panel -->
+          </form>
+    </div>
+{% endblock %}
+
+{% block linkscript %} <script src="{% static 'js/jquery.validate.min.js'%}"></script> {% endblock %}
+
+{% block script %} 
+
+<script>
+    jQuery(document).ready(function(){
+      
+      // Basic Form
+      jQuery("#basicForm").validate({
+        highlight: function(element) {
+          jQuery(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+        },
+        success: function(element) {
+          jQuery(element).closest('.form-group').removeClass('has-error');
+        }
+      });
+      
+      
+      // Validation with select boxes
+      jQuery("#basicForm4").validate({
+        highlight: function(element) {
+          jQuery(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+        },
+        success: function(element) {
+          jQuery(element).closest('.form-group').removeClass('has-error');
+        }
+      });
+      
+      
+    });
+</script>
+
+{% endblock %}

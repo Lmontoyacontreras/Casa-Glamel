@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block title %} Articulo {% endblock%}
+
+{% block link%} {%endblock%}
+
+{% block user%} {{ user.username }} {% endblock %}
+
+{% block user2 %} {{ user.username }} {% endblock %}
+
+{% block page %} Articulo {% endblock %}
+
+{% block page2 %} Articulo {% endblock %}
+
+{% block contenido%}
+        <div class="col-sm-12">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <div class="panel-btns">
+                <a href="#" class="panel-close">&times;</a>
+                <a href="#" class="minimize">&minus;</a>
+              </div><!-- panel-btns -->
+              <h3 class="panel-title">{{ articulo.referencia }}</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                  <label class="col-sm-4"><strong>Categoria</strong></label>
+                  <div class="col-sm-8">
+                        {{ articulo.categoria_idcategoria }}
+                  </div>
+                </div><hr>
+                <div class="form-group">
+                  <label class="col-sm-4"><strong>Tipo</strong></label>
+                  <div class="col-sm-8">
+                        {{ articulo.nombre_tipo }}
+                  </div>
+                </div><hr>
+                <div class="form-group">
+                  <label class="col-sm-4"><strong>Descripcion</strong></label>
+                  <div class="col-sm-8">
+                        {{ articulo.descripcion }}
+                  </div>
+                </div><hr>
+                <div class="form-group">
+                  <label class="col-sm-4"><strong>Ubicacion</strong></label>
+                  <div class="col-sm-4">
+                        {{ articulo.ubicacion }}
+                  </div>
+                </div><hr>
+                <div class="form-group">
+                  <label class="col-sm-4"><strong>Talla</strong></label>
+                  <div class="col-sm-4">
+                        {{ articulo.talla }}
+                  </div>
+                  <label class="col-sm-2"><strong>Precio</strong></label>
+                  <div class="col-sm-2">
+                        {{ articulo.precio }}
+                  </div>
+                </div><hr>
+                <div class="form-group">
+                  <label class="col-sm-4"><strong>Estado</strong></label>
+                  <div class="col-sm-4">
+                        {{ articulo.nombre_estado }}
+                  </div>
+                    <label class="col-sm-2"><strong>Estado Ropa</strong></label>
+                  <div class="col-sm-2">
+                        {{ articulo.nombre_estado_ropa }}
+                  </div>
+                </div><hr>
+                <div class="form-group">
+                  <label class="col-sm-4"><strong>Fecha Ingreso</strong></label>
+                  <div class="col-sm-4">
+                        {{ articulo.fechaingreso }}
+                  </div>
+                  <label class="col-sm-2"><strong>Fecha util</strong></label>
+                  <div class="col-sm-2">
+                        {{ articulo.fechautil }}
+                  </div>
+                </div><hr>
+                <div class="form-group">
+                  <label class="col-sm-4"><strong>Color</strong></label>
+                  <div class="col-sm-4">
+                        {{ articulo.color }}
+                  </div>
+                </div><hr>
+                <div class="form-group">
+                    <div class="col-sm-4">
+                      <a href="{% url 'Inventario:Ariculo_Lista' %}" class="btn btn-primary btn-block">Regresar</a>
+                    </div>
+                    <div class="col-sm-4">
+                      <a href="{% url 'Inventario:Articulo_Modificar' articulo.pk %}" class="btn btn-primary btn-block">Modificar</a>
+                    </div>
+                    <div class="col-sm-4">
+                      <a href="{% url 'Inventario:Articulo_Eliminar' articulo.pk %}" class="btn btn-danger btn-block">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+
+          </div><!-- panel -->
+        </div><!-- col-sm-6 -->
+{% endblock %}
+
+{% block linkscript %}
+
+
+{% endblock %}
+
+{% block script %}
+{% endblock %}

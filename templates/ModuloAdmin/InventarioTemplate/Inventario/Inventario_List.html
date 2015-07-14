@@ -1,0 +1,265 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block title %} Inventario {% endblock%}
+
+{% block link%}
+    <link href="{% static 'css/jquery.datatables.css' %}" rel="stylesheet">
+{%endblock%}
+
+{% block user%} {{ user.username }} {% endblock %}
+
+{% block user2 %} {{ user.username }} {% endblock %}
+
+{% block page %} Inventario {% endblock %}
+
+{% block page2 %} Inventario {% endblock %}
+
+{% block contenido%}
+    <div class="panel panel-default">
+        <div class="row">
+        <div class="col-md-12 mb30">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs nav-justified">
+          <li class="active"><a href="#home3" data-toggle="tab"><strong>Inventario Existente</strong></a></li>
+          <li><a href="#profile3" data-toggle="tab"><strong>Productos Disponible</strong></a></li>
+          <li><a href="#about3" data-toggle="tab"><strong>Productos Alquilados</strong></a></li>
+          <li><a href="#contact3" data-toggle="tab"><strong>Productos Dañados</strong></a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane active" id="home3">
+                <div class="panel-heading">
+                    <h3>Todos los Articulos</h3>
+                  <div class="panel-btns">
+                    <a href="#" class="panel-close">&times;</a>
+                    <a href="#" class="minimize">&minus;</a>
+                  </div><!-- panel-btns -->
+                </div>
+                <div class="panel-body">
+                  <div class="clearfix mb30"></div>
+                  <br />
+                  <div class="table-responsive">
+                  <table class="table" id="table2">
+                      <thead>
+                         <tr>
+                            <th>Categoria</th>
+                            <th>Referencia</th>
+                            <th>Tipo</th>
+                            <th>Estado</th>
+                            <th>Talla</th>
+                             <th>Precio</th>
+                             <th></th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                         {%for articulo in articulo%}
+                         <tr class="odd gradeX">
+                            <td>{{articulo.categoria_idcategoria}}</td>
+                             <td>{{articulo.referencia}}</td>
+                             <td>{{articulo.nombre_tipo}}</td>
+                             <td>{{articulo.nombre_estado}}</td>
+                             <td>{{articulo.talla}}</td>
+                             <td>{{articulo.precio}}</td>
+                            <td class="table-action">
+                              <a href="{% url 'Inventario:Articulo_Detail' articulo.pk %}">Ver Mas</i></a>
+                            </td>
+                         </tr>
+                         {%endfor%}
+                      </tbody>
+                   </table>
+                  </div><!-- table-responsive -->
+                </div>
+          </div>
+          <div class="tab-pane" id="profile3">
+            <div class="row">
+                <div class="panel-heading">
+                    <h3>Articulos Disponible</h3>
+                  <div class="panel-btns">
+                    <a href="#" class="panel-close">&times;</a>
+                    <a href="#" class="minimize">&minus;</a>
+                  </div><!-- panel-btns -->
+                </div>
+                <div class="panel-body">
+                  <div class="clearfix mb30"></div>
+                  <br />
+                  <div class="table-responsive">
+                  <table class="table" id="table3">
+                      <thead>
+                         <tr>
+                            <th>Categoria</th>
+                            <th>Referencia</th>
+                            <th>Tipo</th>
+                            <th>Estado de Ropa</th>
+                            <th>Talla</th>
+                             <th>Precio</th>
+                             <th></th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                         {%for articulo_disponible in articulo_disponible%}
+                         <tr class="odd gradeX">
+                            <td>{{articulo_disponible.categoria_idcategoria}}</td>
+                             <td>{{articulo_disponible.referencia}}</td>
+                             <td>{{articulo_disponible.nombre_tipo}}</td>
+                             <td>{{articulo_disponible.nombre_estado_ropa}}</td>
+                             <td>{{articulo_disponible.talla}}</td>
+                             <td>{{articulo_disponible.precio}}</td>
+                            <td class="table-action">
+                              <a href="{% url 'Inventario:Articulo_Detail' articulo_disponible.pk %}">Ver Mas</a>
+                            </td>
+                         </tr>
+                         {%endfor%}
+                      </tbody>
+                   </table>
+                  </div><!-- table-responsive -->
+                </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="about3">
+            <div class="row">
+                <div class="panel-heading">
+                    <h3>Articulos Alquilado</h3>
+                  <div class="panel-btns">
+                    <a href="#" class="panel-close">&times;</a>
+                    <a href="#" class="minimize">&minus;</a>
+                  </div><!-- panel-btns -->
+                </div>
+                <div class="panel-body">
+                  <div class="clearfix mb30"></div>
+                  <br />
+                  <div class="table-responsive">
+                  <table class="table" id="table4">
+                      <thead>
+                         <tr>
+                            <th>Categoria</th>
+                            <th>Referencia</th>
+                            <th>Tipo</th>
+                            <th>Estado de Ropa</th>
+                            <th>Talla</th>
+                             <th>Precio</th>
+                             <th></th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                         {%for articulo_alquilado in articulo_alquilado%}
+                         <tr class="odd gradeX">
+                            <td>{{articulo_alquilado.categoria_idcategoria}}</td>
+                             <td>{{articulo_alquilado.referencia}}</td>
+                             <td>{{articulo_alquilado.nombre_tipo}}</td>
+                             <td>{{articulo_alquilado.nombre_estado_ropa}}</td>
+                             <td>{{articulo_alquilado.talla}}</td>
+                             <td>{{articulo_alquilado.precio}}</td>
+                            <td class="table-action">
+                              <a href="{% url 'Inventario:Articulo_Detail' articulo_alquilado.pk %}">Ver Mas</a>
+                            </td>
+                         </tr>
+                         {%endfor%}
+                      </tbody>
+                   </table>
+                  </div><!-- table-responsive -->
+                </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="contact3">
+            <div class="row">
+                <div class="panel-heading">
+                    <h3>Articulos Dañado</h3>
+                  <div class="panel-btns">
+                    <a href="#" class="panel-close">&times;</a>
+                    <a href="#" class="minimize">&minus;</a>
+                  </div><!-- panel-btns -->
+                </div>
+                <div class="panel-body">
+                  <div class="clearfix mb30"></div>
+                  <br />
+                  <div class="table-responsive">
+                  <table class="table" id="table5">
+                      <thead>
+                         <tr>
+                            <th>Categoria</th>
+                            <th>Referencia</th>
+                            <th>Tipo</th>
+                            <th>Estado</th>
+                            <th>Talla</th>
+                             <th>Precio</th>
+                             <th></th>
+                         </tr>
+                      </thead>
+                      <tbody>
+                         {%for articulo_danado in articulo_danado%}
+                         <tr class="odd gradeX">
+                            <td>{{articulo_danado.categoria_idcategoria}}</td>
+                             <td>{{articulo_danado.referencia}}</td>
+                             <td>{{articulo_danado.nombre_tipo}}</td>
+                             <td>{{articulo_danado.nombre_estado_ropa}}</td>
+                             <td>{{articulo_danado.talla}}</td>
+                             <td>{{articulo_danado.precio}}</td>
+                            <td class="table-action">
+                              <a href="{% url 'Inventario:Articulo_Detail' articulo_danado.pk %}">Ver Mas</a>
+                            </td>
+                         </tr>
+                         {%endfor%}
+                      </tbody>
+                   </table>
+                  </div><!-- table-responsive -->
+                </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- col-md-6 -->
+        </div><!-- panel-body -->
+      </div><!-- panel -->
+{% endblock %}
+
+{% block linkscript %}
+<script src="{% static 'js/jquery.datatables.min.js'%}"></script>
+<script src="{% static 'js/chosen.jquery.min.js'%}"></script>
+{% endblock %}
+
+{% block script %}
+<script>
+  jQuery(document).ready(function() {
+
+    jQuery('#table4').dataTable({
+      "sPaginationType": "full_numbers"
+    });
+    jQuery('#table5').dataTable({
+      "sPaginationType": "full_numbers"
+    });
+    jQuery('#table2').dataTable({
+      "sPaginationType": "full_numbers"
+    });
+    jQuery('#table3').dataTable({
+      "sPaginationType": "full_numbers"
+    });
+    // Chosen Select
+    jQuery("select").chosen({
+      'min-width': '100px',
+      'white-space': 'nowrap',
+      disable_search_threshold: 10
+    });
+
+    // Delete row in a table
+    jQuery('.delete-row').click(function(){
+      var c = confirm("Continue delete?");
+      if(c)
+        jQuery(this).closest('tr').fadeOut(function(){
+          jQuery(this).remove();
+        });
+
+        return false;
+    });
+
+    // Show aciton upon row hover
+    jQuery('.table-hidaction tbody tr').hover(function(){
+      jQuery(this).find('.table-action-hide a').animate({opacity: 1});
+    },function(){
+      jQuery(this).find('.table-action-hide a').animate({opacity: 0});
+    });
+  });
+</script>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block title %} Familia {% endblock%}
+
+{% block link%} <link href="{% static 'css/jquery.datatables.css' %}" rel="stylesheet"> {%endblock%}
+
+{% block user%} {{ user.username }} {% endblock %}
+
+{% block user2 %} {{ user.username }} {% endblock %}
+
+{% block page %} Confirma Eliminar {% endblock %}
+
+{% block page2 %} Confirma Eliminar {% endblock %}
+
+{% block contenido%}
+    <div class="col-md-12">
+          <form id="basicForm" action="#" class="form-horizontal" method="POST">
+          {% csrf_token %}
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                <div class="panel-btns">
+                  <a href="#" class="panel-close">&times;</a>
+                  <a href="#" class="minimize">&minus;</a>
+                </div>
+                <h4 class="panel-title">Familia</h4>
+                <p>Bienvenido</p>
+              </div>
+              <div class="panel-body">
+                <div class="form-group">
+                  <label class="col-sm-16 control-label">Desea Eliminar la familia {{ familia.nombre }} <span class="asterisk">*</span></label>
+                </div>
+              </div><!-- panel-body -->
+              <div class="panel-footer">
+                <div class="row">
+                  <div class="col-sm-9 col-sm-offset-3">
+                    <button class="btn btn-danger">Eliminar</button>
+                      <a href="{% url 'Inventario:Familia_Lista' %}"  class="btn btn-default">volver</a>
+                  </div>
+                </div>
+              </div>
+          </div><!-- panel -->
+          </form>
+    </div>
+{% endblock %}
+
+{% block linkscript %}
+<script src="{% static 'js/jquery.datatables.min.js'%}"></script>
+<script src="{% static 'js/chosen.jquery.min.js'%}"></script>
+{% endblock %}
+
+{% block script %} {% endblock %}

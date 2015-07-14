@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  {% load static from staticfiles %}
+
+  <title>{% block title %} {% endblock%}</title>
+  
+  <link href="{%static 'css/style.default.css'%}" rel="stylesheet">
+  
+  {% block link%} {%endblock%}
+</head>
+
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+
+<section>
+  
+  <div class="leftpanel">
+    
+    <div class="logopanel">
+        <h1><span>[</span> Casa Glamel <span>]</span></h1>
+    </div><!-- logopanel -->
+    
+    <div class="leftpanelinner">
+        <!-- This is only visible to small devices -->
+        <div class="visible-xs hidden-sm hidden-md hidden-lg">   
+            <div class="media userlogged">
+                <img alt="" src="images/photos/loggeduser.png" class="media-object">
+                <div class="media-body">
+                    <h4>{% block user%}{% endblock %}</h4>
+                    <span>"Administrador"</span>
+                </div>
+            </div>
+          
+            <h5 class="sidebartitle actitle">Account</h5>
+            <ul class="nav nav-pills nav-stacked nav-bracket mb30">
+              <li><a href="#"><i class="fa fa-cog"></i> <span>Configuracion</span></a></li>
+              <li><a href="#"><i class="fa fa-question-circle"></i> <span>Ayuda</span></a></li>
+              <li><a href="#"><i class="fa fa-sign-out"></i> <span>Salir</span></a></li>
+            </ul>
+        </div>
+      <h5 class="sidebartitle">Administrador</h5>
+      <ul class="nav nav-pills nav-stacked nav-bracket">
+          <!--
+        <li><a href="index.html"><i class="fa fa-home"></i> <span>Home</span></a></li>-->
+
+        <li><a href="{% url 'Inventario:Inventario_Lista' %}"><i class="fa fa-suitcase"></i> <span>Inventario</span></a></li>
+        <!--
+         <li><a href="seguimiento_Prenda.html"><i class="fa fa-eye"></i> <span>Seguimiento de Prenda</span></a></li>
+        <li><a href="reservas_admin.html"><i class="fa fa-book"></i> <span>Reservas</span></a></li>
+        <li><a href="estadistica.html"><i class="fa fa-bar-chart-o"></i> <span>Estadisticas</span></a></li>
+           -->
+        <h5 class="sidebartitle">Gestion de Informacion</h5>      
+        <!--
+        <li class="nav-parent"><a href="#"><i class="fa fa-users"></i> <span>Clientes</span></a>
+          <ul class="children">
+            <li><a href="#"><i class="fa fa-caret-right"></i>Crear Cliente</a></li>
+            <li><a href="#"><i class="fa fa-caret-right"></i>Listado de Clientes</a></li>
+          </ul>
+        </li>
+        <li class="nav-parent"><a href="#"><i class="fa fa-github-alt"></i> <span>Empleados</span></a>
+          <ul class="children">
+            <li><a href="#"><i class="fa fa-caret-right"></i>Crear Empleado</a></li>
+            <li><a href="#"><i class="fa fa-caret-right"></i>Listado de Empleado</a></li>
+          </ul>
+        </li>-->
+        <li class="nav-parent"><a href="#"><i class="fa fa-archive"></i> <span>Articulos</span></a>
+            <ul class="children">
+                <h5 class="sidebartitle">Familia</h5>
+                <li><a href="{% url 'Inventario:Familia_Ingresar' %}"><i class="fa fa-caret-right"></i>Crear Familia</a></li>
+                <li><a href="{% url 'Inventario:Familia_Lista' %}"><i class="fa fa-caret-right"></i>Listado Familia</a></li>
+                <h5 class="sidebartitle">Categoria</h5>
+                <li><a href="{% url 'Inventario:Categoria_Ingresar' %}"><i class="fa fa-caret-right"></i>Crear Categoria</a></li>
+                <li><a href="{% url 'Inventario:Categoria_Lista' %}"><i class="fa fa-caret-right"></i>Listado Categoria</a></li>
+                <h5 class="sidebartitle">Articulo</h5>
+                <li><a href="{% url 'Inventario:Articulo_Ingresar' %}"><i class="fa fa-caret-right"></i>Ingresar Articulo</a></li>
+                <li><a href="{% url 'Inventario:Ariculo_Lista' %}"><i class="fa fa-caret-right"></i>Listado de Articulo</a></li>
+            </ul>
+        </li>
+        <!--
+        <h5 class="sidebartitle">Control de proveedores</h5>
+        <li class="nav-parent"><a href="#"><i class="fa fa-cogs"></i> <span>Proveedores</span></a>
+          <ul class="children">
+            <li><a href="#"><i class="fa fa-caret-right"></i>Crear Proveedor</a></li>
+            <li><a href="#"><i class="fa fa-caret-right"></i>Listado de Proveedor</a></li>
+            <li><a href="#"><i class="fa fa-caret-right"></i>Listado de Pedidos</a></li>
+          </ul>
+        </li>
+        <li><a href="pedidos.html"><i class="fa fa-shopping-cart"></i> <span>Registro de pedidos</span></a></li>
+        </ul>-->
+    </div><!-- leftpanelinner -->
+  </div><!-- leftpanel -->
+  
+  <div class="mainpanel">
+    
+    <div class="headerbar">
+      
+      <a class="menutoggle"><i class="fa fa-bars"></i></a>
+      
+      <form class="searchform" action="index.html" method="post">
+        <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
+      </form>
+      
+      <div class="header-right">
+        <ul class="headermenu">
+          <li>
+            <div class="btn-group">
+              <button class="btn btn-default dropdown-toggle tp-icon" data-toggle="dropdown">
+                <i class="glyphicon glyphicon-globe"></i>
+                <span class="badge">5</span>
+              </button>
+              <div class="dropdown-menu dropdown-menu-head pull-right">
+                <h5 class="title">You Have 1 New Message</h5>
+                <ul class="dropdown-list gen-list">
+                  <!-- ciclo de notificiones estrutura -->
+                    <li class="new">
+                        <a href="#">
+                        <span class="desc">
+                          <span class="name">Draniem Daamul <span class="badge badge-success">new</span></span>
+                          <span class="msg">Lorem ipsum dolor sit amet...</span>
+                        </span>
+                        </a>
+                      </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                {% block user2 %}{% endblock %}
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                <li><a href="#"><i class="glyphicon glyphicon-cog"></i> Configuracion</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-question-sign"></i> Ayuda</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-log-out"></i> Salir</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div><!-- header-right -->
+      
+    </div><!-- headerbar -->
+        
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> {% block page %} {% endblock %} <span>Bienvenido</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">Usted se encuentra aqui:</span>
+        <ol class="breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li class="active">{% block page2 %} {% endblock %}</li>
+        </ol>
+      </div>
+    </div>
+    
+    <div class="contentpanel">
+      <!-- content goes here... -->
+      {% block contenido%}{% endblock %}
+    </div>
+    
+  </div><!-- mainpanel -->
+  
+</section>
+
+<script src="{%static 'js/jquery-1.10.2.min.js'%}"></script>
+<script src="{%static 'js/jquery-migrate-1.2.1.min.js'%}"></script>
+<script src="{%static 'js/bootstrap.min.js'%}"></script>
+<script src="{%static 'js/modernizr.min.js'%}"></script>
+<script src="{%static 'js/jquery.sparkline.min.js'%}"></script>
+<script src="{%static 'js/toggles.min.js'%}"></script>
+<script src="{%static 'js/retina.min.js'%}"></script>
+<script src="{%static 'js/jquery.cookies.js'%}"></script>
+
+<script src="{%static 'js/custom.js'%}"></script>
+
+{% block linkscript %} {% endblock %}
+{% block script %} {% endblock %}
+
+</body>
+</html>
