@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+    {% load static from staticfiles %}
+
+
+  <title>Login | Casa Glamel</title>
+
+  <link href="{% static 'css/style.default.css' %}" rel="stylesheet">
+
+</head>
+
+<body class="signin">
+
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+
+<section>
+  
+    <div class="signinpanel">
+        
+        <div class="row">
+            
+            <div class="col-md-7">
+                
+                <div class="signin-info">
+                    <div class="logopanel">
+                        <h1><span>[</span> Moya <span>]</span></h1>
+                    </div><!-- logopanel -->
+                
+                    <div class="mb20"></div>
+                
+                    <h5><strong>Bienvenido Casa Glamel!</strong></h5>
+                    <ul>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> Gestion de proveedores</li>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> Control de inventario</li>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> Reservas</li>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> Control de ventas</li>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> Y mucho mas...</li>
+                    </ul>
+                    <div class="mb20"></div>
+                </div><!-- signin0-info -->
+            
+            </div><!-- col-sm-7 -->
+            
+            <div class="col-md-5">
+                <div>{{ user }}</div>
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <h4 class="nomargin">Sign In</h4>
+                    <p class="mt5 mb20">Inicie Session para entrar.</p>
+
+                    <input name="username" type="text" class="form-control uname" placeholder="Usuario" />
+                    <input name="password" type="password" class="form-control pword" placeholder="Contraseña" />
+                    <button type="submit" class="btn btn-success btn-block">Sign In</button>
+                </form>
+            </div><!-- col-sm-5 -->
+            
+        </div><!-- row -->
+        
+        <div class="signup-footer">
+            <div class="pull-left">
+                &copy; 2014. All Rights Reserved. Bracket Bootstrap 3 Admin Template
+            </div>
+            <div class="pull-right">
+                Created By: <a target="_blank">ThemePixels, Modificado por Innovation Technology</a>
+            </div>
+        </div>
+        
+    </div><!-- signin -->
+  
+</section>
+
+
+<script src="{% static 'js/jquery-1.10.2.min.js'%}"></script>
+<script src="{% static 'js/jquery-migrate-1.2.1.min.js'%}"></script>
+<script src="{% static 'js/bootstrap.min.js'%}"></script>
+<script src="{% static 'js/modernizr.min.js'%}"></script>
+<script src="{% static 'js/retina.min.js'%}"></script>
+
+<script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+</html>

@@ -1,110 +1,110 @@
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView,DeleteView
 from django.core.urlresolvers import reverse_lazy
-#from braces.views import LoginRequiredMixin
+from braces.views import LoginRequiredMixin
 
 from .models import Familia, Categoria, Articulo
 from .forms import Familia_Form, Categoria_Form, Articulo_Form
 
 #LoginRequiredMixin,
 
-class Familia_Ingresar(CreateView):
+class Familia_Ingresar(LoginRequiredMixin,CreateView):
     model = Familia
-    #login_url = '/'
+    login_url = '/'
     template_name = 'ModuloAdmin/InventarioTemplate/Familia/familia_form.html'
     form_class = Familia_Form
     success_url = reverse_lazy('Inventario:Familia_Lista')
 
 
-class Familia_Lista(ListView):
+class Familia_Lista(LoginRequiredMixin,ListView):
     model = Familia
-    #login_url = '/'
+    login_url = '/'
     template_name = 'ModuloAdmin/InventarioTemplate/Familia/familia_list.html'
     context_object_name = 'familia'
 
 
-class Familia_Modificar(UpdateView):
+class Familia_Modificar(LoginRequiredMixin,UpdateView):
     model = Familia
-    #login_url = '/'
+    login_url = '/'
     template_name = 'ModuloAdmin/InventarioTemplate/Familia/familia_form.html'
     form_class = Familia_Form
     success_url = reverse_lazy('Inventario:Familia_Lista')
 
 
-class Familia_Eliminar(DeleteView):
+class Familia_Eliminar(LoginRequiredMixin,DeleteView):
     model = Familia
-    #login_url = '/'
+    login_url = '/'
     context_object_name = 'familia'
     template_name = 'ModuloAdmin/InventarioTemplate/Familia/familia_confirm_delete.html'
     success_url = reverse_lazy('Inventario:Familia_Lista')
 
 # Categoria
 
-class Categoria_Ingresar(CreateView):
+class Categoria_Ingresar(LoginRequiredMixin,CreateView):
     model = Categoria
-    #login_url = '/'
+    login_url = '/'
     form_class = Categoria_Form
     template_name = 'ModuloAdmin/InventarioTemplate/Categoria/categoria_form.html'
     success_url = reverse_lazy('Inventario:Categoria_Lista')
 
-class Categoria_Lista(ListView):
+class Categoria_Lista(LoginRequiredMixin,ListView):
     model = Categoria
-    #login_url = '/'
+    login_url = '/'
     context_object_name = 'categoria'
     template_name = 'ModuloAdmin/InventarioTemplate/Categoria/categoria_list.html'
 
-class Categoria_Modificar(UpdateView):
+class Categoria_Modificar(LoginRequiredMixin,UpdateView):
     model = Categoria
-    #login_url = '/'
+    login_url = '/'
     template_name = 'ModuloAdmin/InventarioTemplate/Categoria/categoria_form.html'
     form_class = Categoria_Form
     success_url = reverse_lazy('Inventario:Categoria_Lista')
 
-class Categoria_Eliminar(DeleteView):
+class Categoria_Eliminar(LoginRequiredMixin,DeleteView):
     model = Categoria
-    #login_url = '/'
+    login_url = '/'
     context_object_name = 'categoria'
     template_name = 'ModuloAdmin/InventarioTemplate/Categoria/categoria_confirm_delete.html'
     success_url = reverse_lazy('Inventario:Categoria_Lista')
 
 #Articulos
 
-class Articulo_Ingresar(CreateView):
+class Articulo_Ingresar(LoginRequiredMixin,CreateView):
     model = Articulo
-    #login_url = '/'
+    login_url = '/'
     form_class = Articulo_Form
     template_name = 'ModuloAdmin/InventarioTemplate/Articulo/articulo_form.html'
     success_url = reverse_lazy('Inventario:Ariculo_Lista')
 
-class Articulo_Lista(ListView):
+class Articulo_Lista(LoginRequiredMixin,ListView):
     model = Articulo
-    #login_url = '/'
+    login_url = '/'
     context_object_name = 'articulo'
     template_name = 'ModuloAdmin/InventarioTemplate/Articulo/articulo_list.html'
 
-class Articulo_Detail(DetailView):
+class Articulo_Detail(LoginRequiredMixin,DetailView):
     model = Articulo
-    #login_url = '/'
+    login_url = '/'
     context_object_name = 'articulo'
     template_name = 'ModuloAdmin/InventarioTemplate/Articulo/articulo_detail.html'
 
-class Articulo_Modificar(UpdateView):
+class Articulo_Modificar(LoginRequiredMixin,UpdateView):
     model = Articulo
-    #login_url = '/'
+    login_url = '/'
     template_name = 'ModuloAdmin/InventarioTemplate/Articulo/articulo_form.html'
     form_class = Articulo_Form
     success_url = reverse_lazy('Inventario:Ariculo_Lista')
 
-class Articulo_Eliminar(DeleteView):
+class Articulo_Eliminar(LoginRequiredMixin,DeleteView):
     model = Articulo
-    #login_url = '/'
+    login_url = '/'
     context_object_name = 'articulo'
     template_name = 'ModuloAdmin/InventarioTemplate/Articulo/articulo_confirm_delete.html'
     success_url = reverse_lazy('Inventario:Ariculo_Lista')
 
-class Inventario_Lista(ListView):
+class Inventario_Lista(LoginRequiredMixin,ListView):
     model = Articulo
-    #login_url = '/'
+    login_url = '/'
     context_object_name = 'articulo'
     template_name = 'ModuloAdmin/InventarioTemplate/Inventario/Inventario_List.html'
 

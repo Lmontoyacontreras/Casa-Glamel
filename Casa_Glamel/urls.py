@@ -18,5 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^Gestion/', include('Apps.Inventario.urls', namespace='Inventario'))
+    url(r'^Gestion/', include('Apps.Inventario.urls', namespace='Inventario')),
+    url(r'^$', include('Apps.User.urls', namespace='User_app'))
 ]
