@@ -46,7 +46,7 @@
             <ul class="nav nav-pills nav-stacked nav-bracket mb30">
               <li><a href="#"><i class="fa fa-cog"></i> <span>Configuracion</span></a></li>
               <li><a href="#"><i class="fa fa-question-circle"></i> <span>Ayuda</span></a></li>
-              <li><a href="#"><i class="fa fa-sign-out"></i> <span>Salir</span></a></li>
+              <li><a href="{% url 'User_app:logout' %}"><i class="fa fa-sign-out"></i> <span>Salir</span></a></li>
             </ul>
         </div>
       <h5 class="sidebartitle">Administrador</h5>
@@ -144,7 +144,7 @@
               <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
                 <li><a href="#"><i class="glyphicon glyphicon-cog"></i> Configuracion</a></li>
                 <li><a href="#"><i class="glyphicon glyphicon-question-sign"></i> Ayuda</a></li>
-                <li><a href="#"><i class="glyphicon glyphicon-log-out"></i> Salir</a></li>
+                <li><a href="{% url 'User_app:logout' %}"><i class="glyphicon glyphicon-log-out"></i> Salir</a></li>
               </ul>
             </div>
           </li>

@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'Apps.Inventario',
     'Apps.Alquiler',
     'Apps.User',
+    'Apps.GestionInf'
 )
 
 MIDDLEWARE_CLASSES = (

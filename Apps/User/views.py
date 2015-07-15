@@ -4,7 +4,6 @@ from django.contrib import auth
 from django.http.response import HttpResponseRedirect
 from django.core.urlresolvers import reverse_lazy
 
-
 def login(request):
     tmp='Login.html'
     if request.method=='POST':
@@ -17,3 +16,6 @@ def login(request):
             return HttpResponseRedirect('/Gestion/Inventario-Lista/')
     return render(request,tmp)
 
+def Logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect('/')
