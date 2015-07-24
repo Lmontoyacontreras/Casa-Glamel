@@ -53,9 +53,15 @@
                         <label class="col-sm-4">Tipo</label>
                         <div class="col-sm-8">
                           {{ form.nombre_tipo }}
+
                         </div>
                       </div>
-
+                      <div class="form-group">
+                          <label class="col-sm-4 control-label">Nuevo</label>
+                          <div class="col-sm-8 control-label">
+                            {{ form.nuevo }}
+                          </div>
+                      </div>
                   </div>
                   <div class="tab-pane" id="ptab2">
                       <div class="form-group">
@@ -78,7 +84,13 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="col-sm-4">Precio</label>
+                        <label class="col-sm-4">Precio Original</label>
+                        <div class="col-sm-8">
+                          {{ form.precio_original }}
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-4">Precio Alquiler</label>
                         <div class="col-sm-8">
                           {{ form.precio }}
                         </div>

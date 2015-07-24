@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block title %} Pedido {% endblock%}
+
+{% block link%} <link href="{% static 'css/jquery.datatables.css' %}" rel="stylesheet">
+ {%endblock%}
+
+{% block user%}{{ user.username }}{% endblock %}
+
+{% block user2 %}{{ user.username }}{% endblock %}
+
+{% block page %} Pedido a proveedores {% endblock %}
+
+{% block page2 %} Pedido a proveedores {% endblock %}
+
+{% block contenido%}
+    <div class="col-md-12">
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                <div class="panel-btns">
+                  <a href="#" class="panel-close">&times;</a>
+                  <a href="#" class="minimize">&minus;</a>
+                </div>
+                  <div class="col-md-12">
+                      <div class="table-responsive">
+                      <table class="table  mb30">
+                        <tbody>
+                            <tr>
+                                <td><strong>Factura:</strong> </td>
+                                <td>{{ factura_proveedor.pk }}</td>
+                                <td><strong>Fecha Pedido</strong></td>
+                                <td>{{ factura_proveedor.fecha_Pedido }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Empresa Proveedora:</strong> </td>
+                                <td>{{ factura_proveedor.nombre_Empresa }}</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fecha de Pago:</strong> </td>
+                                <td>{{ factura_proveedor.fecha_Pago }}</td>
+                                <td><strong>Estado</strong></td>
+                                <td>{{ factura_proveedor.estado }}</td>
+                            </tr>
+                        </tbody>
+                      </table>
+                      </div><!-- table-responsive -->
+                    </div><!-- col-md-6 -->
+                <h5>Bienvenido, por favor ingrese los articulos que va ha solicitar
+                    <button class="btn btn-primary " data-toggle="modal" data-target="#myModal">
+                            <i class="fa fa-plus-circle"></i>
+                    </button>
+                </h5>
+              </div>
+              <div class="panel-body">
+                  <div class="col-md-12">
+                      <div class="table-responsive">
+                      <table class="table table-striped mb30">
+                        <thead>
+                          <tr>
+                            <th>Cantidad</th>
+                            <th>Nombre Articulo</th>
+                            <th>Descripcion</th>
+                            <th>Precio</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for pedido_detalle in pedido_detalle %}
+                          <tr>
+                            <td>{{ pedido_detalle.cantidad }}</td>
+                            <td>{{ pedido_detalle.nombre_Articulo }}</td>
+                            <td>{{ pedido_detalle.descripcion }}</td>
+                            <td>{{ pedido_detalle.precio }}</td>
+                          </tr>
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                      </div><!-- table-responsive -->
+                    </div><!-- col-md-6 -->
+              </div><!-- panel-body -->
+              <div class="panel-footer">
+                <div class="row">
+                  <div class="col-sm-9 col-sm-offset-3">
+                    <a href="{% url 'ControlProv:Factura_Proveedor_Lista' %}" class="btn btn-primary">Confirmar</a>
+                  </div>
+                </div>
+              </div>
+          </div><!-- panel -->
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Bienvenido <br><small>Ingrese todo los datos</small></h4>
+          </div>
+          <div class="modal-body">
+            <form id="basicForm" action="#" class="form-horizontal" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Cantidad<span class="asterisk">*</span></label>
+                  <div class="col-sm-9">
+                    {{ form.cantidad }}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Nombre Articulo<span class="asterisk">*</span></label>
+                  <div class="col-sm-9">
+                    {{ form.nombre_Articulo }}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Descripcion<span class="asterisk">*</span></label>
+                  <div class="col-sm-9">
+                    {{ form.descripcion }}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Precio<span class="asterisk">*</span></label>
+                  <div class="col-sm-9">
+                    {{ form.precio }}
+                  </div>
+                </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+          </div></form>
+        </div><!-- modal-content -->
+      </div><!-- modal-dialog -->
+    </div><!-- modal -->
+
+{% endblock %}
+
+{% block linkscript %}
+    <script src="{% static 'js/jquery.datatables.min.js' %}"></script>
+    <script src="{% static 'js/chosen.jquery.min.js' %}"></script>
+ {% endblock %}
+
+{% block script %}
+<script>
+  jQuery(document).ready(function() {
+
+    jQuery('#table1').dataTable();
+
+    jQuery('#table2').dataTable({
+      "sPaginationType": "full_numbers"
+    });
+
+    // Chosen Select
+    jQuery("select").chosen({
+      'min-width': '100px',
+      'white-space': 'nowrap',
+      disable_search_threshold: 10
+    });
+
+    // Delete row in a table
+    jQuery('.delete-row').click(function(){
+      var c = confirm("Continue delete?");
+      if(c)
+        jQuery(this).closest('tr').fadeOut(function(){
+          jQuery(this).remove();
+        });
+
+        return false;
+    });
+
+    // Show aciton upon row hover
+    jQuery('.table-hidaction tbody tr').hover(function(){
+      jQuery(this).find('.table-action-hide a').animate({opacity: 1});
+    },function(){
+      jQuery(this).find('.table-action-hide a').animate({opacity: 0});
+    });
+
+
+  });
+</script>
+{% endblock %}

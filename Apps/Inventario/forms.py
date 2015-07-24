@@ -1,5 +1,3 @@
-__author__ = 'Usuario'
-# -*- coding: utf-8 -*-
 from django import forms
 
 from .models import Familia,Categoria,Articulo
@@ -52,12 +50,22 @@ class Articulo_Form(forms.ModelForm):
         model = Articulo
         fields = ('categoria_idcategoria','nombre_tipo','nombre_estado_ropa',
                   'nombre_estado','referencia', 'descripcion', 'fechaingreso',
-                  'fechautil','precio','ubicacion','color','talla')
-
+                  'fechautil','precio','ubicacion','color','talla','nuevo',
+                  'precio_original')
         widgets = {
             'fechaingreso': forms.DateInput(attrs={
                 'class':'form-control',
                 'placeholder':'dd/mm/yyyy',
+            }),
+            'nuevo': forms.CheckboxInput(attrs={
+                'type':'checkbox',
+                'id':'checkboxPrimary'
+            }),
+            'precio_original': forms.TextInput(attrs={
+                'type':'text',
+                'name':'referencia',
+                'class':'form-control',
+                'placeholder':'Ingrese precio original del articulo',
             }),
             'fechautil': forms.DateInput(attrs={
                 'class':'form-control',

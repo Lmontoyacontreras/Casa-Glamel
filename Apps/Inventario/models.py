@@ -53,14 +53,15 @@ class Articulo(models.Model):
     nombre_estado = models.ForeignKey(Estado)
     nombre_estado_ropa = models.ForeignKey(Estado_Ropa)
     color = models.ForeignKey(Color)
+    nuevo = models.BooleanField(default=False)
     referencia = models.CharField(max_length=45)
     descripcion = models.CharField(max_length=100)
     fechaingreso = models.DateField()
     fechautil = models.DateField()
+    precio_original = models.IntegerField()
     precio = models.IntegerField()
     ubicacion = models.CharField(max_length=45)
     talla = models.ForeignKey(Talla)
-
 
     def __str__(self):
         return self.referencia

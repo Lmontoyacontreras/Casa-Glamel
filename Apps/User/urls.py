@@ -4,5 +4,5 @@ from .views import login,Logout
 
 urlpatterns = [
     url(r'^$', login, name='login'),
-    url(r'^$', Logout, name='logout')
+    url(r'^salir/$', Logout, name='logout')
 ]
