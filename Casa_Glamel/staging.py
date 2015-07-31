@@ -9,6 +9,14 @@ https://docs.djangoproject.com/en/1.8/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
+
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
@@ -25,7 +33,7 @@ SECRET_KEY = '$3#o2nwa$dvvbmb#ul*l$4&0%(a@vi7dm4-!gui*4+w9o&r7(a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -82,11 +90,11 @@ WSGI_APPLICATION = 'Casa_Glamel.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dh12809j18voe',
-        'USER': 'akksncvhujgwal',
-        'PASSWORD': 'ALUBRUX9TUJCnt132hMfk6dtSz',
-        'HOST': 'ec2-54-217-202-110.eu-west-1.compute.amazonaws.com',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd8oi11l0808c0f',
+        'USER': 'ktxchshjacchbv',
+        'PASSWORD': 'wff8u8qcgE9XWlq6oNVJ0nWYnt',
+        'HOST': 'ec2-54-204-3-188.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
