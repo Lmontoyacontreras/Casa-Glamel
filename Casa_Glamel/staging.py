@@ -33,7 +33,7 @@ SECRET_KEY = '$3#o2nwa$dvvbmb#ul*l$4&0%(a@vi7dm4-!gui*4+w9o&r7(a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
