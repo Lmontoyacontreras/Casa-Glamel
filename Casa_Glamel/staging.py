@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'Casa_Glamel.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd9jprsagfcbrg9',
-        'USER': 'alfmrvflpruikk',
-        'PASSWORD': 'Q2KIz2nKrsH757BX6uiBI43pVz',
-        'HOST': 'ec2-54-83-10-210.compute-1.amazonaws.com',
+        'NAME': 'd82vf5khb1gu5i',
+        'USER': 'ktkeonbjbnaryt',
+        'PASSWORD': 'RIbE9QEtR4syxUwKmvCn0GK4Iq',
+        'HOST': 'ec2-54-83-20-177.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
