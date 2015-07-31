@@ -7,19 +7,19 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('Inventario', '0001_initial'),
-        ('GestionInf', '0001_initial'),
+        ('Inventario', '0005_auto_20150724_1319'),
+        ('GestionInf', '0003_cliente'),
     ]
 
     operations = [
         migrations.CreateModel(
             name='Alquiler',
             fields=[
-                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
-                ('vendedor', models.CharField(max_length=50, blank=True)),
-                ('fecha_entrega', models.DateField()),
-                ('fecha_devolucion', models.DateField()),
-                ('devuelto', models.BooleanField(default=False)),
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
+                ('vendedor', models.CharField(max_length=50)),
+                ('fecha_entrega', models.DateTimeField()),
+                ('fecha_devolucion', models.DateTimeField()),
+                ('devuelto', models.NullBooleanField()),
                 ('deposito', models.IntegerField()),
                 ('observaciones', models.TextField()),
                 ('cliente', models.ForeignKey(to='GestionInf.Cliente')),
@@ -28,9 +28,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Alquiler_Detail',
             fields=[
-                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
                 ('gratis', models.BooleanField(default=False)),
-                ('precio', models.IntegerField()),
                 ('alquiler', models.ForeignKey(to='Alquiler.Alquiler')),
                 ('articulo', models.ForeignKey(to='Inventario.Articulo')),
             ],
