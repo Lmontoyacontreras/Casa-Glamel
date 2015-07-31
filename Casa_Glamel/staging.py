@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'Casa_Glamel.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'dh12809j18voe',
         'USER': 'akksncvhujgwal',
         'PASSWORD': 'ALUBRUX9TUJCnt132hMfk6dtSz',
