@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Casa_Glamel.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Casa_Glamel.staging")
 
 application = get_wsgi_application()
