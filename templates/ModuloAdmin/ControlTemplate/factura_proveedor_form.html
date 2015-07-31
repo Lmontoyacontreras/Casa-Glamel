@@ -65,10 +65,12 @@
     </div>
 {% endblock %}
 
-{% block linkscript %}<script src="{% static 'js/jquery.validate.min.js'%}"></script> {% endblock %}
+{% block linkscript %}<script src="{% static 'js/jquery.validate.min.js'%}"></script>
+    <script src="{% static 'js/jquery-ui-1.10.3.min.js'%}"></script>
+{% endblock %}
 
 {% block script %}
-
+<script>
     jQuery(document).ready(function(){
 
       // Basic Form
@@ -91,7 +93,10 @@
           jQuery(element).closest('.form-group').removeClass('has-error');
         }
       });
+        jQuery("#prueba").datepicker({dateFormat: 'dd/mm/yy'});
+        jQuery('#prueba2').datepicker({dateFormat: 'dd/mm/yy'});
 
 
     });
+</script>
 {% endblock %}

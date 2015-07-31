@@ -15,3 +15,12 @@ class Proveedor(models.Model):
         return self.nombre_Empresa
 
 
+class Cliente(models.Model):
+    full_nombre = models.CharField(max_length=100)
+    identificacion = models.IntegerField()
+    direccion = models.CharField(max_length=100)
+    telefono = models.IntegerField()
+    correo = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.full_nombre

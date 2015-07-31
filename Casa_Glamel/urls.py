@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^', include('Apps.Inventario.urls', namespace='Inventario')),
     url(r'^', include('Apps.User.urls', namespace='User_app')),
     url(r'^', include('Apps.GestionInf.urls', namespace='Gestion')),
-    url(r'^', include('Apps.ControlProv.urls', namespace='ControlProv'))
+    url(r'^', include('Apps.ControlProv.urls', namespace='ControlProv')),
+    url(r'^', include('Apps.Alquiler.urls', namespace='Alquiler'))
 ]

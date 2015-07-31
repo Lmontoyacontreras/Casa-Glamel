@@ -1,0 +1,185 @@
+{% extends "base_2.html" %}
+{% load static from staticfiles %}
+
+{% block title %} Alquiler | Detail{% endblock%}
+
+{% block link%} <link href="{% static 'css/jquery.datatables.css' %}" rel="stylesheet">
+ {%endblock%}
+
+{% block user%}{{ user.username }}{% endblock %}
+
+{% block user2 %}{{ user.username }}{% endblock %}
+
+{% block page %} Alquiler {% endblock %}
+
+{% block page2 %} Alquiler {% endblock %}
+
+{% block contenido%}
+    <div class="col-md-12">
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                <div class="panel-btns">
+                  <a href="#" class="panel-close">&times;</a>
+                  <a href="#" class="minimize">&minus;</a>
+                </div>
+                  <div class="col-md-12">
+                      <div class="table-responsive">
+                      <table class="table  mb30">
+                        <tbody>
+                            <tr>
+                                <td><strong>Factura:</strong> </td>
+                                <td>{{ alquiler_factura.pk }}</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cliente:</strong> </td>
+                                <td>{{ alquiler_factura.cliente }}</td>
+                                <td><strong>Identificacion: </strong></td>
+                                <td>{{ alquiler_factura.cliente.identificacion }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Direccion</strong> </td>
+                                <td>{{ alquiler_factura.cliente.direccion }}</td>
+                                <td><strong>Telefono</strong></td>
+                                <td>{{ alquiler_factura.cliente.telefono }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Deposito</strong> </td>
+                                <td>{{ alquiler_factura.deposito }}</td>
+                                <td><strong></strong></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fecha de Entrega</strong> </td>
+                                <td>{{ alquiler_factura.fecha_entrega }}</td>
+                                <td><strong>Fecha de devolucion</strong></td>
+                                <td>{{ alquiler_factura.fecha_devolucion }}</td>
+                            </tr>
+                        </tbody>
+                      </table>
+                      </div><!-- table-responsive -->
+                    </div><!-- col-md-6 -->
+                <h5>Bienvenido, por favor ingrese los articulos que va ha solicitar
+                    <button class="btn btn-primary " data-toggle="modal" data-target="#myModal">
+                            <i class="fa fa-plus-circle"></i>
+                    </button>
+                </h5>
+              </div>
+              <div class="panel-body">
+                  <div class="col-md-12">
+                      <div class="table-responsive">
+                      <table class="table table-striped mb30">
+                        <thead>
+                          <tr>
+                            <th>Nombre Articulo</th>
+                            <th>Descripcion</th>
+                            <th>Valor</th>
+                              <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for alquiler_detalle in alquiler_detalle %}
+                          <tr>
+                            <td>{{ alquiler_detalle.articulo }}</td>
+                            <td>{{ alquiler_detalle.articulo.descripcion }}</td>
+                            <td>{{ alquiler_detalle.precio }}</td>
+                            <td class="table-action">
+                              <a href="{% url 'Alquiler:Alquiler_Detail_Eliminar' alquiler_detalle.pk %}"><i class="fa fa-trash-o"></i></a>
+                            </td>
+                          </tr>
+
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                      </div><!-- table-responsive -->
+                    </div><!-- col-md-6 -->
+              </div><!-- panel-body -->
+              <div class="panel-footer">
+                <div class="row">
+                  <div class="col-sm-9 col-sm-offset-3">
+                    <a href="{% url 'Alquiler:Alquiler_Factura' alquiler_factura.pk %}" class="btn btn-primary">Confirmar</a>
+                  </div>
+                </div>
+              </div>
+          </div><!-- panel -->
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Bienvenido <br><small>Ingrese todo los datos</small></h4>
+          </div>
+          <div class="modal-body">
+            <form id="basicForm" action="#" class="form-horizontal" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Articulo<span class="asterisk">*</span></label>
+                  <div class="col-sm-9">
+                    {{ form.articulo }}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Gratis<span class="asterisk">*</span></label>
+                  <div class="col-sm-9">
+                    {{ form.gratis }}
+                  </div>
+                </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+          </div></form>
+        </div><!-- modal-content -->
+      </div><!-- modal-dialog -->
+    </div><!-- modal -->
+{% endblock %}
+
+{% block linkscript %}
+    <script src="{% static 'js/jquery.datatables.min.js' %}"></script>
+    <script src="{% static 'js/chosen.jquery.min.js' %}"></script>
+    <script src="{% static 'js/chosen.jquery.min.js' %}"></script>
+
+ {% endblock %}
+
+{% block script %}
+<script>
+  jQuery(document).ready(function() {
+
+    jQuery('#table1').dataTable();
+
+    jQuery('#table2').dataTable({
+      "sPaginationType": "full_numbers"
+    });
+    jQuery(".chosen-select").chosen({'width':'100%','white-space':'nowrap'});
+    // Chosen Select
+    jQuery("select").chosen({
+      'min-width': '100px',
+      'white-space': 'nowrap',
+      disable_search_threshold: 10
+    });
+
+    // Delete row in a table
+    jQuery('.delete-row').click(function(){
+      var c = confirm("Continue delete?");
+      if(c)
+        jQuery(this).closest('tr').fadeOut(function(){
+          jQuery(this).remove();
+        });
+
+        return false;
+    });
+
+    // Show aciton upon row hover
+    jQuery('.table-hidaction tbody tr').hover(function(){
+      jQuery(this).find('.table-action-hide a').animate({opacity: 1});
+    },function(){
+      jQuery(this).find('.table-action-hide a').animate({opacity: 0});
+    });
+
+
+  });
+</script>
+{% endblock %}

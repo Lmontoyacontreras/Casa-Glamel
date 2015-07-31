@@ -15,14 +15,16 @@ class Factura_Provedor_Form(forms.ModelForm):
                 'class':'form-control',
             }),
             'fecha_Pedido':forms.DateInput(attrs={
-                'type':'date',
+                'type':'text',
                 'class':'form-control',
-                'placeholder':'Ingrese Fecha Pedido'
+                'placeholder':'Ingrese Fecha Pedido',
+                'id':'prueba'
             }),
             'fecha_Pago':forms.DateInput(attrs={
-                'type':'date',
+                'type':'text',
                 'class':'form-control',
-                'placeholder':'Ingrese Fecha Pago'
+                'placeholder':'Ingrese Fecha Pago',
+                'id':'prueba2'
             }),
         }
 

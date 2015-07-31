@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Alquiler,Alquiler_Detail
+
+admin.site.register(Alquiler)
+admin.site.register(Alquiler_Detail)

@@ -1,0 +1,83 @@
+{% extends "base_2.html" %}
+{% load static from staticfiles %}
+
+{% block title %} Alquiler Devolucion{% endblock%}
+
+{% block link%} {%endblock%}
+
+{% block user%} {{ user.username }}{% endblock %}
+
+{% block user2 %} {{ user.username }}{% endblock %}
+
+{% block page %} Alquiler {% endblock %}
+
+{% block page2 %} Alquiler {% endblock %}
+
+{% block contenido%}
+    <div class="col-md-12">
+          <form id="basicForm" action="#" class="form-horizontal" method="POST">
+          {% csrf_token %}
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                <div class="panel-btns">
+                  <a href="#" class="panel-close">&times;</a>
+                  <a href="#" class="minimize">&minus;</a>
+                </div>
+                <h4 class="panel-title">Alquiler</h4>
+                <p>Bienvenido, Ingrese el numero de la factura</p>
+              </div>
+              <div class="panel-body">
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Numero de Factura<span class="asterisk">*</span></label>
+                  <div class="col-sm-6">
+                    <input type="text" name='alquiler_factura' placeholder="Numero de Factura" class="form-control" />
+                  </div>
+                    <div class="col-sm-3 ">
+                        <button class="btn btn-primary">Buscar</button>
+                    </div>
+                </div>
+              </div><!-- panel-body -->
+              <div class="panel-footer">
+
+              </div>
+          </div><!-- panel -->
+          </form>
+    </div>
+{% endblock %}
+
+{% block linkscript %}<script src="{% static 'js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui-1.10.3.min.js' %}"></script>
+    <script src="{% static 'js/chosen.jquery.min.js' %}"></script>
+{% endblock %}
+
+{% block script %}
+<script>
+    jQuery(document).ready(function(){
+        jQuery(".chosen-select").chosen({'width':'100%','white-space':'nowrap'});
+      // Basic Form
+      jQuery("#basicForm").validate({
+        highlight: function(element) {
+          jQuery(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+        },
+        success: function(element) {
+          jQuery(element).closest('.form-group').removeClass('has-error');
+        }
+      });
+
+
+      // Validation with select boxes
+      jQuery("#basicForm4").validate({
+        highlight: function(element) {
+          jQuery(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+        },
+        success: function(element) {
+          jQuery(element).closest('.form-group').removeClass('has-error');
+        }
+      });
+
+        jQuery("#prueba").datepicker({dateFormat: 'dd/mm/yy'});
+        jQuery('#prueba2').datepicker({dateFormat: 'dd/mm/yy'});
+
+    });
+</script>
+{% endblock %}

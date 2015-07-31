@@ -3,7 +3,9 @@
 
 {% block title %} Articulo {% endblock%}
 
-{% block link%}  {%endblock%}
+{% block link%}
+
+{%endblock%}
 
 {% block user %}{{ user.username }}{% endblock %}
 
@@ -154,12 +156,13 @@
 {% block linkscript %}
     <script src="{% static 'js/bootstrap-wizard.min.js' %}"></script>
     <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui-1.10.3.min.js' %}"></script>
 {% endblock %}
 
 {% block script %}
     <script>
-        jQuery(document).ready(function(){
 
+        jQuery(document).ready(function(){
           // Basic Wizard
           jQuery('#basicWizard').bootstrapWizard();
 
@@ -188,8 +191,8 @@
           });
 
         });
-        jQuery('#datepicker').datepicker();
-        jQuery('#datepicker-inline').datepicker();
+        jQuery("#prueba").datepicker({dateFormat: 'dd/mm/yy'});
+        jQuery('#prueba2').datepicker({dateFormat: 'dd/mm/yy'});
 
     </script>
 

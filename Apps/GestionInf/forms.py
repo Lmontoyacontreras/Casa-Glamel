@@ -9,6 +9,9 @@ class Proveedor_Form(forms.ModelForm):
         fields = ['nombre_Empresa','nit','telefono','direccion',
                   'correo','personal_Responsable','tipo_Proveedor']
         widgets = {
+            'tipo_Proveedor': forms.SelectMultiple(attrs={
+                'class':'form-control'
+            }),
             'nombre_Empresa':forms.TextInput(attrs={
                 'type':'text',
                 'name':'nombre_Empresa',

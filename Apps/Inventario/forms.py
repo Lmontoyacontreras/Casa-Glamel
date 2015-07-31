@@ -56,6 +56,7 @@ class Articulo_Form(forms.ModelForm):
             'fechaingreso': forms.DateInput(attrs={
                 'class':'form-control',
                 'placeholder':'dd/mm/yyyy',
+                'id':'prueba'
             }),
             'nuevo': forms.CheckboxInput(attrs={
                 'type':'checkbox',
@@ -70,6 +71,7 @@ class Articulo_Form(forms.ModelForm):
             'fechautil': forms.DateInput(attrs={
                 'class':'form-control',
                 'placeholder':'dd/mm/yyyy',
+                'id':'prueba2'
             }),
             'talla': forms.Select(attrs={
                 'class':'form-control'
