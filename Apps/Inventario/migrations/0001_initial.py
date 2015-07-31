@@ -13,11 +13,13 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Articulo',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
+                ('nuevo', models.BooleanField(default=False)),
                 ('referencia', models.CharField(max_length=45)),
                 ('descripcion', models.CharField(max_length=100)),
                 ('fechaingreso', models.DateField()),
                 ('fechautil', models.DateField()),
+                ('precio_original', models.IntegerField()),
                 ('precio', models.IntegerField()),
                 ('ubicacion', models.CharField(max_length=45)),
             ],
@@ -25,7 +27,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Categoria',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
                 ('nombre', models.CharField(max_length=45)),
                 ('descripcion', models.CharField(max_length=100)),
                 ('visible', models.BooleanField(default=True)),
@@ -34,28 +36,28 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Color',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
                 ('color', models.CharField(max_length=50)),
             ],
         ),
         migrations.CreateModel(
             name='Estado',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
                 ('nombre_estado', models.CharField(max_length=50)),
             ],
         ),
         migrations.CreateModel(
             name='Estado_Ropa',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
                 ('nombre_estado_ropa', models.CharField(max_length=50)),
             ],
         ),
         migrations.CreateModel(
             name='Familia',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
                 ('nombre', models.CharField(max_length=45)),
                 ('descripcion', models.CharField(max_length=100)),
             ],
@@ -63,14 +65,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Talla',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
                 ('talla', models.CharField(max_length=2)),
             ],
         ),
         migrations.CreateModel(
             name='Tipo',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, verbose_name='ID', auto_created=True)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, verbose_name='ID', serialize=False)),
                 ('nombre_tipo', models.CharField(max_length=50)),
             ],
         ),
