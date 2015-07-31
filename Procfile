@@ -1,1 +1,1 @@
-web: gunicorn Casa_Glamel.wsgi --log-file -
+web: gunicorn Casa_Glamel.wsgi
