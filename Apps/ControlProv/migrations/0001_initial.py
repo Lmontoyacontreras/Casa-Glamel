@@ -14,14 +14,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Estado',
             fields=[
-                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
                 ('nombre_estado', models.CharField(max_length=50)),
             ],
         ),
         migrations.CreateModel(
             name='Factura_Provedor',
             fields=[
-                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
                 ('fecha_Pedido', models.DateField()),
                 ('fecha_Pago', models.DateField()),
                 ('estado', models.ForeignKey(to='ControlProv.Estado')),
@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Pedido',
             fields=[
-                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
                 ('nombre_Articulo', models.CharField(max_length=100)),
                 ('descripcion', models.CharField(max_length=500)),
                 ('cantidad', models.IntegerField()),

@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Cliente',
             fields=[
-                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
                 ('full_nombre', models.CharField(max_length=100)),
                 ('identificacion', models.IntegerField()),
                 ('direccion', models.CharField(max_length=100)),
@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Proveedor',
             fields=[
-                ('id', models.AutoField(auto_created=True, verbose_name='ID', primary_key=True, serialize=False)),
+                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
                 ('nombre_Empresa', models.CharField(max_length=50)),
                 ('nit', models.CharField(max_length=50)),
                 ('telefono', models.IntegerField()),
