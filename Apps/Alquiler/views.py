@@ -30,7 +30,7 @@ class Alquiler_Detail_Ingresar(LoginRequiredMixin,DetailView):
         context = super(Alquiler_Detail_Ingresar, self).get_context_data(**kwargs)
         context['alquiler_detalle'] = Alquiler_Detail.objects.filter(alquiler=self.get_object())
         Alquiler_Detail_Filtro = Alquiler_Detail_Form()
-        Alquiler_Detail_Filtro.fields["articulo"].queryset = Articulo.objects.filter(nombre_estado_ropa='1')
+        Alquiler_Detail_Filtro.fields["articulo"].queryset = Articulo.objects.filter(nombre_estado_ropa='1',nombre_estado='1')
         context['form'] = Alquiler_Detail_Filtro
         return context
 
