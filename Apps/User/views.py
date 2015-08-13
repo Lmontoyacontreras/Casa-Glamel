@@ -17,9 +17,9 @@ def login(request):
             dia_max=date.today()-timedelta(days=7)
             dia_min=date.today()-timedelta(days=2)
             cambio_estado = Estado_Ropa.objects.get(pk=1)
-            alquiler = Alquiler.objects.filter(devuelto=True,fecha_devolucion__gte=dia_max)
+            alquiler = Alquiler.objects.filter(devuelto=True,fecha_devolucion_dia__gte=dia_max)
             for alquiler in alquiler:
-                if alquiler.fecha_devolucion < dia_min:
+                if alquiler.fecha_devolucion_dia < dia_min:
                     alquiler_detail = Alquiler_Detail.objects.filter(alquiler=alquiler.pk)
                     for alquiler_detail in alquiler_detail:
                         articulo = Articulo.objects.get(referencia=alquiler_detail.articulo)
@@ -30,7 +30,7 @@ def login(request):
                             articulo.precio = articulo.precio-rebaja
                         articulo.save()
             if user.is_staff:
-                return redirect('Inventario:Inventario_Lista')
+                return redirect('VentasAdmin:Home_Admin')
             else:
                 return redirect('Alquiler:Alquiler_Ingresar')
     return render(request,tmp)

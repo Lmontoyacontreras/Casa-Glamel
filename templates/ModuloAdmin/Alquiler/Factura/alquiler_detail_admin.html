@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block title %} Alquiler {% endblock%}
+
+{% block link%} <link href="{% static 'css/jquery.datatables.css' %}" rel="stylesheet">
+ {%endblock%}
+
+{% block user%}{{ user.username }}{% endblock %}
+
+{% block user2 %}{{ user.username }}{% endblock %}
+
+{% block page %} Alquiler {% endblock %}
+
+{% block page2 %} Alquiler {% endblock %}
+
+{% block contenido%}
+     <div class="contentpanel">
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    {% if alquiler.devuelto%}
+                        <div class="alert alert-info fade in nomargin">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <h4>Informe de factura</h4>
+                            <strong>Pago de Multa</strong> : {{ alquiler.multa }}<br>
+                            <strong>Deposito</strong> : {{ alquiler.deposito }}<br>
+                            <strong>Fecha de devolucion</strong> : {{ alquiler.fecha_devolucion_dia }} <br>
+                            <strong>Observaciones</strong> : {{ alquiler.observaciones }} <br>
+                        </div>
+                    {% endif %}
+                    <table style="width:100%">
+                        <tr>
+                            <td rowspan="7"><img src="{% static 'images/descarga.png' %}" class="img-responsive mb10" alt=""
+                            height="300" width="300"/></td>
+                            <th class="text-center" colspan="3"><h5>Contrato de Alquiler No. {{ alquiler.pk }}</h5></th>
+                        </tr>
+                        <tr>
+                            <th>Factura No.</th>
+                            <td>{{ alquiler.pk }}</td></tr>
+                        <tr>
+                            <th>Cliente</th>
+                            <td>{{ alquiler.cliente.full_nombre }}</td>
+                            <th>Identificacion.</th>
+                            <td>{{ alquiler.cliente.identificacion }}</td>
+                        </tr>
+                            <tr>
+                                <th>Direccion</th>
+                                <td>{{ alquiler.cliente.direccion }}</td>
+                            </tr>
+                            <tr>
+                                <th>Telefono</th>
+                                <td>{{ alquiler.cliente.telefono }}</td>
+                            </tr>
+                            <tr>
+                                <th>Correo</th>
+                                <td>{{ alquiler.cliente.correo }}</td>
+                                <th>Deposito</th>
+                                <td>{{ alquiler.deposito }}</td>
+                            </tr>
+                            <tr>
+                                <th>Fecha Entrega</th>
+                                <td>{{ alquiler.fecha_entrega }}</td>
+                                <th>Fecha Devolucion</th>
+                                <td>{{ alquiler.fecha_devolucion }}</td>
+                            </tr>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table style="width:100%">
+                            <tr>
+                                <td><small>A</small></td>
+                                <td><small>La prenda sera entregada bajo la responsabilidad del CLIENTE y se compromete a pagar el valor total de la prenda</small></td>
+                            </tr>
+                            <tr>
+                                <td><small>B</small></td>
+                                <td><small>La prenda no debe ser lavada ni planchada</small></td>
+                            </tr>
+                            <tr>
+                                <td><small>C</small></td>
+                                <td><small>Pasadas la 24 horas de retirada la prenda se cobrara $ 1000 diarios</small></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div><!-- row -->
+            <div class="table-responsive">
+            <table class="table table-invoice">
+            <thead>
+              <tr>
+                <th>Articulo</th>
+                <th>Tipo</th>
+                <th>Valor Unidad</th>
+                <th>Valor Total</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for alquiler_detail in alquiler_detail%}
+              <tr>
+                <td>
+                    <div class="text-primary"><strong>{{ alquiler_detail.articulo.referencia }}</strong></div>
+                    <small>{{ alquiler_detail.articulo.descripcion }}</small>
+                </td>
+                <td>{{ alquiler_detail.articulo.nombre_tipo }}</td>
+                <td>{{ alquiler_detail.precio }}</td>
+                <td>{{ alquiler_detail.precio }}</td>
+              </tr>
+                {% endfor %}
+
+          </table>
+          </div><!-- table-responsive -->
+
+            <table class="table table-total">
+                <tbody>
+                    <tr>
+                        <td><strong>TOTAL :</strong></td>
+                        <td>{{ suma }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <div class="mb40"></div>
+
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="row"><hr></div>
+                    <div class="row"><h5 class="text-center">Quien Alquila</h5></div>
+                </div>
+
+                <div class="col-lg-2">
+
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="row"><hr></div>
+                    <div class="row"><h5 class="text-center">Quien Recibe</h5></div>
+                </div>
+            </div>
+            <div class="mb40"></div>
+            <div class="well">
+                <p class="text-justify"> Declaro que en la fecha he recibido en buen estado las prendas de vestir descritas en este documento,
+                    las cuales estare devolviendo dentro de las 24 horas posteriores. la utilizacion del servicio objeto
+                    del presente documento me responsabilizo por los danos y prejuicios que pueda causar debido al mal
+                    uso de las prendas dano fisico accidental o voluntario y la demora de la entrega o devolucion de la
+                    misma para constancia y garantia de lo angterior suscribo el siguiente pagare.
+                </p>
+                <p><h4>Pagare No {{ alquiler.pk }}</h4></p>
+                <p class="text-justify"> Yo, {{ alquiler.cliente.full_nombre }}, identificado como aparece al pie de la firma declaro -primero que he recibido
+                    de Melba Hernandez Flores prendas de vestir valoradas en la suma de: {{ suma_original }}, -segundo que
+                    dicha suma la pagare a Melba Hernandez Flores a su orden en sus oficinas en solo contado el dia {{ alquiler.fecha_entrega }}
+                    -terecero de aviso previo o notificacion al deudor -cuarto que en el caso de mora en el pago de la
+                    obligacion contenida en este titulo de sus accesorios se extinguira el plazo y se exigira el pago total
+                    de la deuda, reconociendo interes de mora a la tasa maxima certificada por la super intendencia bancaria
+                    asi como los gastos de cobranza tasado en el 20 % del valor del presente documento
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="row"><hr></div>
+                    <div class="row"><h5 class="text-center">Firma</h5></div>
+                </div>
+
+                <div class="col-lg-2">
+
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="row text-center">{{ alquiler.cliente.identificacion }}</div>
+                    <div class="row"><h5 class="text-center">CC / Nit</h5></div>
+                </div>
+            </div>
+            <form method="post">
+                {% csrf_token %}
+            <div class="text-right btn-invoice">
+                {% if not alquiler.devuelto %}
+                <button type="submit" class="btn btn-white"><i class="fa  fa-spinner mr5"></i> Generar Devolucion</button>
+                {% endif %}
+                <a href="{% url 'Alquiler:Alquiler_Factura_Imprimir' alquiler.pk%}" class="btn btn-white" target="_blank"><i class="fa fa-print mr5"></i> Imprimir</a>
+            </div>
+            </form>
+        </div><!-- panel-body -->
+      </div><!-- panel -->
+
+    </div>
+{% endblock %}
+
+{% block linkscript %}{% endblock %}
+
+{% block script %}
+{% endblock %}

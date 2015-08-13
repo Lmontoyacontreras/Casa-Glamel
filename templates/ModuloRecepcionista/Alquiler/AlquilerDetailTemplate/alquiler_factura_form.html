@@ -21,6 +21,16 @@
         <div class="panel-body">
             <div class="row">
                 <div class="col-sm-12">
+                    {% if alquiler.devuelto%}
+                        <div class="alert alert-info fade in nomargin">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <h4>Informe de factura</h4>
+                            <strong>Pago de Multa</strong> : {{ alquiler.multa }}<br>
+                            <strong>Deposito</strong> : {{ alquiler.deposito }}<br>
+                            <strong>Fecha de devolucion</strong> : {{ alquiler.fecha_devolucion_dia }} <br>
+                            <strong>Observaciones</strong> : {{ alquiler.observaciones }} <br>
+                        </div>
+                    {% endif %}
                     <table style="width:100%">
                         <tr>
                             <td rowspan="7"><img src="{% static 'images/descarga.png' %}" class="img-responsive mb10" alt=""
@@ -166,7 +176,9 @@
             <form method="post">
                 {% csrf_token %}
             <div class="text-right btn-invoice">
+                {% if not alquiler.devuelto %}
                 <button type="submit" class="btn btn-white"><i class="fa  fa-spinner mr5"></i> Generar Devolucion</button>
+                {% endif %}
                 <a href="{% url 'Alquiler:Alquiler_Factura_Imprimir' alquiler.pk%}" class="btn btn-white" target="_blank"><i class="fa fa-print mr5"></i> Imprimir</a>
             </div>
             </form>

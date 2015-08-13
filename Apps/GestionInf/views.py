@@ -4,8 +4,8 @@ from django.views.generic import ListView
 from django.core.urlresolvers import reverse_lazy
 from braces.views import LoginRequiredMixin,SuperuserRequiredMixin
 
-from .forms import Proveedor_Form
-from .models import Proveedor
+from .forms import Proveedor_Form,Cliente_Form
+from .models import Proveedor,Cliente
 
 class Proveedor_Ingresar(LoginRequiredMixin,SuperuserRequiredMixin,CreateView):
     model = Proveedor
@@ -35,3 +35,27 @@ class Proveedor_Eliminar(LoginRequiredMixin,SuperuserRequiredMixin,DeleteView):
     success_url = reverse_lazy('Gestion:Proveedor_Lista')
 
 
+class Cliente_Ingresar(CreateView):
+    model = Cliente
+    form_class = Cliente_Form
+    template_name = 'ModuloRecepcionista/Cliente/cliente_form.html'
+    success_url = reverse_lazy('Gestion:Proveedor_Lista')
+
+
+class Cliente_Modificar(UpdateView):
+    model = Cliente
+    form_class = Cliente_Form
+    template_name = 'ModuloRecepcionista/Cliente/cliente_form.html'
+    success_url = reverse_lazy('Gestion:Cliente_Lista')
+
+class Cliente_Eliminar(DeleteView):
+    model = Cliente
+    template_name = 'ModuloRecepcionista/Cliente/cliente_confirm_delete.html'
+    context_object_name = 'cliente'
+    success_url = reverse_lazy('Gestion:Cliente_Lista')
+
+
+class Cliente_Lista(ListView):
+    context_object_name = 'cliente'
+    template_name = 'ModuloRecepcionista/Cliente/cliente_list.html'
+    model = Cliente

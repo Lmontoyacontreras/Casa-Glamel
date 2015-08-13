@@ -53,7 +53,7 @@
       <ul class="nav nav-pills nav-stacked nav-bracket">
           <li><a href="{% url 'Alquiler:Alquiler_Ingresar' %}"><i class="fa fa-barcode"></i> <span>Alquiler</span></a></li>
           <li><a href="{% url 'Alquiler:Alquiler_Devolucion' %}"><i class="fa  fa-reply-all"></i><span>Generar Devolucion</span></a></li>
-          <li><a href="#"><i class="fa  fa-file-text-o"></i> <span>Consulta Factura</span></a></li>
+          <li><a href="{% url 'Alquiler:Factura_List' %}"><i class="fa  fa-file-text-o"></i> <span>Consulta Factura</span></a></li>
         <!--<li><a href="reservas_admin.html"><i class="fa fa-book"></i> <span>Reservas</span></a></li>
         <li><a href="estadistica.html"><i class="fa fa-bar-chart-o"></i> <span>Estadisticas</span></a></li>
            -->
@@ -61,8 +61,8 @@
 
         <li class="nav-parent"><a href="#"><i class="fa fa-users"></i> <span>Clientes</span></a>
           <ul class="children">
-            <li><a href="#"><i class="fa fa-caret-right"></i>Crear Cliente</a></li>
-            <li><a href="#"><i class="fa fa-caret-right"></i>Listado de Clientes</a></li>
+            <li><a href="{% url 'Gestion:Cliente_Ingresar' %}"><i class="fa fa-caret-right"></i>Crear Cliente</a></li>
+            <li><a href="{% url 'Gestion:Cliente_Lista' %}"><i class="fa fa-caret-right"></i>Listado de Clientes</a></li>
           </ul>
         </li>
         <!--<li class="nav-parent"><a href="#"><i class="fa fa-github-alt"></i> <span>Empleados</span></a>
@@ -104,10 +104,7 @@
       
       <a class="menutoggle"><i class="fa fa-bars"></i></a>
       
-      <form class="searchform" action="index.html" method="post">
-        <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
-      </form>
-      
+
       <div class="header-right">
         <ul class="headermenu">
           <li>

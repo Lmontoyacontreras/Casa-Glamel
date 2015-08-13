@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Proveedor
+from .models import Proveedor,Cliente
 
 class Proveedor_Form(forms.ModelForm):
 
@@ -47,5 +47,39 @@ class Proveedor_Form(forms.ModelForm):
                 'name':'nombre_Empresa',
                 'class':'form-control',
                 'placeholder':'Ingrese el contacto de la Empresa'
+            }),
+        }
+
+
+class Cliente_Form(forms.ModelForm):
+
+    class Meta:
+        model = Cliente
+        fields = ['full_nombre','identificacion','direccion','telefono','correo']
+        widgets = {
+            'full_nombre':forms.TextInput(attrs={
+                'type':'text',
+                'class':'form-control',
+                'placeholder':'Ingrese el nombre y apellido'
+            }),
+            'identificacion':forms.TextInput(attrs={
+                'type':'text',
+                'class':'form-control',
+                'placeholder':'Ingrese el numero de identificacion'
+            }),
+            'direccion':forms.TextInput(attrs={
+                'type':'text',
+                'class':'form-control',
+                'placeholder':'Ingrese direccion del cliente'
+            }),
+            'telefono':forms.TextInput(attrs={
+                'type':'text',
+                'class':'form-control',
+                'placeholder':'Ingrese el celular o telefono'
+            }),
+            'correo':forms.TextInput(attrs={
+                'type':'text',
+                'class':'form-control',
+                'placeholder':'Ingrese correo'
             }),
         }

@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView,DeleteView
-from django.views.generic import TemplateView,DetailView
+from django.views.generic import TemplateView,DetailView,ListView
 from django.core.urlresolvers import reverse_lazy,reverse
 from django.http import HttpResponseRedirect
 from braces.views import LoginRequiredMixin
+from datetime import date
 
 from .forms import Alquiler_Form,Alquiler_Detail_Form
 from .models import Alquiler,Alquiler_Detail
@@ -18,6 +19,8 @@ class Alquiler_Ingresar(LoginRequiredMixin,CreateView):
     def form_valid(self, form):
         user = self.request.user
         form.instance.vendedor = user
+        form.instance.multa=0
+        form.instance.fecha_devolucion_dia=date.today()
         return super(Alquiler_Ingresar,self).form_valid(form)
 
 class Alquiler_Detail_Ingresar(LoginRequiredMixin,DetailView):
@@ -91,13 +94,31 @@ class Alquiler_Factura(LoginRequiredMixin,DetailView):
         alquiler = self.get_object()
         alquiler_detail = Alquiler_Detail.objects.filter(alquiler=self.get_object().pk)
         alquiler.devuelto = True
+        date_hoy = date.today()
+        if alquiler.fecha_devolucion<date_hoy:
+            numero = date_hoy-alquiler.fecha_devolucion
+            multa = numero*1000
+            alquiler.fecha_devolucion_dia=date_hoy
+            multa=int(multa.days)
+            alquiler.multa = multa
+            alquiler.observaciones = 'Se genero una multa por retraso con el valor de %s' % multa
+        else:
+            alquiler.fecha_devolucion_dia=date_hoy
         cambio_estado = Estado_Ropa.objects.get(pk=3)
+        cambio_estado_otros = Estado_Ropa.objects.get(pk=1)
         for alquiler_detail in alquiler_detail:
             articulo = Articulo.objects.get(referencia=alquiler_detail.articulo)
-            articulo.nombre_estado_ropa=cambio_estado
+            if articulo.nombre_tipo.nombre_tipo == 'Otros':
+                articulo.nombre_estado_ropa=cambio_estado_otros
+            else:
+                articulo.nombre_estado_ropa=cambio_estado
             articulo.save()
         alquiler.save()
-        return render(request,'ModuloRecepcionista/Alquiler/AlquilerDevolucionTemplate/Alquiler_Devolucion.html')
+        user = self.request.user
+        if user.is_staff:
+            return HttpResponseRedirect(reverse('Alquiler:Alquiler_Factura_detail', args=[self.get_object().pk]))
+        else:
+            return HttpResponseRedirect(reverse('Alquiler:Alquiler_Factura', args=[self.get_object().pk]))
 
 
 class Alquiler_Factura_Imprimir(Alquiler_Factura):
@@ -110,9 +131,28 @@ class Alquiler_Devolucion(LoginRequiredMixin,TemplateView):
 
     def post(self,request,*args,**kwargs):
         alquiler_factura = request.POST.get('alquiler_factura')
-        valida = Alquiler.objects.filter(pk=alquiler_factura)
-        if valida:
-            return HttpResponseRedirect(reverse('Alquiler:Alquiler_Factura', args=[alquiler_factura]))
-        else:
-            return render(request,'ModuloRecepcionista/Alquiler/AlquilerDevolucionTemplate/Alquiler_Devolucion.html',
-                          {'valida':valida})
+        if alquiler_factura.isdigit():
+            valida = Alquiler.objects.filter(pk=alquiler_factura).exists()
+            if valida:
+                ref = Alquiler.objects.get(pk=alquiler_factura)
+                return HttpResponseRedirect(reverse('Alquiler:Alquiler_Factura', args=[ref.pk]))
+        return render(request,'ModuloRecepcionista/Alquiler/AlquilerDevolucionTemplate/Alquiler_Devolucion.html')
+
+class Factura_List(ListView):
+    model = Alquiler
+    context_object_name = 'alquiler'
+    template_name = 'ModuloRecepcionista/Alquiler/AlquilerDetailTemplate/alquiler_list.html'
+
+class Factura_List_Admin(Factura_List):
+    template_name = 'ModuloAdmin/Alquiler/Factura/alquiler_list.html'
+
+
+class Alquiler_Factura_Delete(DeleteView):
+    context_object_name = 'factura'
+    model = Alquiler
+    template_name = 'ModuloAdmin/Alquiler/Factura/alquiler_confirm_delete_factura.html'
+    success_url = reverse_lazy('Alquiler:Factura_List_Admin')
+
+
+class Alquiler_Factura_detail(Alquiler_Factura):
+    template_name = 'ModuloAdmin/Alquiler/Factura/alquiler_detail_admin.html'

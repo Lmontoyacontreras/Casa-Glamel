@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block title %} Seguimiento Prendas{% endblock%}
+
+{% block link%} {%endblock%}
+
+{% block user%} {{ user.username }}{% endblock %}
+
+{% block user2 %} {{ user.username }}{% endblock %}
+
+{% block page %} Seguimiento Prendas {% endblock %}
+
+{% block page2 %} Seguimiento Prendas {% endblock %}
+
+{% block contenido%}
+
+            <div class="row">
+        <div class="col-sm-6 col-md-6">
+          <div class="panel panel-default widget-photoday">
+            <div class="panel-body">
+              <a href="#" class="photoday"><img src="{% static 'images/descarga.png' %}" alt="" /></a>
+              <div class="photo-details">
+                <h4 class="photo-title">{{ articulo.referencia }}</h4>
+              </div><!-- photo-details -->
+              <ul class="photo-meta">
+                <li><a href="#"><i class="fa fa-heart"></i> {{ cantidad }}</a></li>
+              </ul>
+            </div><!-- panel-body -->
+          </div><!-- panel -->
+        </div><!-- col-sm-6 -->
+
+        <div class="col-sm-6 col-md-6">
+          <div class="panel panel-default panel-alt widget-messaging">
+          <div class="panel-heading">
+              <div class="panel-btns">
+                <a href="{% url 'Inventario:Articulo_Detail' articulo.pk %}" class="panel-edit"><i class="fa fa-edit"></i></a>
+              </div><!-- panel-btns -->
+              <h3 class="panel-title">Informacion</h3>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <li>
+                  <h4 class="sender">Familia</h4>
+                  <small>{{ articulo.categoria_idcategoria.famila_idfamilia }}</small>
+                </li>
+                <li>
+                  <h4 class="sender">Categoria</h4>
+                  <small>{{ articulo.categoria_idcategoria }}</small>
+                </li>
+                <li>
+                  <h4 class="sender">Descripcion</h4>
+                  <small>{{ articulo.descripcion }}</small>
+                </li>
+                <li>
+                  <h4 class="sender">Precio</h4>
+                  <small>{{ articulo.precio }}</small>
+                </li>
+                <li>
+                  <h4 class="sender">Estado</h4>
+                  <small>{{ articulo.nombre_estado_ropa }}</small>
+                </li>
+
+                <li>
+                  <h4 class="sender">Ubicacion</h4>
+                  <small>{{ articulo.ubicacion }}</small>
+                </li>
+              </ul>
+            </div><!-- panel-body -->
+          </div><!-- panel -->
+        </div><!-- col-sm-6 -->
+    </div>
+    <div class="col-sm-6 col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <div class="panel-btns">
+                        <a href="#" class="panel-close">&times;</a>
+                        <a href="#" class="minimize">&minus;</a>
+                      </div><!-- panel-btns -->
+                      <h3 class="panel-title">Historial de Prenda</h3>
+                    </div>
+                    <div class="panel-body">
+                      <div class="table-responsive">
+                      <table class="table" id="table2">
+                          <thead>
+                             <tr>
+                                <th>No Factura</th>
+                                <th>Cliente</th>
+                                <th>Fecha Entrega</th>
+                                <th>Fecha Devolucion</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                          {% for historial in historial %}
+                             <tr class="gradeC">
+                                <td>{{ historial.alquiler.pk }}</td>
+                                <td>{{ historial.alquiler.cliente }}</td>
+                                <td>{{ historial.alquiler.fecha_entrega }}</td>
+                                {% if not historial.alquiler.devuelto%}
+                                    <td>Alquilado Actualmente<td>
+                                    {% else %}
+                                    <td>{{ historial.alquiler.fecha_devolucion_dia }}<td>
+                                {% endif %}
+                             </tr>
+                          {% endfor %}
+                          </tbody>
+                       </table>
+                      </div><!-- table-responsive -->
+                    </div><!-- panel-body -->
+              </div><!-- panel -->
+            </div>
+  </div><!-- mainpanel -->
+
+{% endblock %}
+
+{% block linkscript %}<script src="{% static 'js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui-1.10.3.min.js' %}"></script>
+    <script src="{% static 'js/chosen.jquery.min.js' %}"></script>
+{% endblock %}
+
+{% block script %}
+<script>
+    jQuery(document).ready(function(){
+        jQuery(".chosen-select").chosen({'width':'100%','white-space':'nowrap'});
+      // Basic Form
+      jQuery("#basicForm").validate({
+        highlight: function(element) {
+          jQuery(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+        },
+        success: function(element) {
+          jQuery(element).closest('.form-group').removeClass('has-error');
+        }
+      });
+
+
+      // Validation with select boxes
+      jQuery("#basicForm4").validate({
+        highlight: function(element) {
+          jQuery(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+        },
+        success: function(element) {
+          jQuery(element).closest('.form-group').removeClass('has-error');
+        }
+      });
+
+        jQuery("#prueba").datepicker({dateFormat: 'dd/mm/yy'});
+        jQuery('#prueba2').datepicker({dateFormat: 'dd/mm/yy'});
+
+    });
+</script>
+{% endblock %}

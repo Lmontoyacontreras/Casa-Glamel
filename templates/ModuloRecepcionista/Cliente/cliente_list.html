@@ -1,0 +1,54 @@
+{% extends "base_2.html" %}
+{% load static from staticfiles %}
+
+{% block title %}  Cliente {% endblock%}
+
+{% block link%} <link href="{% static 'css/jquery.datatables.css' %}" rel="stylesheet"> {%endblock%}
+
+{% block user%} {{ user.username }} {% endblock %}
+
+{% block user2 %} {{ user.username }} {% endblock %}
+
+{% block page %} Cliente Lista {% endblock %}
+
+{% block page2 %} Cliente Lista {% endblock %}
+
+{% block contenido%}
+    <div class="contentpanel">
+
+      <div class="mb30"></div>
+
+      <div class="people-list">
+        <div class="row">
+            {% for cliente in cliente %}
+          <div class="col-md-6">
+            <div class="people-item">
+              <div class="media">
+                <div class="media-body">
+                  <h4 class="person-name">{{ cliente.full_nombre }}</h4>
+                    <div class="text-muted"><i class="fa fa-male"></i> {{ cliente.identificacion }}</div>
+                  <div class="text-muted"><i class="fa fa-map-marker"></i> {{ cliente.direccion }}</div>
+                  <div class="text-muted"><i class="fa  fa-phone"></i> {{ cliente.telefono }} </div>
+                  <div class="text-muted"><i class="fa fa-envelope-o"></i> {{ cliente.correo }} </div>
+                  <ul class="social-list">
+                    <li><a href="{% url 'Gestion:Cliente_Modificar' cliente.pk %}" class="tooltips" data-toggle="tooltip" data-placement="top" title=Modificar"><i class="fa fa-pencil"></i></a></li>
+                    <li><a href="{% url 'Gestion:Cliente_Eliminar' cliente.pk %}" class="tooltips" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fa fa-trash-o"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div><!-- col-md-6 -->
+        {% endfor %}
+        </div><!-- row -->
+      </div><!-- people-list -->
+
+    </div><!-- contentpanel -->
+
+{% endblock %}
+
+{% block linkscript %}
+<script src="{% static 'js/jquery.datatables.min.js'%}"></script>
+<script src="{% static 'js/chosen.jquery.min.js'%}"></script>
+{% endblock %}
+
+{% block script %} {% endblock %}

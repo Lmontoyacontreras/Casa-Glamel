@@ -13,6 +13,8 @@ class Alquiler(models.Model):
     devuelto = models.BooleanField(default=False)
     deposito = models.IntegerField()
     observaciones = models.TextField()
+    fecha_devolucion_dia = models.DateField(blank=True,null=True)
+    multa = models.IntegerField(blank=True,null=True)
 
     def __str__(self):
         return str(self.pk)

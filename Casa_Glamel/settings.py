@@ -12,9 +12,9 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -23,8 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '$3#o2nwa$dvvbmb#ul*l$4&0%(a@vi7dm4-!gui*4+w9o&r7(a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-TEMPLATE_DEBUG = False
+DEBUG = True
+TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -42,7 +42,9 @@ INSTALLED_APPS = (
     'Apps.Alquiler',
     'Apps.User',
     'Apps.GestionInf',
-    'Apps.ControlProv'
+    'Apps.ControlProv',
+    'Apps.ControlAdmin',
+    'Apps.Ventas'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -82,19 +84,11 @@ WSGI_APPLICATION = 'Casa_Glamel.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ktxchshjacchbv',
-        'USER': 'mydatabaseuser',
-        'PASSWORD': 'wff8u8qcgE9XWlq6oNVJ0nWYnt',
-        'HOST': 'ec2-54-204-3-188.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
-DATABASES['default'] = dj_database_url.config()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-ALLOWED_HOSTS = ['*']
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/

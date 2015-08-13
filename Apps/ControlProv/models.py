@@ -28,6 +28,8 @@ class Pedido(models.Model):
     descripcion = models.CharField(max_length=500)
     cantidad = models.IntegerField()
     precio = models.IntegerField()
+    precio_total = models.IntegerField(null=True,blank=True)
+
 
     def __str__(self):
         return self.nombre_Articulo

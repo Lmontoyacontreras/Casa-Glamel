@@ -1,0 +1,300 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block title %} Home {% endblock%}
+
+{% block link%}  <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.5.1.css"> {%endblock%}
+
+{% block user%} {{ user.username }}{% endblock %}
+
+{% block user2 %} {{ user.username }}{% endblock %}
+
+{% block page %} Home {% endblock %}
+
+{% block page2 %} Home {% endblock %}
+
+{% block contenido%}
+    <div class="contentpanel">
+      <!-- content goes here... -->
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+              <div class="panel panel-success panel-stat">
+                <div class="panel-heading">
+
+                  <div class="stat">
+                    <div class="row">
+                      <div class="col-xs-4">
+                        <img src="{% static 'images/is-user.png' %}" alt="" />
+                      </div>
+                      <div class="col-xs-8">
+                        <small class="stat-label">Clientes</small>
+                        <h1>{{ cliente }}</h1>
+                      </div>
+                    </div><!-- row -->
+
+                    <div class="mb15"></div>
+
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <small class="stat-label">Deposito Diario</small>
+                        <h4>{{ deposito }}</h4>
+                      </div>
+
+                      <div class="col-xs-6">
+                        <small class="stat-label">Deposito Mensual</small>
+                        <h4>{{ deposito_m }}</h4>
+                      </div>
+                    </div><!-- row -->
+                  </div><!-- stat -->
+
+                </div><!-- panel-heading -->
+              </div><!-- panel -->
+            </div><!-- col-sm-6 -->
+
+            <div class="col-sm-6 col-md-4">
+              <div class="panel panel-danger panel-stat">
+                <div class="panel-heading">
+
+                  <div class="stat">
+                    <div class="row">
+                      <div class="col-xs-4">
+                        <img src="{% static 'images/is-document.png' %}" alt="" />
+                      </div>
+                      <div class="col-xs-8">
+                        <small class="stat-label">Facturas del dia</small>
+                        <h1>{{ cantidad }}</h1>
+                      </div>
+                    </div><!-- row -->
+
+                    <div class="mb15"></div>
+
+                    <small class="stat-label">Factura del mes</small>
+                    <h4>{{ cantidad_m }}</h4>
+
+                  </div><!-- stat -->
+
+                </div><!-- panel-heading -->
+              </div><!-- panel -->
+            </div><!-- col-sm-6 -->
+
+            <div class="col-sm-6 col-md-4">
+              <div class="panel panel-dark panel-stat">
+                <div class="panel-heading">
+
+                  <div class="stat">
+                    <div class="row">
+                      <div class="col-xs-4">
+                        <img src="{% static 'images/is-money.png' %}" alt="" />
+                      </div>
+                      <div class="col-xs-8">
+                        <small class="stat-label">Ventas del Dia</small>
+                        <h1>$ {{ suma }}</h1>
+                      </div>
+                    </div><!-- row -->
+
+                    <div class="mb15"></div>
+
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <small class="stat-label">Ventas del Mes</small>
+                        <h4>$ {{ suma_m }}</h4>
+                      </div>
+
+                      <div class="col-xs-6">
+                        <small class="stat-label">Multa del Mes</small>
+                        <h4>$ {{ multa_diaria_mes }}</h4>
+                      </div>
+                    </div><!-- row -->
+
+
+                  </div><!-- stat -->
+
+                </div><!-- panel-heading -->
+              </div><!-- panel -->
+            </div><!-- col-sm-6 -->
+        </div><!-- row -->
+    <div class="row">
+        <div class="col-sm-6 col-md-6">
+          <div class="panel panel-default panel-alt widget-messaging">
+          <div class="panel-heading">
+              <div class="panel-btns">
+                <a href="#" class="panel-edit"><i class="fa fa-edit"></i></a>
+              </div><!-- panel-btns -->
+              <h3 class="panel-title">Reservas</h3>
+            </div>
+            <div class="panel-body">
+              <ul>
+                <li>
+                  <small class="pull-right">Dec 10</small>
+                  <h4 class="sender">Jennier Lawrence</h4>
+                  <small>Lorem ipsum dolor sit amet...</small>
+                </li>
+                <li>
+                  <small class="pull-right">Dec 9</small>
+                  <h4 class="sender">Marsha Mellow</h4>
+                  <small>Lorem ipsum dolor sit amet...</small>
+                </li>
+                <li>
+                  <small class="pull-right">Dec 9</small>
+                  <h4 class="sender">Holly Golightly</h4>
+                  <small>Lorem ipsum dolor sit amet...</small>
+                </li>
+                <li>
+                  <small class="pull-right">Dec 10</small>
+                  <h4 class="sender">Jennier Lawrence</h4>
+                  <small>Lorem ipsum dolor sit amet...</small>
+                </li>
+                <li>
+                  <small class="pull-right">Dec 9</small>
+                  <h4 class="sender">Marsha Mellow</h4>
+                  <small>Lorem ipsum dolor sit amet...</small>
+                </li>
+              </ul>
+            </div><!-- panel-body -->
+          </div><!-- panel -->
+        </div><!-- col-sm-6 -->
+                <div class="col-sm-6 col-md-6">
+          <div class="panel panel-default widget-photoday">
+            <div class="panel-body">
+                <div id="charts" style="height:250px;"></div>
+              <div class="photo-details">
+                <h4 class="photo-title"></h4>
+              </div><!-- photo-details -->
+              <ul class="photo-meta">
+                <li><a href="#">{{ venta_toal }} <i class="fa fa-heart"></i></a></li>
+              </ul>
+            </div><!-- panel-body -->
+          </div><!-- panel -->
+        </div><!-- col-sm-6 -->
+
+        </div><!-- col-sm-6 -->
+        <div class="row">
+        <div class="col-sm-6 col-md-6">
+            <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="panel-btns">
+                <a href="#" class="panel-close">&times;</a>
+                <a href="#" class="minimize">&minus;</a>
+              </div><!-- panel-btns -->
+              <h3 class="panel-title">Registro Devolucion</h3>
+            </div>
+            <div class="panel-body">
+              <div class="table-responsive">
+              <table class="table" id="table2">
+                  <thead>
+                     <tr>
+                        <th>Cod Factura</th>
+                        <th>Clientes</th>
+                        <th>Fecha Salida</th>
+                        <th>Fecha Entrega</th>
+                        <th>Estado</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                  {% for repor in reporte_diario %}
+                     <tr class="gradeC">
+                        <td>{{ repor.pk }}</td>
+                        <td>{{ repor.cliente }}</td>
+                        <td>{{ repor.fecha_entrega }}</td>
+                        <td class="center">{{ repor.fecha_devolucion }}</td>
+                        {% if repor.devuelto %}
+                            <td class="center">Devuelto</td>
+                            {% else %}
+                            <td class="center">Pendiente</td>
+                        {% endif %}
+                     </tr>
+                  {% endfor %}
+                  </tbody>
+               </table>
+              </div><!-- table-responsive -->
+            </div><!-- panel-body -->
+          </div><!-- panel -->
+        </div>
+        <div class="col-sm-6 col-md-6">
+            <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="panel-btns">
+                <a href="#" class="panel-close">&times;</a>
+                <a href="#" class="minimize">&minus;</a>
+              </div><!-- panel-btns -->
+              <h3 class="panel-title">Registro Entrega</h3>
+            </div>
+            <div class="panel-body">
+              <div class="table-responsive">
+              <table class="table" id="table2">
+                  <thead>
+                     <tr>
+                        <th>Cod Factura</th>
+                        <th>Clientes</th>
+                        <th>Fecha Salida</th>
+                        <th>Fecha Entrega</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                  {% for reporte in reporte_dia %}
+                     <tr class="gradeC">
+                        <td>{{ reporte.pk }}</td>
+                        <td>{{ reporte.cliente }}</td>
+                        <td>{{ reporte.fecha_entrega }}</td>
+                        <td class="center">{{ reporte.fecha_devolucion }}</td>
+                     </tr>
+                  {% endfor %}
+                  </tbody>
+               </table>
+              </div><!-- table-responsive -->
+            </div><!-- panel-body -->
+          </div><!-- panel -->
+        </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block linkscript %}<script src="{% static 'js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui-1.10.3.min.js' %}"></script>
+    <script src="{% static 'js/chosen.jquery.min.js' %}"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="http://cdn.oesmith.co.uk/morris-0.5.1.min.js"></script>
+{% endblock %}
+
+{% block script %}
+<script>
+    jQuery(document).ready(function(){
+        jQuery(".chosen-select").chosen({'width':'100%','white-space':'nowrap'});
+      // Basic Form
+      jQuery("#basicForm").validate({
+        highlight: function(element) {
+          jQuery(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+        },
+        success: function(element) {
+          jQuery(element).closest('.form-group').removeClass('has-error');
+        }
+      });
+
+
+      // Validation with select boxes
+      jQuery("#basicForm4").validate({
+        highlight: function(element) {
+          jQuery(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+        },
+        success: function(element) {
+          jQuery(element).closest('.form-group').removeClass('has-error');
+        }
+      });
+
+        jQuery("#prueba").datepicker({dateFormat: 'dd/mm/yy'});
+        jQuery('#prueba2').datepicker({dateFormat: 'dd/mm/yy'});
+
+    });
+
+    Morris.Donut({
+      element: 'charts',
+      data: [
+          {% for foo in tipo %}
+              {label: "{{ foo.0 }}", value: {{ foo.1 }}},
+          {% endfor %}
+      ]
+    });
+
+</script>
+{% endblock %}
