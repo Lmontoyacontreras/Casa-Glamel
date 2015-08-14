@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'^', include('Apps.Alquiler.urls', namespace='Alquiler')),
     url(r'^', include('Apps.ControlAdmin.urls', namespace='ControlAdmin')),
     url(r'^', include('Apps.Ventas.urls', namespace='VentasAdmin')),
+    url(r'^',include('Apps.Reserva.urls', namespace='Reservas')),
 ]

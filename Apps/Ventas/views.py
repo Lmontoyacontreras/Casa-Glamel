@@ -12,7 +12,6 @@ from Apps.GestionInf.models import Cliente
 class Ventas_Control(TemplateView):
     template_name = 'ModuloAdmin/VentasTemplate/Ventas_Control_Template.html'
 
-
 class Home_Admin(TemplateView):
     template_name = 'ModuloAdmin/VentasTemplate/home_admin.html'
 
