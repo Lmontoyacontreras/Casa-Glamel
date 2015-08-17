@@ -1,19 +1,20 @@
 import os
-from django.shortcuts import render
 from django.views.generic import TemplateView
-from datetime import date
-from django.core import serializers
-from django.http import HttpResponse, Http404
+from datetime import date , timedelta
+from braces.views import LoginRequiredMixin,SuperuserRequiredMixin
 
 from Apps.Inventario.models import Categoria,Articulo,Tipo
 from Apps.Alquiler.models import Alquiler_Detail,Alquiler
+from Apps.Reserva.models import Reserva,Reserva_Detail
 from Apps.GestionInf.models import Cliente
 
-class Ventas_Control(TemplateView):
-    template_name = 'ModuloAdmin/VentasTemplate/Ventas_Control_Template.html'
+class Ventas_Control(LoginRequiredMixin,SuperuserRequiredMixin,TemplateView):
+    login_url = '/'
+    template_name = u'ModuloAdmin/VentasTemplate/Ventas_Control_Template.html'
 
-class Home_Admin(TemplateView):
-    template_name = 'ModuloAdmin/VentasTemplate/home_admin.html'
+class Home_Admin(LoginRequiredMixin,SuperuserRequiredMixin,TemplateView):
+    login_url = '/'
+    template_name = u'ModuloAdmin/VentasTemplate/home_admin.html'
 
     def get_context_data(self, **kwargs):
         #Reporte de Ventas
@@ -29,6 +30,7 @@ class Home_Admin(TemplateView):
                 cont += rti
             ax += cont
             aux.append([tipo.nombre_tipo, cont])
+        print(aux)
         context['tipo'] = aux
         context['venta_toal']=ax
 
@@ -56,6 +58,13 @@ class Home_Admin(TemplateView):
         context['cantidad'] = Alquiler.objects.filter(fecha_entrega=dia_hoy).count()
         context['suma'] = suma
         context['reporte_diario']=reporte_diario
+
+
+        #Reservas
+        dia_hoy_reserva = date.today()
+        dia_max = dia_hoy_reserva+timedelta(days=2)
+        context['reservas'] = Reserva.objects.filter(fecha_reserva__range=(dia_hoy,dia_max))
+
 
         #Reporte Mes
         multa_diaria_mes=0

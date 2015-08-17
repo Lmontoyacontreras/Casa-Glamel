@@ -1,7 +1,7 @@
 {% extends "base_2.html" %}
 {% load static from staticfiles %}
 
-{% block title %} Alquiler | Detail{% endblock%}
+{% block title %} Reserva | Detail{% endblock%}
 
 {% block link%} <link href="{% static 'css/jquery.datatables.css' %}" rel="stylesheet">
  {%endblock%}
@@ -10,9 +10,9 @@
 
 {% block user2 %}{{ user.username }}{% endblock %}
 
-{% block page %} Alquiler {% endblock %}
+{% block page %} Reserva {% endblock %}
 
-{% block page2 %} Alquiler {% endblock %}
+{% block page2 %} Reserva {% endblock %}
 
 {% block contenido%}
     <div class="col-md-12">
@@ -27,34 +27,34 @@
                       <table class="table  mb30">
                         <tbody>
                             <tr>
-                                <td><strong>Factura:</strong> </td>
-                                <td>{{ alquiler_factura.pk }}</td>
+                                <td><strong>Reserva:</strong> </td>
+                                <td>{{ reserva.pk }}</td>
                                 <td></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td><strong>Cliente:</strong> </td>
-                                <td>{{ alquiler_factura.cliente }}</td>
+                                <td>{{ reserva.cliente }}</td>
                                 <td><strong>Identificacion: </strong></td>
-                                <td>{{ alquiler_factura.cliente.identificacion }}</td>
+                                <td>{{ reserva.cliente.identificacion }}</td>
                             </tr>
                             <tr>
                                 <td><strong>Direccion</strong> </td>
-                                <td>{{ alquiler_factura.cliente.direccion }}</td>
+                                <td>{{ reserva.cliente.direccion }}</td>
                                 <td><strong>Telefono</strong></td>
-                                <td>{{ alquiler_factura.cliente.telefono }}</td>
+                                <td>{{ reserva.cliente.telefono }}</td>
                             </tr>
                             <tr>
-                                <td><strong>Deposito</strong> </td>
-                                <td>{{ alquiler_factura.deposito }}</td>
+                                <td><strong>Abono</strong> </td>
+                                <td>{{ reserva.abono_inicial }}</td>
                                 <td><strong></strong></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td><strong>Fecha de Entrega</strong> </td>
-                                <td>{{ alquiler_factura.fecha_entrega }}</td>
+                                <td>{{ reserva.fecha_reserva}}</td>
                                 <td><strong>Fecha de devolucion</strong></td>
-                                <td>{{ alquiler_factura.fecha_devolucion }}</td>
+                                <td>{{ reserva.fecha_limite }}</td>
                             </tr>
                         </tbody>
                       </table>
@@ -79,16 +79,20 @@
                           </tr>
                         </thead>
                         <tbody>
-                        {% for alquiler_detalle in alquiler_detalle %}
+                        {% for reserva_detail in reserva_detail %}
                           <tr>
-                            <td>{{ alquiler_detalle.articulo }}</td>
-                            <td>{{ alquiler_detalle.articulo.descripcion }}</td>
-                            <td>{{ alquiler_detalle.precio }}</td>
+                            <td>{{ reserva_detail.articulo }}</td>
+                            <td>{{ reserva_detail.articulo.descripcion }}</td>
+                            {% if reserva_detail.gratis %}
+                                <td>0</td>
+                            {% else %}
+                                <td>{{ reserva_detail.articulo.precio }}</td>
+                            {% endif %}
+
                             <td class="table-action">
-                              <a href="{% url 'Alquiler:Alquiler_Detail_Eliminar' alquiler_detalle.pk %}"><i class="fa fa-trash-o"></i></a>
+                              <a href="{% url 'Reservas:Reserva_Detail_Eliminar' reserva_detail.pk %}"><i class="fa fa-trash-o"></i></a>
                             </td>
                           </tr>
-
                         {% endfor %}
                         </tbody>
                       </table>
@@ -98,7 +102,7 @@
               <div class="panel-footer">
                 <div class="row">
                   <div class="col-sm-9 col-sm-offset-3">
-                    <a href="{% url 'Alquiler:Alquiler_Factura' alquiler_factura.pk %}" class="btn btn-primary">Confirmar</a>
+                    <a href="{% url 'Reservas:Reserva_Factura_Detail' reserva.pk %}" class="btn btn-primary">Confirmar</a>
                   </div>
                 </div>
               </div>
@@ -140,14 +144,13 @@
 {% block linkscript %}
     <script src="{% static 'js/jquery.datatables.min.js' %}"></script>
     <script src="{% static 'js/chosen.jquery.min.js' %}"></script>
-    <script src="{% static 'js/chosen.jquery.min.js' %}"></script>
-
+    <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui-1.10.3.min.js' %}"></script>
  {% endblock %}
 
 {% block script %}
 <script>
   jQuery(document).ready(function() {
-    jQuery('#table1').dataTable();
 
     jQuery('#table2').dataTable({
       "sPaginationType": "full_numbers"
@@ -178,7 +181,9 @@
       jQuery(this).find('.table-action-hide a').animate({opacity: 0});
     });
 
-
+    jQuery("#prueba").datepicker({dateFormat: 'dd/mm/yy'});
+    jQuery('#prueba2').datepicker({dateFormat: 'dd/mm/yy'});
   });
+
 </script>
 {% endblock %}

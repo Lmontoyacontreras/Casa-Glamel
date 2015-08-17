@@ -1,0 +1,245 @@
+{% extends "base_2.html" %}
+{% load static from staticfiles %}
+
+{% block title %} Reserva {% endblock%}
+
+{% block link%} <link href="{% static 'css/jquery.datatables.css' %}" rel="stylesheet">
+ {%endblock%}
+
+{% block user%}{{ user.username }}{% endblock %}
+
+{% block user2 %}{{ user.username }}{% endblock %}
+
+{% block page %} Reserva {% endblock %}
+
+{% block page2 %} Reserva {% endblock %}
+
+{% block contenido%}
+     <div class="contentpanel">
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    <table style="width:100%">
+                        <tr>
+                            <td rowspan="7"><img src="{% static 'images/descarga.png' %}" class="img-responsive mb10" alt=""
+                            height="300" width="300"/></td>
+                            <th class="text-center" colspan="3"><h5>Reserva No. {{ reserva.pk }}</h5></th>
+                        </tr>
+                        <tr>
+                            <th>Reserva No.</th>
+                            <td>{{ reserva.pk }}</td></tr>
+                        <tr>
+                            <th>Cliente</th>
+                            <td>{{ reserva.cliente.full_nombre }}</td>
+                            <th>Identificacion.</th>
+                            <td>{{ reserva.cliente.identificacion }}</td>
+                        </tr>
+                            <tr>
+                                <th>Direccion</th>
+                                <td>{{ reserva.cliente.direccion }}</td>
+                            </tr>
+                            <tr>
+                                <th>Telefono</th>
+                                <td>{{ reserva.cliente.telefono }}</td>
+                            </tr>
+                            <tr>
+                                <th>Correo</th>
+                                <td>{{ reserva.cliente.correo }}</td>
+                                <th>Abono</th>
+                                <td>{{ reserva.abono_inicial }}</td>
+                            </tr>
+                            <tr>
+                                <th>Fecha Reserva</th>
+                                <td>{{ reserva.fecha_reserva }}</td>
+                                <th>Fecha Limite</th>
+                                <td>{{ reserva.fecha_limite }}</td>
+                            </tr>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table style="width:100%">
+                            <tr>
+                                <td><small>A</small></td>
+                                <td><small>La prenda sera entregada bajo la responsabilidad del CLIENTE y se compromete a pagar el valor total de la prenda</small></td>
+                            </tr>
+                            <tr>
+                                <td><small>B</small></td>
+                                <td><small>La prenda no debe ser lavada ni planchada</small></td>
+                            </tr>
+                            <tr>
+                                <td><small>C</small></td>
+                                <td><small>Pasadas la 24 horas de retirada la prenda se cobrara $ 1000 diarios</small></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div><!-- row -->
+            <div class="table-responsive">
+            <table class="table table-invoice">
+            <thead>
+              <tr>
+                <th>Articulo</th>
+                <th>Tipo</th>
+                <th>Valor Unidad</th>
+                <th>Valor Total</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for reserva_detail_factura in reserva_detail_factura%}
+              <tr>
+                <td>
+                    <div class="text-primary"><strong>{{ reserva_detail_factura.articulo.referencia }}</strong></div>
+                    <small>{{ reserva_detail_factura.articulo.descripcion }}</small>
+                </td>
+                <td>{{ reserva_detail_factura.articulo.nombre_tipo }}</td>
+                {% if reserva_detail_factura.gratis %}
+                        <td>0</td>
+                        <td>0</td>
+                    {% else %}
+                        <td>{{ reserva_detail_factura.articulo.precio }}</td>
+                        <td>{{ reserva_detail_factura.articulo.precio }}</td>
+                {% endif %}
+              </tr>
+                {% endfor %}
+
+          </table>
+          </div><!-- table-responsive -->
+
+            <table class="table table-total">
+                <tbody>
+                    <tr>
+                        <td><strong>Subtotal :</strong></td>
+                        <td>{{ suma }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Abono Inicial :</strong></td>
+                        <td>- {{ reserva.abono_inicial }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TOTAL :</strong></td>
+                        <td>{{ total }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <div class="mb40"></div>
+
+            <div class="well">
+                <p class="text-justify"> Reserva
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="row"><hr></div>
+                    <div class="row"><h5 class="text-center">Firma</h5></div>
+                </div>
+
+                <div class="col-lg-2">
+
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="row text-center">{{ reserva.cliente.identificacion }}</div>
+                    <div class="row"><h5 class="text-center">CC / Nit</h5></div>
+                </div>
+            </div>
+            <div class="text-right btn-invoice">
+                {% if hoy <= reserva.fecha_limite%}
+                    {% if reserva.fecha_reserva <= hoy %}
+                      <button data-toggle="modal" data-target="#myModal" type="submit" class="btn btn-white"><i class="fa  fa-spinner mr5"></i> Generar Alquiler</button>
+                    {% endif %}
+                {% endif %}
+                <a href="{% url 'Reservas:Reserva_Factura_Detail_Imprimir' reserva.pk %}" class="btn btn-white" target="_blank"><i class="fa fa-print mr5"></i> Imprimir</a>
+            </div>
+
+        </div><!-- panel-body -->
+      </div><!-- panel -->
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Bienvenido <br><small>Ingrese todo los datos.</small></h4>
+          </div>
+          <div class="modal-body">
+            <form id="basicForm" action="#" class="form-horizontal" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Fecha Devolucion<span class="asterisk">*</span></label>
+                  <div class="col-sm-9">
+                      {{ form.fecha_devolucion }}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Deposito<span class="asterisk">*</span></label>
+                  <div class="col-sm-9">
+                      {{ form.deposito }}
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Observaciones<span class="asterisk">*</span></label>
+                  <div class="col-sm-9">
+                      {{ form.observaciones }}
+                  </div>
+                </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary" id="libardo">Agregar</button>
+          </div></form>
+        </div><!-- modal-content -->
+      </div><!-- modal-dialog -->
+    </div><!-- modal -->
+{% endblock %}
+
+{% block linkscript %}
+    <script src="{% static 'js/jquery.datatables.min.js' %}"></script>
+    <script src="{% static 'js/chosen.jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui-1.10.3.min.js' %}"></script>
+{% endblock %}
+
+{% block script %}
+    <script>
+  jQuery(document).ready(function() {
+
+    jQuery('#table2').dataTable({
+      "sPaginationType": "full_numbers"
+    });
+    jQuery(".chosen-select").chosen({'width':'100%','white-space':'nowrap'});
+    // Chosen Select
+    jQuery("select").chosen({
+      'min-width': '100px',
+      'white-space': 'nowrap',
+      disable_search_threshold: 10
+    });
+
+    // Delete row in a table
+    jQuery('.delete-row').click(function(){
+      var c = confirm("Continue delete?");
+      if(c)
+        jQuery(this).closest('tr').fadeOut(function(){
+          jQuery(this).remove();
+        });
+
+        return false;
+    });
+
+    // Show aciton upon row hover
+    jQuery('.table-hidaction tbody tr').hover(function(){
+      jQuery(this).find('.table-action-hide a').animate({opacity: 1});
+    },function(){
+      jQuery(this).find('.table-action-hide a').animate({opacity: 0});
+    });
+
+    jQuery("#prueba").datepicker({dateFormat: 'dd/mm/yy'});
+    jQuery('#prueba2').datepicker({dateFormat: 'dd/mm/yy'});
+  });
+</script>
+{% endblock %}

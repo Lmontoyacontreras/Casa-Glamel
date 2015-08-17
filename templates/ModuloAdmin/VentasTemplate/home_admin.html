@@ -124,31 +124,13 @@
             </div>
             <div class="panel-body">
               <ul>
-                <li>
-                  <small class="pull-right">Dec 10</small>
-                  <h4 class="sender">Jennier Lawrence</h4>
-                  <small>Lorem ipsum dolor sit amet...</small>
-                </li>
-                <li>
-                  <small class="pull-right">Dec 9</small>
-                  <h4 class="sender">Marsha Mellow</h4>
-                  <small>Lorem ipsum dolor sit amet...</small>
-                </li>
-                <li>
-                  <small class="pull-right">Dec 9</small>
-                  <h4 class="sender">Holly Golightly</h4>
-                  <small>Lorem ipsum dolor sit amet...</small>
-                </li>
-                <li>
-                  <small class="pull-right">Dec 10</small>
-                  <h4 class="sender">Jennier Lawrence</h4>
-                  <small>Lorem ipsum dolor sit amet...</small>
-                </li>
-                <li>
-                  <small class="pull-right">Dec 9</small>
-                  <h4 class="sender">Marsha Mellow</h4>
-                  <small>Lorem ipsum dolor sit amet...</small>
-                </li>
+                  {% for reserva in reservas %}
+                    <li>
+                      <small class="pull-right">{{ reserva.fecha_reserva }}</small>
+                      <h4 class="sender"><a style="color: black" href="{% url 'Reservas:Reserva_Factura_Detail_Admin' reserva.pk %}">No. Reserva: {{ reserva.pk }}</a></h4>
+                      <small>{{ reserva.cliente.full_nombre }}</small>
+                    </li>
+                  {% endfor %}
               </ul>
             </div><!-- panel-body -->
           </div><!-- panel -->

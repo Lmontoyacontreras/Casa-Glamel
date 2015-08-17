@@ -35,27 +35,31 @@ class Proveedor_Eliminar(LoginRequiredMixin,SuperuserRequiredMixin,DeleteView):
     success_url = reverse_lazy('Gestion:Proveedor_Lista')
 
 
-class Cliente_Ingresar(CreateView):
+class Cliente_Ingresar(LoginRequiredMixin,CreateView):
     model = Cliente
-    form_class = Cliente_Form
-    template_name = 'ModuloRecepcionista/Cliente/cliente_form.html'
-    success_url = reverse_lazy('Gestion:Proveedor_Lista')
-
-
-class Cliente_Modificar(UpdateView):
-    model = Cliente
+    login_url = '/'
     form_class = Cliente_Form
     template_name = 'ModuloRecepcionista/Cliente/cliente_form.html'
     success_url = reverse_lazy('Gestion:Cliente_Lista')
 
-class Cliente_Eliminar(DeleteView):
+
+class Cliente_Modificar(LoginRequiredMixin,UpdateView):
     model = Cliente
+    login_url = '/'
+    form_class = Cliente_Form
+    template_name = 'ModuloRecepcionista/Cliente/cliente_form.html'
+    success_url = reverse_lazy('Gestion:Cliente_Lista')
+
+class Cliente_Eliminar(LoginRequiredMixin,DeleteView):
+    model = Cliente
+    login_url = '/'
     template_name = 'ModuloRecepcionista/Cliente/cliente_confirm_delete.html'
     context_object_name = 'cliente'
     success_url = reverse_lazy('Gestion:Cliente_Lista')
 
 
-class Cliente_Lista(ListView):
+class Cliente_Lista(LoginRequiredMixin,ListView):
     context_object_name = 'cliente'
+    login_url = '/'
     template_name = 'ModuloRecepcionista/Cliente/cliente_list.html'
     model = Cliente

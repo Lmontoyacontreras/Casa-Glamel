@@ -2,14 +2,16 @@ from django.shortcuts import render
 from django.views.generic import TemplateView,DetailView
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse_lazy,reverse
+from braces.views import LoginRequiredMixin,SuperuserRequiredMixin
 
 
 # Create your views here.
 from Apps.Inventario.models import Articulo
 from Apps.Alquiler.models import Alquiler,Alquiler_Detail
 
-class Seguimiento_Prendas(TemplateView):
-    template_name = 'ModuloAdmin/AdminControlTemplate/Seguimineto_Prendas.html'
+class Seguimiento_Prendas(LoginRequiredMixin,SuperuserRequiredMixin,TemplateView):
+    login_url = '/'
+    template_name = u'ModuloAdmin/AdminControlTemplate/Seguimineto_Prendas.html'
 
     def post(self,request,*args,**kwargs):
         ref = request.POST.get('seguimiento_articulo')
@@ -21,10 +23,11 @@ class Seguimiento_Prendas(TemplateView):
             return render(request,'ModuloAdmin/AdminControlTemplate/Seguimineto_Prendas.html',
                           {'valida':valida})
 
-class Seguimiento_Detail(DetailView):
+class Seguimiento_Detail(LoginRequiredMixin,SuperuserRequiredMixin,DetailView):
     model = Articulo
+    login_url = '/'
     context_object_name = 'articulo'
-    template_name = 'ModuloAdmin/AdminControlTemplate/Seguimiento Detail.html'
+    template_name = u'ModuloAdmin/AdminControlTemplate/Seguimiento Detail.html'
 
     def get_context_data(self, **kwargs):
         context = super(Seguimiento_Detail,self).get_context_data(**kwargs)

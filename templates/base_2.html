@@ -28,7 +28,7 @@
   <div class="leftpanel">
     
     <div class="logopanel">
-        <h1><span>[</span> Casa Glamel <span>]</span></h1>
+        <h1><a href="{% url 'Alquiler:Alquiler_Ingresar' %}" style="color: black"><span>[</span> Casa Glamel <span>]</span></a></h1>
     </div><!-- logopanel -->
     
     <div class="leftpanelinner">
@@ -37,15 +37,13 @@
             <div class="media userlogged">
                 <img alt="" src="{% static 'images/photos/loggeduser.png' %}" class="media-object">
                 <div class="media-body">
-                    <h4>{% block user%}{% endblock %}</h4>
+                    <h4>Bienvenido, {% block user%}{% endblock %}</h4>
                     <span>"Recepcionista"</span>
                 </div>
             </div>
           
             <h5 class="sidebartitle actitle">Account</h5>
             <ul class="nav nav-pills nav-stacked nav-bracket mb30">
-              <li><a href="#"><i class="fa fa-cog"></i> <span>Configuracion</span></a></li>
-              <li><a href="#"><i class="fa fa-question-circle"></i> <span>Ayuda</span></a></li>
               <li><a href="{% url 'User_app:logout' %}"><i class="fa fa-sign-out"></i> <span>Salir</span></a></li>
             </ul>
         </div>
@@ -53,7 +51,7 @@
       <ul class="nav nav-pills nav-stacked nav-bracket">
           <li><a href="{% url 'Alquiler:Alquiler_Ingresar' %}"><i class="fa fa-barcode"></i> <span>Alquiler</span></a></li>
           <li><a href="{% url 'Alquiler:Alquiler_Devolucion' %}"><i class="fa  fa-reply-all"></i><span>Generar Devolucion</span></a></li>
-          <li><a href="{% url 'Alquiler:Factura_List' %}"><i class="fa  fa-file-text-o"></i> <span>Consulta Factura</span></a></li>
+          <li><a href="{% url 'Alquiler:Factura_List' %}"><i class="fa  fa-file-text-o"></i> <span>Listado Factura</span></a></li>
         <!--<li><a href="reservas_admin.html"><i class="fa fa-book"></i> <span>Reservas</span></a></li>
         <li><a href="estadistica.html"><i class="fa fa-bar-chart-o"></i> <span>Estadisticas</span></a></li>
            -->
@@ -85,15 +83,10 @@
             </ul>
         </li>
         -->
-        <!--<h5 class="sidebartitle">Control de proveedores</h5>
-        <li class="nav-parent"><a href="#"><i class="fa fa-cogs"></i> <span>Proveedores</span></a>
-          <ul class="children">
-            <li><a href="{% url 'Gestion:Proveedor_Ingresar' %}"><i class="fa fa-caret-right"></i>Crear Proveedor</a></li>
-            <li><a href="{% url 'Gestion:Proveedor_Lista' %}"><i class="fa fa-caret-right"></i>Listado de Proveedor</a></li>
-          </ul>
-        </li>
-        <li><a href="{% url 'ControlProv:Factura_Proveedor_Ingresar' %}"><i class="fa fa-shopping-cart"></i> <span>Registro de pedidos</span></a></li>
-        <li><a href="{% url 'ControlProv:Factura_Proveedor_Lista' %}"><i class="fa fa-edit"></i>Listado de Pedidos</a></li>-->
+        <h5 class="sidebartitle">Reservas</h5>
+          <li><a href="{% url 'Reservas:Ingresar_Reserva' %}"><i class="fa fa-foursquare"></i> <span>Crear Reservas</span></a></li>
+          <li><a href="{% url 'Reservas:Reserva_Calendar' %}"><i class="fa fa-calendar"></i> <span>Reservas</span></a></li>
+          <li><a href="{% url 'Reservas:Reserva_Devolucion' %}"><i class="fa fa-edit"></i>Consulta Reserva</a></li>
       </ul>
     </div><!-- leftpanelinner -->
   </div><!-- leftpanel -->
@@ -109,35 +102,11 @@
         <ul class="headermenu">
           <li>
             <div class="btn-group">
-              <button class="btn btn-default dropdown-toggle tp-icon" data-toggle="dropdown">
-                <i class="glyphicon glyphicon-globe"></i>
-                <span class="badge">5</span>
-              </button>
-              <div class="dropdown-menu dropdown-menu-head pull-right">
-                <h5 class="title">You Have 1 New Message</h5>
-                <ul class="dropdown-list gen-list">
-                  <!-- ciclo de notificiones estrutura -->
-                    <li class="new">
-                        <a href="#">
-                        <span class="desc">
-                          <span class="name">Draniem Daamul <span class="badge badge-success">new</span></span>
-                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                        </span>
-                        </a>
-                      </li>
-                </ul>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="btn-group">
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                {% block user2 %}{% endblock %}
+                Bienvenido, {% block user2 %}{% endblock %}
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
-                <li><a href="#"><i class="glyphicon glyphicon-cog"></i> Configuracion</a></li>
-                <li><a href="#"><i class="glyphicon glyphicon-question-sign"></i> Ayuda</a></li>
                 <li><a href="{% url 'User_app:logout' %}"><i class="glyphicon glyphicon-log-out"></i> Salir</a></li>
               </ul>
             </div>
@@ -152,7 +121,7 @@
       <div class="breadcrumb-wrapper">
         <span class="label">Usted se encuentra aqui:</span>
         <ol class="breadcrumb">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="{% url 'Alquiler:Alquiler_Ingresar' %}">Home</a></li>
           <li class="active">{% block page2 %} {% endblock %}</li>
         </ol>
       </div>

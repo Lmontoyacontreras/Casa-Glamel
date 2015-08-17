@@ -1,7 +1,7 @@
 __author__ = 'Usuario'
 from django import forms
 
-from .models import Reserva
+from .models import Reserva,Reserva_Detail
 
 class Reserva_Form(forms.ModelForm):
     class Meta:
@@ -31,4 +31,15 @@ class Reserva_Form(forms.ModelForm):
                 'class':'form-control',
                 'placeholder':'Abono Inicial',
             }),
+        }
+
+
+class Reserva_Detail_Form(forms.ModelForm):
+    class Meta:
+        model = Reserva_Detail
+        fields=['articulo','gratis']
+        widgets = {
+            'articulo':forms.Select(attrs={
+                'class':'form-control chosen-select'
+            })
         }

@@ -28,7 +28,7 @@
   <div class="leftpanel">
     
     <div class="logopanel">
-        <h1><span>[</span> Casa Glamel <span>]</span></h1>
+        <h1><a href="{% url 'VentasAdmin:Home_Admin'%}" style="color: black"><span>[</span> Casa Glamel <span>]</span></a></h1>
     </div><!-- logopanel -->
     
     <div class="leftpanelinner">
@@ -37,8 +37,7 @@
             <div class="media userlogged">
                 <img alt="" src="{% static 'images/photos/loggeduser.png' %}" class="media-object">
                 <div class="media-body">
-                    <h4>{% block user%}{% endblock %}</h4>
-                    <span>"Administrador"</span>
+                    <h4> Bienvenido,{% block user%}{% endblock %}</h4>
                 </div>
             </div>
           
@@ -104,30 +103,8 @@
         <ul class="headermenu">
           <li>
             <div class="btn-group">
-              <button class="btn btn-default dropdown-toggle tp-icon" data-toggle="dropdown">
-                <i class="glyphicon glyphicon-globe"></i>
-                <span class="badge">5</span>
-              </button>
-              <div class="dropdown-menu dropdown-menu-head pull-right">
-                <h5 class="title">You Have 1 New Message</h5>
-                <ul class="dropdown-list gen-list">
-                  <!-- ciclo de notificiones estrutura -->
-                    <li class="new">
-                        <a href="#">
-                        <span class="desc">
-                          <span class="name">Draniem Daamul <span class="badge badge-success">new</span></span>
-                          <span class="msg">Lorem ipsum dolor sit amet...</span>
-                        </span>
-                        </a>
-                      </li>
-                </ul>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="btn-group">
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                {% block user2 %}{% endblock %}
+                Bienvenido, {% block user2 %}{% endblock %}
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu dropdown-menu-usermenu pull-right">

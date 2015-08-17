@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.urlresolvers import reverse
+
 from Apps.GestionInf.models import Cliente
 from Apps.Inventario.models import Articulo
 
@@ -10,12 +12,18 @@ class Reserva(models.Model):
     fecha_reserva = models.DateField()
     fecha_limite = models.DateField()
     abono_inicial = models.IntegerField()
+
     def __str__(self):
         return str(self.pk)
+
+    def get_absolute_url(self):
+        return reverse('Reservas:Reserva_Detail_Ingresar',kwargs={'pk':self.pk})
 
 class Reserva_Detail(models.Model):
     reserva = models.ForeignKey(Reserva)
     articulo = models.ForeignKey(Articulo)
     gratis = models.BooleanField(default=False)
+
     def __str__(self):
         return str(self.articulo)
+

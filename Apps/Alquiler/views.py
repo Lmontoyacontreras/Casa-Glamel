@@ -3,12 +3,13 @@ from django.views.generic.edit import CreateView,DeleteView
 from django.views.generic import TemplateView,DetailView,ListView
 from django.core.urlresolvers import reverse_lazy,reverse
 from django.http import HttpResponseRedirect
-from braces.views import LoginRequiredMixin
-from datetime import date
+from braces.views import LoginRequiredMixin,SuperuserRequiredMixin
+from datetime import date,timedelta
 
 from .forms import Alquiler_Form,Alquiler_Detail_Form
 from .models import Alquiler,Alquiler_Detail
 from Apps.Inventario.models import Articulo,Estado_Ropa
+from Apps.Reserva.models import Reserva,Reserva_Detail
 
 class Alquiler_Ingresar(LoginRequiredMixin,CreateView):
     model = Alquiler
@@ -33,7 +34,17 @@ class Alquiler_Detail_Ingresar(LoginRequiredMixin,DetailView):
         context = super(Alquiler_Detail_Ingresar, self).get_context_data(**kwargs)
         context['alquiler_detalle'] = Alquiler_Detail.objects.filter(alquiler=self.get_object())
         Alquiler_Detail_Filtro = Alquiler_Detail_Form()
-        Alquiler_Detail_Filtro.fields["articulo"].queryset = Articulo.objects.filter(nombre_estado_ropa='1',nombre_estado='1')
+        dia_min = self.get_object().fecha_entrega+timedelta(days=6)
+        busqueda = Reserva.objects.filter(fecha_reserva__range=(self.get_object().fecha_entrega,dia_min))
+        lista_articulo = []
+        for it in busqueda:
+            reservas = Reserva_Detail.objects.filter(reserva=it.pk)
+            for reservas in reservas:
+                articulo = Articulo.objects.get(referencia=reservas.articulo)
+                lista_articulo.append(articulo.pk)
+        ac = Articulo.objects.exclude(pk__in=lista_articulo)
+        ak = ac.filter(nombre_estado_ropa='1',nombre_estado='1')
+        Alquiler_Detail_Filtro.fields["articulo"].queryset = ak
         context['form'] = Alquiler_Detail_Filtro
         return context
 
@@ -53,7 +64,6 @@ class Alquiler_Detail_Ingresar(LoginRequiredMixin,DetailView):
         if form.is_valid():
             form.save()
         return HttpResponseRedirect(reverse('Alquiler:Alquiler_Detail_Ingresar', args=[self.get_object().pk]))
-
 
 class Alquiler_Detail_Eliminar(LoginRequiredMixin,DetailView):
     model = Alquiler_Detail
@@ -138,8 +148,9 @@ class Alquiler_Devolucion(LoginRequiredMixin,TemplateView):
                 return HttpResponseRedirect(reverse('Alquiler:Alquiler_Factura', args=[ref.pk]))
         return render(request,'ModuloRecepcionista/Alquiler/AlquilerDevolucionTemplate/Alquiler_Devolucion.html')
 
-class Factura_List(ListView):
+class Factura_List(LoginRequiredMixin,ListView):
     model = Alquiler
+    login_url = '/'
     context_object_name = 'alquiler'
     template_name = 'ModuloRecepcionista/Alquiler/AlquilerDetailTemplate/alquiler_list.html'
 
@@ -147,10 +158,11 @@ class Factura_List_Admin(Factura_List):
     template_name = 'ModuloAdmin/Alquiler/Factura/alquiler_list.html'
 
 
-class Alquiler_Factura_Delete(DeleteView):
+class Alquiler_Factura_Delete(LoginRequiredMixin,SuperuserRequiredMixin,DeleteView):
     context_object_name = 'factura'
     model = Alquiler
-    template_name = 'ModuloAdmin/Alquiler/Factura/alquiler_confirm_delete_factura.html'
+    login_url = '/'
+    template_name = u'ModuloAdmin/Alquiler/Factura/alquiler_confirm_delete_factura.html'
     success_url = reverse_lazy('Alquiler:Factura_List_Admin')
 
 
