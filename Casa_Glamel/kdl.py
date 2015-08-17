@@ -23,8 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '$3#o2nwa$dvvbmb#ul*l$4&0%(a@vi7dm4-!gui*4+w9o&r7(a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-TEMPLATE_DEBUG = False
+DEBUG = True
+TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -42,7 +42,10 @@ INSTALLED_APPS = (
     'Apps.Alquiler',
     'Apps.User',
     'Apps.GestionInf',
-    'Apps.ControlProv'
+    'Apps.ControlProv',
+    'Apps.ControlAdmin',
+    'Apps.Ventas',
+    'Apps.Reserva'
 )
 
 MIDDLEWARE_CLASSES = (
