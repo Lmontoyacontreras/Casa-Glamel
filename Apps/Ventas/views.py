@@ -1,16 +1,49 @@
-import os
+from django.shortcuts import render
 from django.views.generic import TemplateView
-from datetime import date , timedelta
+from datetime import date,timedelta
 from braces.views import LoginRequiredMixin,SuperuserRequiredMixin
 
 from Apps.Inventario.models import Categoria,Articulo,Tipo
 from Apps.Alquiler.models import Alquiler_Detail,Alquiler
 from Apps.Reserva.models import Reserva,Reserva_Detail
 from Apps.GestionInf.models import Cliente
+from django.contrib.auth.decorators import login_required
 
-class Ventas_Control(LoginRequiredMixin,SuperuserRequiredMixin,TemplateView):
-    login_url = '/'
-    template_name = u'ModuloAdmin/VentasTemplate/Ventas_Control_Template.html'
+@login_required(login_url='/')
+def Ventas_Control(request):
+    tmp = 'ModuloAdmin/VentasTemplate/Ventas_Control_Template.html'
+    registro = False
+    if request.method=='POST':
+        fecha_inicio = request.POST.get('Fecha_Inicio')
+        fecha_final = request.POST.get('Fecha_Final')
+        fecha_ini = date(int(fecha_inicio[6:]),int(fecha_inicio[3:5]),int(fecha_inicio[0:2]))
+        fecha_fin = date(int(fecha_final[6:]),int(fecha_final[3:5]),int(fecha_final[0:2]))
+        if(fecha_fin>fecha_ini):
+            registro = True
+            alqui = Alquiler.objects.filter(fecha_entrega__range=(fecha_ini,fecha_fin))
+            alqui_suma = 0
+
+            for alqui in alqui:
+                alqui_detail = Alquiler_Detail.objects.filter(alquiler=alqui.pk)
+                for alqui_detail in alqui_detail:
+                    alqui_suma += alqui_detail.precio
+            multa = Alquiler.objects.filter(fecha_devolucion_dia__range=(fecha_ini,fecha_fin))
+            multa_suma = 0
+            for multa in multa:
+                multa_suma += multa.multa
+            rese = Reserva.objects.filter(fecha_limite__lt=fecha_fin, fecha_reserva__gt=fecha_ini)
+            reserva_cadu = 0
+            for rese in rese:
+                reserva_cadu += rese.abono_inicial
+            suma_total = multa_suma+alqui_suma+reserva_cadu
+
+
+            return render(request,tmp,{'registro':registro,'fecha_inicio':fecha_ini,'fecha_final':fecha_fin,
+                                       'alqui_suma':alqui_suma,'multa_suma':multa_suma,'suma_total':suma_total,
+                                       'reserva_cadu':reserva_cadu })
+        else:
+            return render(request,tmp,{'registro':registro})
+    return render(request,tmp,{'registro':registro})
 
 class Home_Admin(LoginRequiredMixin,SuperuserRequiredMixin,TemplateView):
     login_url = '/'
@@ -59,12 +92,12 @@ class Home_Admin(LoginRequiredMixin,SuperuserRequiredMixin,TemplateView):
         context['suma'] = suma
         context['reporte_diario']=reporte_diario
 
-
         #Reservas
         dia_hoy_reserva = date.today()
         dia_max = dia_hoy_reserva+timedelta(days=2)
         context['reservas'] = Reserva.objects.filter(fecha_reserva__range=(dia_hoy,dia_max))
-
+        context['reservas_caducada'] = Reserva.objects.filter(fecha_limite__lt=dia_hoy_reserva).count()
+        context['reservas_pen'] = Reserva.objects.filter(fecha_limite__gt=dia_hoy_reserva).count()
 
         #Reporte Mes
         multa_diaria_mes=0

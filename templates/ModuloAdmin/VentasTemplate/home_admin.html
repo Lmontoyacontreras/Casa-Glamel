@@ -17,7 +17,7 @@
     <div class="contentpanel">
       <!-- content goes here... -->
         <div class="row">
-            <div class="col-sm-6 col-md-4">
+            <div class="col-sm-6 col-md-3">
               <div class="panel panel-success panel-stat">
                 <div class="panel-heading">
 
@@ -51,7 +51,7 @@
               </div><!-- panel -->
             </div><!-- col-sm-6 -->
 
-            <div class="col-sm-6 col-md-4">
+            <div class="col-sm-6 col-md-3">
               <div class="panel panel-danger panel-stat">
                 <div class="panel-heading">
 
@@ -77,7 +77,44 @@
               </div><!-- panel -->
             </div><!-- col-sm-6 -->
 
-            <div class="col-sm-6 col-md-4">
+
+            <div class="col-sm-6 col-md-3">
+              <div class="panel panel-info panel-stat">
+                <div class="panel-heading">
+                  <div class="stat">
+                    <div class="row">
+                      <div class="col-xs-4">
+                        <img src="{% static 'images/is-document.png' %}" alt="" />
+                      </div>
+                      <div class="col-xs-8">
+                        <small class="stat-label">Reservas del dia</small>
+                        <h1>{{ reservas.count }}</h1>
+                      </div>
+                    </div><!-- row -->
+
+                    <div class="mb15"></div>
+
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <small class="stat-label">Reservas Pendiente</small>
+                        <h4>{{ reservas_pen }}</h4>
+                      </div>
+
+                      <div class="col-xs-6">
+                        <small class="stat-label">Reserva Caducadas</small>
+                        <h4>{{ reservas_caducada }}</h4>
+                      </div>
+                    </div><!-- row -->
+
+
+                  </div><!-- stat -->
+
+                </div><!-- panel-heading -->
+              </div><!-- panel -->
+            </div><!-- col-sm-6 -->
+
+
+            <div class="col-sm-6 col-md-3">
               <div class="panel panel-dark panel-stat">
                 <div class="panel-heading">
 
@@ -167,14 +204,14 @@
                      <tr>
                         <th>Cod Factura</th>
                         <th>Clientes</th>
-                        <th>Fecha Salida</th>
                         <th>Fecha Entrega</th>
+                        <th>Fecha Devolucion</th>
                         <th>Estado</th>
                      </tr>
                   </thead>
                   <tbody>
                   {% for repor in reporte_diario %}
-                     <tr class="gradeC">
+                      <tr class="gradeC">
                         <td>{{ repor.pk }}</td>
                         <td>{{ repor.cliente }}</td>
                         <td>{{ repor.fecha_entrega }}</td>
@@ -208,8 +245,8 @@
                      <tr>
                         <th>Cod Factura</th>
                         <th>Clientes</th>
-                        <th>Fecha Salida</th>
                         <th>Fecha Entrega</th>
+                        <th>Fecha Devolucion</th>
                      </tr>
                   </thead>
                   <tbody>

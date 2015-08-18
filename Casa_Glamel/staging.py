@@ -42,7 +42,11 @@ INSTALLED_APPS = (
     'Apps.Alquiler',
     'Apps.User',
     'Apps.GestionInf',
-    'Apps.ControlProv'
+    'Apps.ControlProv',
+    'Apps.ControlAdmin',
+    'Apps.Ventas',
+    'Apps.Reserva'
+
 )
 
 MIDDLEWARE_CLASSES = (

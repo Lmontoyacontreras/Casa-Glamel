@@ -16,7 +16,7 @@
 {% block contenido%}
     <div class="col-md-12">
 
-          <form method="get" action="">{% csrf_token %}
+          <form method="POST" action="">{% csrf_token %}
             <div class="panel panel-default">
               <div class="panel-heading">
                 <div class="panel-btns">
@@ -46,7 +46,56 @@
           </div><!-- panel -->
               </form>
     </div>
+    {% if registro %}
+        <div class="col-md-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <div class="panel-btns">
+                  <a href="#" class="panel-close">&times;</a>
+                  <a href="#" class="minimize">&minus;</a>
+                </div>
+                <h4 class="panel-title">Ventas Control</h4>
+              </div>
+              <div class="panel-body">
+                  <div class="table-responsive">
+                      <table class="table" id="table2">
+                          <thead>
+                             <tr>
+                                <th colspan="3" class="text-center">Informe de Ventas</th>
+                             </tr>
+                          </thead>
+                          <tbody>
+                             <tr class="gradeC">
+                                <th>Fecha de Control</th>
+                                <th class="text-center">{{ fecha_inicio }} </th>
+                                <th class="text-center"> {{ fecha_final }}</th>
+                             </tr>
+                             <tr class="gradeC">
+                                <td>Ventas</td>
+                                <td class="text-right" colspan="2">{{ alqui_suma }}</td>
+                             </tr>
+                             <tr class="gradeC">
+                                <td>Multas</td>
+                                <td class="text-right" colspan="2">{{ multa_suma }}</td>
+                             </tr>
+                             <tr class="gradeC">
+                                <td>Reservas Caducadas</td>
+                                <td class="text-right" colspan="2">{{ reserva_cadu }}</td>
+                             </tr>
+                             <tr class="gradeC">
+                                <th>Total</th>
+                                <th class="text-right" colspan="2">{{ suma_total }}</th>
+                             </tr>
+                          </tbody>
+                       </table>
+                      </div><!-- table-responsive -->
+              </div><!-- panel-body -->
+              <div class="panel-footer">
 
+              </div>
+          </div><!-- panel -->
+        </div>
+    {% endif %}
 {% endblock %}
 
 {% block linkscript %}<script src="{% static 'js/jquery.validate.min.js' %}"></script>
@@ -79,8 +128,8 @@
         }
       });
 
-        jQuery("#prueba").datepicker({dateFormat: 'yy-mm-dd'});
-        jQuery('#prueba2').datepicker({dateFormat: 'yy-mm-dd'});
+        jQuery("#prueba").datepicker({dateFormat: 'dd/mm/yy'});
+        jQuery('#prueba2').datepicker({dateFormat: 'dd/mm/yy'});
 
     });
 </script>
