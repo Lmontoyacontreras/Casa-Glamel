@@ -6,7 +6,7 @@ from .models import Reserva,Reserva_Detail
 class Reserva_Form(forms.ModelForm):
     class Meta:
         model = Reserva
-        fields = ['vendedor','cliente','fecha_reserva','fecha_limite','abono_inicial']
+        fields = ['vendedor','cliente','fecha_reserva','fecha_limite','abono_inicial','descuento']
         widgets = {
             'cliente':forms.Select(attrs={
                 'class':'form-control chosen-select'
@@ -31,8 +31,26 @@ class Reserva_Form(forms.ModelForm):
                 'class':'form-control',
                 'placeholder':'Abono Inicial',
             }),
+            'descuento': forms.TextInput(attrs={
+                'type':'text',
+                'name':'referencia',
+                'class':'form-control',
+                'placeholder':'Descuento',
+            }),
         }
 
+class Reserva_Form_Abono(forms.ModelForm):
+    class Meta:
+        model = Reserva
+        fields = ['abono_inicial']
+        widgets = {
+            'abono_inicial': forms.TextInput(attrs={
+                'type':'text',
+                'name':'referencia',
+                'class':'form-control',
+                'placeholder':'Abono Inicial',
+            }),
+        }
 
 class Reserva_Detail_Form(forms.ModelForm):
     class Meta:

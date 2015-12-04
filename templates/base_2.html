@@ -63,6 +63,8 @@
             <li><a href="{% url 'Gestion:Cliente_Lista' %}"><i class="fa fa-caret-right"></i>Listado de Clientes</a></li>
           </ul>
         </li>
+
+
         <!--<li class="nav-parent"><a href="#"><i class="fa fa-github-alt"></i> <span>Empleados</span></a>
           <ul class="children">
             <li><a href="#"><i class="fa fa-caret-right"></i>Crear Empleado</a></li>
@@ -86,7 +88,11 @@
         <h5 class="sidebartitle">Reservas</h5>
           <li><a href="{% url 'Reservas:Ingresar_Reserva' %}"><i class="fa fa-foursquare"></i> <span>Crear Reservas</span></a></li>
           <li><a href="{% url 'Reservas:Reserva_Calendar' %}"><i class="fa fa-calendar"></i> <span>Reservas</span></a></li>
-          <li><a href="{% url 'Reservas:Reserva_Devolucion' %}"><i class="fa fa-edit"></i>Consulta Reserva</a></li>
+          <li><a href="{% url 'Reservas:Reserva_Devolucion' %}"><i class="fa fa-edit"></i><span>Consulta Reserva</span></a></li>
+
+        <h5 class="sidebartitle">Otros</h5>
+          <li><a href="{% url 'Notificaciones:Notificaciones_Ingresar' %}"><i class="fa  fa-bell"></i> <span>Notificaciones</span></a></li>
+          <li><a href="{% url 'Egreso:Egreso_Ingresar' %}"><i class="fa  fa-money"></i> <span>Egresos</span></a></li>
       </ul>
     </div><!-- leftpanelinner -->
   </div><!-- leftpanel -->

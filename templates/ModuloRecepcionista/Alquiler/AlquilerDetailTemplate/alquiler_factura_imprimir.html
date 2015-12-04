@@ -12,7 +12,6 @@
   <link href="{%static 'css/style.default.css' %}" rel="stylesheet">
   
 </head>
-<div class="col-sm-3"></div>
 <div class="contentpanel col-sm-6 small">
 
       <div class="panel panel-default small">
@@ -31,8 +30,8 @@
                     {% endif %}
                     <table  style="width:100%">
                         <tr>
-                            <td rowspan="7"><img src="{% static 'images/descarga.png' %}" class="img-responsive mb10" alt=""
-                            height="150" width="150"/></td>
+                            <td rowspan="7"><img src="{% static 'images/descarga.jpg' %}" class="img-responsive mb10" alt=""
+                            height="200" width="200"/></td>
                             <th class="text-center small" colspan="3"><h5>Contrato de Alquiler No.{{ alquiler.pk }}</h5></th>
                         </tr>
                         <tr>
@@ -46,7 +45,9 @@
                         </tr>
                             <tr>
                                 <th>Direccion</th>
-                                <td colspan="2">{{ alquiler.cliente.direccion }}</td>
+                                <td>{{ alquiler.cliente.direccion }}</td>
+                                 <th>Descuento</th>
+                                <td>{{ alquiler.descuento }} %</td>
                             </tr>
                             <tr>
                                 <th>Telefono</th>
@@ -120,6 +121,15 @@
                 </tbody>
             </table>
 
+            <div class="mb40"></div>
+
+            <div class="row">
+                <div class="col-sw-5">
+                    <div class="row text-center"><h4>Quien Alquila  &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;  &nbsp; &nbsp; &nbsp;&nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        Quien Recibe &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;  &nbsp; &nbsp; &nbsp;;&nbsp;<i class="fa fa-square-o fa-5x"></i></h4></div>
+                </div>
+            </div>
+
             <div class="well">
                 <p class="text-justify small"> Declaro que en la fecha he recibido en buen estado las prendas de vestir descritas en este documento,
                     las cuales estare devolviendo dentro de las 24 horas posteriores. la utilizacion del servicio objeto
@@ -129,7 +139,7 @@
                 </p>
                 <p class="small"><h4 class="small">Pagare No {{ alquiler.pk }}</h4></p>
                 <p class="text-justify small"> Yo, {{ alquiler.cliente.full_nombre }}, identificado como aparece al pie de la firma declaro -primero que he recibido
-                    de Melba Hernandez Flores prendas de vestir valoradas en la suma de: {{ suma_original }}, -segundo que
+                    de Melba Hernandez Flores prendas de vestir valoradas en la suma de: _______________, -segundo que
                     dicha suma la pagare a Melba Hernandez Flores a su orden en sus oficinas en solo contado el dia {{ alquiler.fecha_entrega }}
                     -terecero de aviso previo o notificacion al deudor -cuarto que en el caso de mora en el pago de la
                     obligacion contenida en este titulo de sus accesorios se extinguira el plazo y se exigira el pago total

@@ -21,6 +21,7 @@ class Cliente(models.Model):
     direccion = models.CharField(max_length=100)
     telefono = models.IntegerField()
     correo = models.CharField(max_length=100)
+    peligroso = models.BooleanField(default=False)
 
     def __str__(self):
         return self.full_nombre

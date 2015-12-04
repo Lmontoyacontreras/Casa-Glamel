@@ -34,7 +34,13 @@
                             </tr>
                             <tr>
                                 <td><strong>Cliente:</strong> </td>
-                                <td>{{ alquiler_factura.cliente }}</td>
+                                <td>{{ alquiler_factura.cliente }}
+                                {% if alquiler_factura.cliente.peligroso %}
+                                    <span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down"></span></span>
+                                {% else %}
+                                    <span class="label label-success"><span class="glyphicon glyphicon-thumbs-up"></span></span>
+                                {% endif %}
+                                </td>
                                 <td><strong>Identificacion: </strong></td>
                                 <td>{{ alquiler_factura.cliente.identificacion }}</td>
                             </tr>

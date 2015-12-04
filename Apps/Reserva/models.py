@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator,MaxValueValidator
 from django.core.urlresolvers import reverse
 
 from Apps.GestionInf.models import Cliente
@@ -12,6 +13,10 @@ class Reserva(models.Model):
     fecha_reserva = models.DateField()
     fecha_limite = models.DateField()
     abono_inicial = models.IntegerField()
+    descuento = models.IntegerField(default=0, null=True, blank=True, validators=[
+                                        MinValueValidator(0),
+                                        MaxValueValidator(100)
+                                    ])
 
     def __str__(self):
         return str(self.pk)

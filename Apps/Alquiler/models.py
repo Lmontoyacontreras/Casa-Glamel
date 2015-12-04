@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 from Apps.GestionInf.models import Cliente
 from Apps.Inventario.models import Articulo
@@ -15,6 +16,11 @@ class Alquiler(models.Model):
     observaciones = models.TextField()
     fecha_devolucion_dia = models.DateField(blank=True,null=True)
     multa = models.IntegerField(blank=True,null=True)
+    descuento = models.IntegerField(default=0, blank=True, null=True,
+                                    validators=[
+                                        MaxValueValidator(100),
+                                        MinValueValidator(0)
+                                    ])
 
     def __str__(self):
         return str(self.pk)

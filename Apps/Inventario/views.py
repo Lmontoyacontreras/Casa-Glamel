@@ -7,7 +7,6 @@ from .models import Familia, Categoria, Articulo
 from .forms import Familia_Form, Categoria_Form, Articulo_Form
 
 #LoginRequiredMixin,
-
 class Familia_Ingresar(LoginRequiredMixin,SuperuserRequiredMixin,CreateView):
     model = Familia
     login_url = '/'

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView,DeleteView
+from django.views.generic.edit import CreateView,DeleteView,UpdateView
 from django.core.urlresolvers import reverse_lazy,reverse
 from django.http import HttpResponseRedirect
 from django.views.generic import DetailView,ListView,TemplateView
@@ -8,7 +8,7 @@ from braces.views import LoginRequiredMixin,SuperuserRequiredMixin
 
 
 from .models import Reserva,Reserva_Detail
-from .forms import Reserva_Form,Reserva_Detail_Form
+from .forms import Reserva_Form,Reserva_Detail_Form,Reserva_Form_Abono
 from Apps.Inventario.models import Articulo,Estado_Ropa
 from Apps.Alquiler.models import Alquiler,Alquiler_Detail
 from Apps.Alquiler.forms import Alquiler_Reserva_Form
@@ -26,6 +26,11 @@ class IngresarReserva(LoginRequiredMixin,CreateView):
         form.instance.vendedor = user
         return super(IngresarReserva,self).form_valid(form)
 
+class Reserva_Abono(LoginRequiredMixin,UpdateView):
+    model = Reserva
+    login_url = '/'
+    form_class = Reserva_Form_Abono
+    template_name = 'ModuloRecepcionista/Reserva/Reserva_Abono.html'
 
 
 class Reserva_Detail_Ingresar(LoginRequiredMixin,DetailView):
@@ -48,7 +53,7 @@ class Reserva_Detail_Ingresar(LoginRequiredMixin,DetailView):
                 articulo = Articulo.objects.get(referencia=reserva_detail_view.articulo)
                 lista_articulo.append(articulo.pk)
         ac = Articulo.objects.exclude(pk__in=lista_articulo)
-        Reserva_Detail_Filtro.fields['articulo'].queryset = ac
+        Reserva_Detail_Filtro.fields['articulo'].queryset = ac.filter(nombre_estado_ropa=1)
         context['form']=Reserva_Detail_Filtro
         return context
 
@@ -77,6 +82,7 @@ class Reserva_Factura_Detail(LoginRequiredMixin,DetailView):
                 suma += 0
             else:
                 suma += deta.articulo.precio
+        suma = suma-(suma*self.get_object().descuento/100)
         context['hoy']=date.today()
         context['form']=Alquiler_Reserva_Form()
         context['suma']=suma
@@ -89,6 +95,7 @@ class Reserva_Factura_Detail(LoginRequiredMixin,DetailView):
         form.data['vendedor'] = self.get_object().vendedor
         cliente = Cliente.objects.get(full_nombre=self.get_object().cliente)
         form.data['cliente'] = cliente.pk
+        form.data['descuento'] = self.get_object().descuento
         hoy = date.today()
         form.data['fecha_entrega'] = hoy
         form.instance.devuelto = False
@@ -132,6 +139,12 @@ class Reserva_Calendar(LoginRequiredMixin,ListView):
     template_name = 'ModuloRecepcionista/Reserva/Reserva_Calendar.html'
     context_object_name = 'reserva'
 
+class Reserva_List (SuperuserRequiredMixin,LoginRequiredMixin,ListView):
+    model = Reserva
+    login_url = '/'
+    template_name = u'ModuloAdmin/Reserva/Reserva_List.html'
+    context_object_name = 'reserva'
+
 
 class Reserva_Detail_Eliminar(LoginRequiredMixin,DetailView):
     context_object_name = 'reserva'
@@ -161,3 +174,11 @@ class Reserva_Devolucion(LoginRequiredMixin,TemplateView):
 
 class Reserva_Factura_Detail_Admin(Reserva_Factura_Detail):
     template_name = 'ModuloAdmin/Reserva/Reserva_Factura.html'
+
+
+class Reserva_Delete_Admin(LoginRequiredMixin,SuperuserRequiredMixin,DeleteView):
+    model = Reserva
+    login_url = '/'
+    context_object_name = 'reserva'
+    template_name = u'ModuloAdmin/Reserva/Reserva_Confirm_Delete.html'
+    success_url = reverse_lazy('Reservas:Reserva_List')

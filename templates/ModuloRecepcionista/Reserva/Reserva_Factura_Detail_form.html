@@ -23,8 +23,8 @@
                 <div class="col-sm-12">
                     <table style="width:100%">
                         <tr>
-                            <td rowspan="7"><img src="{% static 'images/descarga.png' %}" class="img-responsive mb10" alt=""
-                            height="300" width="300"/></td>
+                            <td rowspan="7"><img src="{% static 'images/descarga.jpg' %}" class="img-responsive mb10" alt=""
+                            height="350" width="350"/></td>
                             <th class="text-center" colspan="3"><h5>Reserva No. {{ reserva.pk }}</h5></th>
                         </tr>
                         <tr>
@@ -39,6 +39,8 @@
                             <tr>
                                 <th>Direccion</th>
                                 <td>{{ reserva.cliente.direccion }}</td>
+                                <th>Descuento</th>
+                                <td>{{ reserva.descuento }}</td>
                             </tr>
                             <tr>
                                 <th>Telefono</th>
@@ -153,6 +155,7 @@
                       <button data-toggle="modal" data-target="#myModal" type="submit" class="btn btn-white"><i class="fa  fa-spinner mr5"></i> Generar Alquiler</button>
                     {% endif %}
                 {% endif %}
+                    <a href="{% url 'Reservas:Reserva_Abono' reserva.pk %}" class="btn btn-white"><i class="fa fa-money mr5"></i> Registar Abono</a>
                 <a href="{% url 'Reservas:Reserva_Factura_Detail_Imprimir' reserva.pk %}" class="btn btn-white" target="_blank"><i class="fa fa-print mr5"></i> Imprimir</a>
             </div>
 

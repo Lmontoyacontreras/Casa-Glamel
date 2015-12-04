@@ -15,3 +15,6 @@ from dj_static import Cling
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Casa_Glamel.staging")
 
 application = Cling(get_wsgi_application())
+
+from django.core.cache.backends.memcached import BaseMemcachedCache
+BaseMemcachedCache.close = lambda self, **kwargs: None

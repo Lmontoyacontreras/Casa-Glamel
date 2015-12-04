@@ -6,7 +6,7 @@ from Apps.GestionInf.models import Cliente
 class Alquiler_Form(forms.ModelForm):
     class Meta:
         model = Alquiler
-        fields = ['vendedor','cliente','fecha_entrega','fecha_devolucion','deposito','observaciones']
+        fields = ['vendedor','cliente','fecha_entrega','fecha_devolucion','deposito','observaciones','descuento']
         widgets = {
             'cliente': forms.Select(attrs={
                 'class':'form-control chosen-select'
@@ -31,6 +31,12 @@ class Alquiler_Form(forms.ModelForm):
                 'class':'form-control',
                 'placeholder':'Deposito',
             }),
+            'descuento': forms.TextInput(attrs={
+                'type':'text',
+                'name':'referencia',
+                'class':'form-control',
+                'placeholder':'Descuento',
+            }),
             'observaciones': forms.Textarea(attrs={
                 'class':'form-control',
                 'row':'3',
@@ -54,7 +60,7 @@ class Alquiler_Detail_Form(forms.ModelForm):
 class Alquiler_Reserva_Form(forms.ModelForm):
     class Meta:
         model = Alquiler
-        fields = ['vendedor','cliente','fecha_entrega','fecha_devolucion','deposito','observaciones']
+        fields = ['vendedor','cliente','fecha_entrega','fecha_devolucion','deposito','observaciones','descuento']
         widgets = {
             'fecha_devolucion': forms.DateInput(attrs={
                 'type':'text',

@@ -27,4 +27,7 @@ urlpatterns = [
     url(r'^', include('Apps.ControlAdmin.urls', namespace='ControlAdmin')),
     url(r'^', include('Apps.Ventas.urls', namespace='VentasAdmin')),
     url(r'^',include('Apps.Reserva.urls', namespace='Reservas')),
+    url(r'^',include('Apps.Egreso.urls', namespace='Egreso')),
+    url(r'^',include('Apps.Notificaciones.urls', namespace='Notificaciones')),
+
 ]

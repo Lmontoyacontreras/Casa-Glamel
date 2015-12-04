@@ -23,7 +23,7 @@
                 <div class="col-sm-12">
                     <table style="width:100%">
                         <tr>
-                            <td rowspan="7"><img src="{% static 'images/descarga.png' %}" class="img-responsive mb10" alt=""
+                            <td rowspan="7"><img src="{% static 'images/descarga.jpg' %}" class="img-responsive mb10" alt=""
                             height="300" width="300"/></td>
                             <th class="text-center" colspan="3"><h5>Reserva No. {{ reserva.pk }}</h5></th>
                         </tr>
@@ -39,6 +39,8 @@
                             <tr>
                                 <th>Direccion</th>
                                 <td>{{ reserva.cliente.direccion }}</td>
+                                <th>Descuento</th>
+                                <td>{{ reserva.descuento }}%</td>
                             </tr>
                             <tr>
                                 <th>Telefono</th>

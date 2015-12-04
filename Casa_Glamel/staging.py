@@ -45,7 +45,9 @@ INSTALLED_APPS = (
     'Apps.ControlProv',
     'Apps.ControlAdmin',
     'Apps.Ventas',
-    'Apps.Reserva'
+    'Apps.Reserva',
+    'Apps.Notificaciones',
+    'Apps.Egreso'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -121,3 +123,30 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 STATIC_ROOT = 'staticfiles'
+
+
+
+# Cache
+
+def get_cache():
+  import os
+  try:
+    os.environ['MEMCACHE_SERVERS'] = os.environ['MEMCACHIER_SERVERS'].replace(',', ';')
+    os.environ['MEMCACHE_USERNAME'] = os.environ['MEMCACHIER_USERNAME']
+    os.environ['MEMCACHE_PASSWORD'] = os.environ['MEMCACHIER_PASSWORD']
+    return {
+      'default': {
+        'BACKEND': 'django_pylibmc.memcached.PyLibMCCache',
+        'TIMEOUT': 500,
+        'BINARY': True,
+        'OPTIONS': { 'tcp_nodelay': True }
+      }
+    }
+  except:
+    return {
+      'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'
+      }
+    }
+
+CACHES = get_cache()

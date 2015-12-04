@@ -25,7 +25,12 @@
             <div class="people-item">
               <div class="media">
                 <div class="media-body">
-                  <h4 class="person-name">{{ cliente.full_nombre }}</h4>
+                  <h4 class="person-name">{{ cliente.full_nombre }}
+                      {% if cliente.peligroso %}
+                          <span class="label label-danger"><span class="glyphicon glyphicon-thumbs-down"></span></span>
+                      {% else %}
+                          <span class="label label-success"><span class="glyphicon glyphicon-thumbs-up"></span></span>
+                      {% endif %}</h4>
                     <div class="text-muted"><i class="fa fa-male"></i> {{ cliente.identificacion }}</div>
                   <div class="text-muted"><i class="fa fa-map-marker"></i> {{ cliente.direccion }}</div>
                   <div class="text-muted"><i class="fa  fa-phone"></i> {{ cliente.telefono }} </div>

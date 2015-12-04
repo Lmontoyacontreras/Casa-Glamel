@@ -3,6 +3,7 @@ from django.views.generic import TemplateView
 from datetime import date,timedelta
 from braces.views import LoginRequiredMixin,SuperuserRequiredMixin
 
+from Apps.Egreso.models import Egreso
 from Apps.Inventario.models import Categoria,Articulo,Tipo
 from Apps.Alquiler.models import Alquiler_Detail,Alquiler
 from Apps.Reserva.models import Reserva,Reserva_Detail
@@ -26,7 +27,8 @@ def Ventas_Control(request):
             for alqui in alqui:
                 alqui_detail = Alquiler_Detail.objects.filter(alquiler=alqui.pk)
                 for alqui_detail in alqui_detail:
-                    alqui_suma += alqui_detail.precio
+                    alqui_suma += alqui_detail.precio-(alqui_detail.precio*(alqui.descuento/100))
+
             multa = Alquiler.objects.filter(fecha_devolucion_dia__range=(fecha_ini,fecha_fin))
             multa_suma = 0
             for multa in multa:
@@ -35,12 +37,16 @@ def Ventas_Control(request):
             reserva_cadu = 0
             for rese in rese:
                 reserva_cadu += rese.abono_inicial
-            suma_total = multa_suma+alqui_suma+reserva_cadu
+            egreso_suma = 0
+            egreso = Egreso.objects.filter(fecha__range=(fecha_ini,fecha_fin))
+            for egreso in egreso:
+                egreso_suma += egreso.valor
+            suma_total = multa_suma+alqui_suma+reserva_cadu-egreso_suma
 
 
             return render(request,tmp,{'registro':registro,'fecha_inicio':fecha_ini,'fecha_final':fecha_fin,
                                        'alqui_suma':alqui_suma,'multa_suma':multa_suma,'suma_total':suma_total,
-                                       'reserva_cadu':reserva_cadu })
+                                       'reserva_cadu':reserva_cadu, 'egreso_suma':egreso_suma })
         else:
             return render(request,tmp,{'registro':registro})
     return render(request,tmp,{'registro':registro})
@@ -84,7 +90,7 @@ class Home_Admin(LoginRequiredMixin,SuperuserRequiredMixin,TemplateView):
             deposito += reporte_dia.deposito
             alquilado = Alquiler_Detail.objects.filter(alquiler=reporte_dia.pk)
             for alquilado in alquilado:
-                suma += alquilado.precio
+                suma += alquilado.precio-(alquilado.precio*(reporte_dia.descuento/100))
 
         context['multa'] = multa_diaria
         context['deposito'] = deposito
@@ -111,7 +117,7 @@ class Home_Admin(LoginRequiredMixin,SuperuserRequiredMixin,TemplateView):
             suma_mes=0
             deposito_mes += alquiler_mes.deposito
             for alquiler_mes_detail in alquiler_mes_detail:
-                suma_m += alquiler_mes_detail.precio
+                suma_m += alquiler_mes_detail.precio-(alquiler_mes_detail.precio*(alquiler_mes.descuento/100))
         for multa_mes in multa_mes:
             multa_diaria_mes +=multa_mes.multa
         context['multa_diaria_mes']= multa_diaria_mes

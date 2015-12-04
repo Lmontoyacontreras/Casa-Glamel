@@ -60,7 +60,8 @@
         <h5 class="sidebartitle">Gestion de Informacion</h5>      
 
         <li><a href="{% url 'Alquiler:Factura_List_Admin' %}"><i class="fa fa-book"></i> <span>Facturas</span></a></li>
-        <!--<li class="nav-parent"><a href="#"><i class="fa fa-github-alt"></i> <span>Empleados</span></a>
+        <li><a href="{% url 'Reservas:Reserva_List' %}"><i class="fa fa-foursquare"></i> <span>Reservas</span></a></li>
+          <!--<li class="nav-parent"><a href="#"><i class="fa fa-github-alt"></i> <span>Empleados</span></a>
           <ul class="children">
             <li><a href="#"><i class="fa fa-caret-right"></i>Crear Empleado</a></li>
             <li><a href="#"><i class="fa fa-caret-right"></i>Listado de Empleado</a></li>
@@ -89,6 +90,9 @@
         </li>
         <li><a href="{% url 'ControlProv:Factura_Proveedor_Ingresar' %}"><i class="fa fa-shopping-cart"></i> <span>Registro de pedidos</span></a></li>
         <li><a href="{% url 'ControlProv:Factura_Proveedor_Lista' %}"><i class="fa fa-edit"></i><span>Listado de Pedidos</span></a></li>
+        <h5 class="sidebartitle">Otros</h5>
+          <li><a href="{% url 'Notificaciones:Notificaciones_List' %}"><i class="fa  fa-bell"></i> <span>Notificaciones</span></a></li>
+          <li><a href="{% url 'Egreso:Egreso_List' %}"><i class="fa  fa-money"></i> <span>Egresos</span></a></li>
       </ul>
     </div><!-- leftpanelinner -->
   </div><!-- leftpanel -->

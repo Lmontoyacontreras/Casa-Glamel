@@ -96,6 +96,7 @@ class Alquiler_Factura(LoginRequiredMixin,DetailView):
         for alquiler in alquiler_detail_suma:
             suma=alquiler.precio+suma
             suma_original=suma_original+alquiler.articulo.precio_original
+        suma = suma-(suma*self.get_object().descuento/100)
         cotext['suma'] = suma
         cotext['suma_original'] = suma_original
         return cotext

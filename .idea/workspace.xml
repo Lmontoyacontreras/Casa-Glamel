@@ -25,9 +25,11 @@
       <file leaf-file-name="staging.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Casa_Glamel/staging.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="122" column="27" selection-start-line="0" selection-start-column="0" selection-end-line="122" selection-end-column="27" />
-              <folding />
+            <state vertical-scroll-proportion="-1.2592592">
+              <caret line="45" column="20" selection-start-line="0" selection-start-column="0" selection-end-line="151" selection-end-column="20" />
+              <folding>
+                <element signature="e#384#393#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -35,9 +37,11 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Casa_Glamel/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.91052634">
-              <caret line="122" column="27" selection-start-line="122" selection-start-column="27" selection-end-line="122" selection-end-column="27" />
-              <folding />
+            <state vertical-scroll-proportion="0.9036827">
+              <caret line="151" column="20" selection-start-line="151" selection-start-column="20" selection-end-line="151" selection-end-column="20" />
+              <folding>
+                <element signature="e#384#393#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,55 +59,55 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Cliente/cliente_list.html" />
-        <option value="$PROJECT_DIR$/templates/ModuloAdmin/Alquiler/Factura/alquiler_confirm_delete_factura.html" />
-        <option value="$PROJECT_DIR$/templates/ModuloAdmin/Alquiler/Factura/alquiler_detail_admin.html" />
-        <option value="$PROJECT_DIR$/Apps/ControlAdmin/forms.py" />
-        <option value="$PROJECT_DIR$/templates/ModuloAdmin/AdminControlTemplate/Seguimineto_Prendas.html" />
-        <option value="$PROJECT_DIR$/Apps/ControlAdmin/urls.py" />
-        <option value="$PROJECT_DIR$/templates/ModuloAdmin/Alquiler/Factura/alquiler_form.html" />
-        <option value="$PROJECT_DIR$/templates/ModuloAdmin/Alquiler/Factura/alquiler_list.html" />
-        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Alquiler/AlquilerDetailTemplate/alquiler_list.html" />
-        <option value="$PROJECT_DIR$/templates/ModuloAdmin/VentasTemplate/ventas_informe.html" />
-        <option value="$PROJECT_DIR$/Apps/User/views.py" />
-        <option value="$PROJECT_DIR$/templates/ModuloAdmin/InventarioTemplate/Articulo/articulo_detail.html" />
+        <option value="$PROJECT_DIR$/Apps/Notificaciones/forms.py" />
+        <option value="$PROJECT_DIR$/Apps/Notificaciones/admin.py" />
+        <option value="$PROJECT_DIR$/templates/ModuloAdmin/Otros/Notificaciones/notificaciones_form.html" />
+        <option value="$PROJECT_DIR$/Apps/Notificaciones/urls.py" />
+        <option value="$PROJECT_DIR$/templates/ModuloAdmin/Otros/Notificaciones/notificaciones_list.html" />
+        <option value="$PROJECT_DIR$/templates/ModuloAdmin/Otros/Notificaciones/notificaciones_comfirm_delete.html" />
+        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Otros/Notificaciones/notificaciones_form.html" />
+        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Otros/egreso_form.html" />
+        <option value="$PROJECT_DIR$/Apps/Egreso/models.py" />
+        <option value="$PROJECT_DIR$/Apps/Egreso/forms.py" />
+        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Otros/Egresos/egreso_form.html" />
+        <option value="$PROJECT_DIR$/templates/ModuloAdmin/Otros/Egresos/egresos_form.html" />
+        <option value="$PROJECT_DIR$/Apps/Notificaciones/views.py" />
+        <option value="$PROJECT_DIR$/Apps/Egreso/urls.py" />
+        <option value="$PROJECT_DIR$/Apps/Egreso/views.py" />
+        <option value="$PROJECT_DIR$/templates/ModuloAdmin/Otros/Egresos/egresos_list.html" />
+        <option value="$PROJECT_DIR$/templates/ModuloAdmin/Otros/Egresos/egresos_comfirm_delete.html" />
+        <option value="$PROJECT_DIR$/templates/ModuloAdmin/VentasTemplate/Ventas_Control_Template.html" />
         <option value="$PROJECT_DIR$/templates/ModuloAdmin/AdminControlTemplate/Seguimiento Detail.html" />
+        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_Devolucion.html" />
+        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Cliente/cliente_form.html" />
+        <option value="$PROJECT_DIR$/Apps/GestionInf/models.py" />
+        <option value="$PROJECT_DIR$/Apps/GestionInf/forms.py" />
+        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Alquiler/AlquilerDetailTemplate/alquiler_detail_form.html" />
+        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Cliente/cliente_list.html" />
+        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_Detail_form.html" />
         <option value="$PROJECT_DIR$/Apps/Alquiler/models.py" />
         <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Alquiler/AlquilerDetailTemplate/alquiler_form.html" />
-        <option value="$PROJECT_DIR$/Casa_Glamel/urls.py" />
-        <option value="$PROJECT_DIR$/Apps/Reserva/form.py" />
-        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_form.html" />
-        <option value="$PROJECT_DIR$/Apps/Reserva/admin.py" />
-        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Alquiler/AlquilerDetailTemplate/alquiler_detail_form.html" />
-        <option value="$PROJECT_DIR$/Apps/Alquiler/urls.py" />
-        <option value="$PROJECT_DIR$/Apps/Reserva/models.py" />
-        <option value="$PROJECT_DIR$/Apps/Reserva/forms.py" />
-        <option value="$PROJECT_DIR$/Apps/Alquiler/forms.py" />
-        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_Factura_Imprimir.html" />
-        <option value="$USER_HOME$/Downloads/Prototipo/reservas_admin.html" />
-        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_Calendar.html" />
-        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_delete_confirm.html" />
-        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_Devolucion.html" />
-        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_Factura_Detail_form.html" />
-        <option value="$PROJECT_DIR$/static/css/style.default.css" />
-        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_Detail_form.html" />
-        <option value="$PROJECT_DIR$/templates/ModuloAdmin/Reserva/Reserva_Devolucion.html" />
-        <option value="$PROJECT_DIR$/templates/ModuloAdmin/Reserva/Reserva_Factura.html" />
-        <option value="$PROJECT_DIR$/Apps/Reserva/urls.py" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/Apps/Alquiler/views.py" />
-        <option value="$PROJECT_DIR$/Apps/ControlAdmin/views.py" />
-        <option value="$PROJECT_DIR$/Apps/ControlProv/views.py" />
-        <option value="$PROJECT_DIR$/Apps/GestionInf/views.py" />
-        <option value="$PROJECT_DIR$/Apps/Reserva/views.py" />
-        <option value="$PROJECT_DIR$/templates/base_2.html" />
-        <option value="$PROJECT_DIR$/Casa_Glamel/kdl.py" />
-        <option value="$PROJECT_DIR$/templates/Login.html" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/templates/ModuloAdmin/VentasTemplate/home_admin.html" />
-        <option value="$PROJECT_DIR$/Apps/Ventas/urls.py" />
-        <option value="$PROJECT_DIR$/templates/ModuloAdmin/VentasTemplate/Ventas_Control_Template.html" />
+        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_form.html" />
+        <option value="$PROJECT_DIR$/Apps/Alquiler/forms.py" />
         <option value="$PROJECT_DIR$/Apps/Ventas/views.py" />
+        <option value="$PROJECT_DIR$/Apps/Reserva/forms.py" />
+        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Alquiler/AlquilerDetailTemplate/alquiler_factura_form.html" />
+        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Alquiler/AlquilerDetailTemplate/alquiler_factura_imprimir.html" />
+        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_Factura_Detail_form.html" />
+        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_Factura_Imprimir.html" />
+        <option value="$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_Abono.html" />
+        <option value="$PROJECT_DIR$/templates/ModuloAdmin/Alquiler/Factura/alquiler_detail_admin.html" />
+        <option value="$PROJECT_DIR$/Apps/ControlProv/views.py" />
+        <option value="$PROJECT_DIR$/Apps/Reserva/models.py" />
+        <option value="$PROJECT_DIR$/templates/ModuloAdmin/Reserva/Reserva_Factura.html" />
+        <option value="$PROJECT_DIR$/Apps/Reserva/views.py" />
+        <option value="$PROJECT_DIR$/templates/ModuloAdmin/Reserva/Reserva_Confirm_Delete.html" />
+        <option value="$PROJECT_DIR$/Apps/Reserva/urls.py" />
+        <option value="$PROJECT_DIR$/templates/ModuloAdmin/Reserva/Reserva_List.html" />
+        <option value="$PROJECT_DIR$/templates/base_2.html" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/Casa_Glamel/kdl.py" />
         <option value="$PROJECT_DIR$/Casa_Glamel/staging.py" />
         <option value="$PROJECT_DIR$/Casa_Glamel/settings.py" />
       </list>
@@ -318,11 +322,11 @@
       <recent name="C:\Users\Usuario\PycharmProjects\Casa_Glamel\Apps\GestionInf\migrations" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario\PycharmProjects\Casa_Glamel\templates\ModuloRecepcionista\Otros\Egresos" />
+      <recent name="C:\Users\Usuario\PycharmProjects\Casa_Glamel\templates\ModuloRecepcionista\Otros" />
       <recent name="C:\Users\Usuario\PycharmProjects\Casa_Glamel\Apps" />
       <recent name="C:\Users\Usuario\PycharmProjects\Casa_Glamel\templates\ModuloRecepcionista" />
       <recent name="C:\Users\Usuario\PycharmProjects\Casa_Glamel\templates\ModuloAdmin\ControlTemplate\PedidoTemplate" />
-      <recent name="C:\Users\Usuario\PycharmProjects\Casa_Glamel\templates\ModuloAdmin\ControlTemplate\FacturaTemaplete" />
-      <recent name="C:\Users\Usuario\PycharmProjects\Casa_Glamel\templates" />
     </key>
   </component>
   <component name="RunManager" selected="Django server.Casa_Glamel">
@@ -582,16 +586,16 @@
     <frame x="0" y="0" width="1366" height="728" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23925926" sideWeight="0.49707174" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25185186" sideWeight="0.49707174" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3279483" sideWeight="0.59305763" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34087238" sideWeight="0.41555557" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34087238" sideWeight="0.3888889" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34087238" sideWeight="0.58444446" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34087238" sideWeight="0.6111111" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.49707174" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -612,9 +616,9 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34087238" sideWeight="0.42" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34087238" sideWeight="0.58" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23925926" sideWeight="0.49707174" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34087238" sideWeight="0.3911111" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34087238" sideWeight="0.60888886" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25185186" sideWeight="0.49707174" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.49121523" order="1" side_tool="false" content_ui="tabs" />
@@ -645,186 +649,367 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Alquiler/AlquilerDetailTemplate/alquiler_form.html">
+    <entry file="file://$PROJECT_DIR$/templates/ModuloAdmin/Otros/Notificaciones/notificaciones_comfirm_delete.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3361582">
-          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.49717513">
+          <caret line="32" column="39" selection-start-line="0" selection-start-column="0" selection-end-line="51" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Apps/Alquiler/forms.py">
+    <entry file="file://$PROJECT_DIR$/Apps/Egreso/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3371105">
+          <caret line="7" column="88" selection-start-line="7" selection-start-column="88" selection-end-line="7" selection-end-column="88" />
+          <folding>
+            <element signature="e#0#32#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ModuloAdmin/Otros/Egresos/egresos_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8079096">
+          <caret line="45" column="59" selection-start-line="45" selection-start-column="59" selection-end-line="45" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ModuloAdmin/Otros/Egresos/egresos_comfirm_delete.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5338983">
+          <caret line="30" column="81" selection-start-line="30" selection-start-column="81" selection-end-line="30" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Apps/Egreso/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.096317284">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ModuloAdmin/VentasTemplate/Ventas_Control_Template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6101695">
+          <caret line="86" column="68" selection-start-line="86" selection-start-column="68" selection-end-line="86" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ModuloAdmin/AdminControlTemplate/Seguimiento Detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.86440676">
+          <caret line="38" column="54" selection-start-line="38" selection-start-column="54" selection-end-line="38" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ModuloAdmin/AdminControlTemplate/Seguimineto_Prendas.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="24" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Alquiler/AlquilerDetailTemplate/alquiler_factura_imprimir.html">
+    <entry file="file://$PROJECT_DIR$/Apps/GestionInf/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.0">
-          <caret line="166" column="7" selection-start-line="0" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.56657225">
+          <caret line="57" column="91" selection-start-line="57" selection-start-column="91" selection-end-line="57" selection-end-column="91" />
+          <folding>
+            <element signature="e#0#24#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_Calendar.html">
+    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Cliente/cliente_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54867256">
-          <caret line="72" column="25" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.5677966">
+          <caret line="62" column="40" selection-start-line="62" selection-start-column="40" selection-end-line="62" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Downloads/Prototipo/reservas_admin.html">
+    <entry file="file://$PROJECT_DIR$/Apps/GestionInf/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.063197024">
-          <caret line="281" column="0" selection-start-line="281" selection-start-column="0" selection-end-line="281" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.9036827">
+          <caret line="64" column="19" selection-start-line="64" selection-start-column="19" selection-end-line="64" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#35#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Alquiler/AlquilerDetailTemplate/alquiler_confirm_delete.html">
+    <entry file="file://$PROJECT_DIR$/Apps/GestionInf/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.030088495">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.7223796">
+          <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Alquiler/AlquilerDetailTemplate/alquiler_detail_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.700565">
+          <caret line="41" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_delete_confirm.html">
+    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Cliente/cliente_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.153847">
-          <caret line="37" column="86" selection-start-line="37" selection-start-column="86" selection-end-line="37" selection-end-column="86" />
+        <state vertical-scroll-proportion="0.6045198">
+          <caret line="32" column="33" selection-start-line="28" selection-start-column="22" selection-end-line="32" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Alquiler/AlquilerDevolucionTemplate/Alquiler_Devolucion.html">
+    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_Detail_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6920354">
-          <caret line="23" column="22" selection-start-line="0" selection-start-column="0" selection-end-line="82" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.6723164">
+          <caret line="40" column="72" selection-start-line="40" selection-start-column="72" selection-end-line="40" selection-end-column="72" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/style.default.css">
+    <entry file="file://$PROJECT_DIR$/templates/Login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="672" column="22" selection-start-line="672" selection-start-column="22" selection-end-line="672" selection-end-column="22" />
-          <folding />
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/images/logo.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Apps/Inventario/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46578947">
-          <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.048022598">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_Factura_Imprimir.html">
+    <entry file="file://$PROJECT_DIR$/Casa_Glamel/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_Detail_form.html">
+    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Alquiler/AlquilerDetailTemplate/alquiler_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5762712">
-          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.42372882">
+          <caret line="54" column="68" selection-start-line="54" selection-start-column="68" selection-end-line="54" selection-end-column="68" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Apps/Reserva/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_Devolucion.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.307693">
-          <caret line="47" column="74" selection-start-line="0" selection-start-column="0" selection-end-line="82" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.9039548">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_Factura_Detail_form.html">
+    <entry file="file://$PROJECT_DIR$/Apps/Alquiler/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43220338">
-          <caret line="9" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="244" selection-end-column="14" />
-          <folding />
+        <state vertical-scroll-proportion="0.3569405">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/ModuloAdmin/Reserva/Reserva_Factura.html">
+    <entry file="file://$PROJECT_DIR$/Apps/Alquiler/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="189" column="16" selection-start-line="189" selection-start-column="16" selection-end-line="189" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Apps/Alquiler/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58157897">
-          <caret line="16" column="116" selection-start-line="16" selection-start-column="93" selection-end-line="16" selection-end-column="116" />
+        <state vertical-scroll-proportion="0.14447592">
+          <caret line="62" column="111" selection-start-line="62" selection-start-column="111" selection-end-line="62" selection-end-column="111" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Apps/Alquiler/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8210526">
-          <caret line="133" column="50" selection-start-line="133" selection-start-column="50" selection-end-line="133" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.08498584">
+          <caret line="84" column="13" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Apps/ControlAdmin/views.py">
+    <entry file="file://$PROJECT_DIR$/Apps/Ventas/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.91052634">
-          <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.93971634">
+          <caret line="64" column="50" selection-start-line="64" selection-start-column="50" selection-end-line="64" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.576923">
+          <caret line="76" column="28" selection-start-line="0" selection-start-column="0" selection-end-line="109" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Apps/Notificaciones/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.096317284">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Apps/Reserva/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19263457">
+          <caret line="44" column="33" selection-start-line="44" selection-start-column="33" selection-end-line="44" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Alquiler/AlquilerDetailTemplate/alquiler_factura_imprimir.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43220338">
+          <caret line="49" column="62" selection-start-line="49" selection-start-column="62" selection-end-line="49" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Alquiler/AlquilerDevolucionTemplate/Alquiler_Devolucion.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Alquiler/AlquilerDetailTemplate/alquiler_factura_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6158192">
+          <caret line="52" column="62" selection-start-line="52" selection-start-column="62" selection-end-line="52" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_Factura_Detail_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24011299">
+          <caret line="41" column="32" selection-start-line="41" selection-start-column="32" selection-end-line="42" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_Factura_Imprimir.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.519774">
+          <caret line="39" column="64" selection-start-line="39" selection-start-column="64" selection-end-line="39" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ModuloRecepcionista/Reserva/Reserva_Abono.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2881356">
+          <caret line="41" column="68" selection-start-line="41" selection-start-column="68" selection-end-line="41" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ModuloAdmin/Alquiler/Factura/alquiler_detail_admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8079096">
+          <caret line="51" column="45" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Apps/Egreso/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.048158642">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Apps/ControlProv/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8657895">
-          <caret line="89" column="19" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.048158642">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ModuloAdmin/Alquiler/Factura/alquiler_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5762712">
+          <caret line="12" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Apps/Reserva/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43909347">
+          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="17" />
           <folding>
-            <element signature="e#0#52#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Apps/GestionInf/views.py">
+    <entry file="file://$PROJECT_DIR$/templates/ModuloAdmin/Reserva/Reserva_Factura.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8657895">
-          <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.4039548">
+          <caret line="42" column="60" selection-start-line="42" selection-start-column="60" selection-end-line="42" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/django/views/generic/edit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4631579">
+          <caret line="328" column="6" selection-start-line="328" selection-start-column="6" selection-end-line="328" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ModuloAdmin/GestionTemplate/Proveedor/proveedor_confirm_delete.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24011299">
+          <caret line="5" column="28" selection-start-line="0" selection-start-column="0" selection-end-line="51" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Apps/Notificaciones/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6851852">
+          <caret line="37" column="68" selection-start-line="33" selection-start-column="4" selection-end-line="37" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#71#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/ModuloAdmin/Reserva/Reserva_Confirm_Delete.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.759887">
+          <caret line="37" column="58" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Apps/Reserva/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.91052634">
-          <caret line="162" column="62" selection-start-line="162" selection-start-column="62" selection-end-line="162" selection-end-column="62" />
+        <state vertical-scroll-proportion="0.8425926">
+          <caret line="182" column="69" selection-start-line="182" selection-start-column="69" selection-end-line="182" selection-end-column="69" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
@@ -833,236 +1018,63 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Apps/Reserva/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13421053">
-          <caret line="3" column="107" selection-start-line="3" selection-start-column="79" selection-end-line="3" selection-end-column="107" />
-          <folding>
-            <element signature="e#0#32#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Apps/Inventario/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5368421">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base_2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58157897">
-          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Apps/Alquiler/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Apps/ControlAdmin/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Apps/ControlAdmin/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Apps/ControlAdmin/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Apps/ControlProv/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Apps/GestionInf/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Apps/GestionInf/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3763158">
-          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Apps/GestionInf/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Apps/Reserva/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2236842">
-          <caret line="5" column="35" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#32#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Casa_Glamel/kdl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23947369">
-          <caret line="99" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="114" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/ModuloAdmin/VentasTemplate/home_admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8079096">
-          <caret line="222" column="26" selection-start-line="222" selection-start-column="26" selection-end-line="222" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/Prototipo/inventario.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.307693">
-          <caret line="292" column="34" selection-start-line="285" selection-start-column="26" selection-end-line="292" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Apps/Reserva/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8210526">
-          <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Apps/Alquiler/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15">
-          <caret line="15" column="24" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Apps/User/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.91052634">
-          <caret line="29" column="68" selection-start-line="29" selection-start-column="68" selection-end-line="29" selection-end-column="68" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Apps/Ventas/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26842105">
-          <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.7223796">
+          <caret line="15" column="104" selection-start-line="15" selection-start-column="104" selection-end-line="15" selection-end-column="104" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Apps/User/urls.py">
+    <entry file="file://$PROJECT_DIR$/templates/base_2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2236842">
-          <caret line="5" column="33" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#32#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Apps/Ventas/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5368421">
-          <caret line="12" column="27" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/ModuloAdmin/VentasTemplate/Ventas_Control_Template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.048022598">
-          <caret line="54" column="46" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.59039545">
+          <caret line="94" column="117" selection-start-line="94" selection-start-column="117" selection-end-line="94" selection-end-column="117" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/Login.html">
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.048022598">
-          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.799435">
+          <caret line="100" column="4" selection-start-line="100" selection-start-column="4" selection-end-line="100" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Casa_Glamel/urls.py">
+    <entry file="file://$PROJECT_DIR$/templates/ModuloAdmin/Reserva/Reserva_List.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8657895">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8615819">
+          <caret line="46" column="83" selection-start-line="46" selection-start-column="83" selection-end-line="46" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Casa_Glamel/kdl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9036827">
+          <caret line="141" column="20" selection-start-line="141" selection-start-column="20" selection-end-line="141" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Casa_Glamel/staging.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="122" column="27" selection-start-line="0" selection-start-column="0" selection-end-line="122" selection-end-column="27" />
-          <folding />
+        <state vertical-scroll-proportion="-1.2592592">
+          <caret line="45" column="20" selection-start-line="0" selection-start-column="0" selection-end-line="151" selection-end-column="20" />
+          <folding>
+            <element signature="e#384#393#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Casa_Glamel/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.91052634">
-          <caret line="122" column="27" selection-start-line="122" selection-start-column="27" selection-end-line="122" selection-end-column="27" />
-          <folding />
+        <state vertical-scroll-proportion="0.9036827">
+          <caret line="151" column="20" selection-start-line="151" selection-start-column="20" selection-end-line="151" selection-end-column="20" />
+          <folding>
+            <element signature="e#384#393#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
