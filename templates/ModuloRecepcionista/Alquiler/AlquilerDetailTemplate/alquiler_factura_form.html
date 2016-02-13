@@ -74,16 +74,16 @@
                     <div class="col-md-12">
                         <table style="width:100%">
                             <tr>
-                                <td><small>A</small></td>
-                                <td><small>La prenda sera entregada bajo la responsabilidad del CLIENTE y se compromete a pagar el valor total de la prenda</small></td>
+                                <td><small>A). </small></td>
+                                <td><small>La prenda sera entregada bajo la responsabilidad del CLIENTE y se compromete a pagar el valor total de la prenda en caso de dano</small></td>
                             </tr>
                             <tr>
-                                <td><small>B</small></td>
+                                <td><small>B). </small></td>
                                 <td><small>La prenda no debe ser lavada ni planchada</small></td>
                             </tr>
                             <tr>
-                                <td><small>C</small></td>
-                                <td><small>Pasadas la 24 horas de retirada la prenda se cobrara $ 1000 diarios</small></td>
+                                <td><small>C). </small></td>
+                                <td><small>Pasadas la 24 horas de retirada la prenda se cobrara $ 2000 diarios</small></td>
                             </tr>
                         </table>
                     </div>
@@ -93,6 +93,11 @@
             <table class="table table-invoice">
             <thead>
               <tr>
+                <th>Articulo</th>
+                <th>Tipo</th>
+                <th>Valor Unidad</th>
+                <th>Valor Total</th>
+
                 <th>Articulo</th>
                 <th>Tipo</th>
                 <th>Valor Unidad</th>
@@ -124,6 +129,7 @@
                 </tbody>
             </table>
 
+            <p class="small">ESTA NOTA DE COBRO SE ASIMILA EN TODOS SUS EFECTOS A LA LETRA DE CAMBIO SEGUN ART. 774 DEL C.C NOTA: DESPUES DE SEPARADA LA PRENDA NO HAY DEVOLUCION DE DINERO</p>
 
             <div class="mb40"></div>
 
@@ -153,7 +159,7 @@
                 <p><h4>Pagare No {{ alquiler.pk }}</h4></p>
                 <p class="text-justify"> Yo, {{ alquiler.cliente.full_nombre }}, identificado como aparece al pie de la firma declaro -primero que he recibido
                     de Melba Hernandez Flores prendas de vestir valoradas en la suma de: {{ suma_original }}, -segundo que
-                    dicha suma la pagare a Melba Hernandez Flores a su orden en sus oficinas en solo contado el dia {{ alquiler.fecha_entrega }}
+                    dicha suma la pagare a Melba Hernandez Florez a su orden en sus oficinas en solo contado el dia {{ alquiler.fecha_entrega }}
                     -terecero de aviso previo o notificacion al deudor -cuarto que en el caso de mora en el pago de la
                     obligacion contenida en este titulo de sus accesorios se extinguira el plazo y se exigira el pago total
                     de la deuda, reconociendo interes de mora a la tasa maxima certificada por la super intendencia bancaria

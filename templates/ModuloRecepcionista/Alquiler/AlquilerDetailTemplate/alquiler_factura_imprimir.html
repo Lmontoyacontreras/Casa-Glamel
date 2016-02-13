@@ -71,47 +71,75 @@
                     <div class="col-md-12 small">
                         <table style="width:100%">
                             <tr>
-                                <td>A</td>
-                                <td>La prenda sera entregada bajo la responsabilidad del CLIENTE y se compromete a pagar el valor total de la prenda</td>
+                                <td>A). </td>
+                                <td>La prenda sera entregada bajo la responsabilidad del CLIENTE y se compromete a pagar el valor total de la prenda en caso de daño</td>
                             </tr>
                             <tr>
-                                <td>B</td>
+                                <td>B). </td>
                                 <td>La prenda no debe ser lavada ni planchada</td>
                             </tr>
                             <tr>
-                                <td>C</td>
-                                <td>Pasadas la 24 horas de retirada la prenda se cobrara $ 1000 diarios</td>
+                                <td>C). </td>
+                                <td>Pasadas la 24 horas de retirada la prenda se cobrara $ 2000 diarios</td>
                             </tr>
                         </table>
                     </div>
                 </div>
             </div><!-- row -->
             <div class="small">
-            <table class="table table-invoice">
-            <thead>
-              <tr>
-                <th>Articulo</th>
-                <th>Tipo</th>
-                <th>Valor Unidad</th>
-                <th>Valor Total</th>
-              </tr>
-            </thead>
-            <tbody>
-            {% for alquiler_detail in alquiler_detail%}
-              <tr>
+            <table class="table">
                 <td>
-                    <div class="text-primary"><strong>{{ alquiler_detail.articulo.referencia }}</strong></div>
-                    {{ alquiler_detail.articulo.descripcion }}
+                <table class="table table-invoice">
+                    <thead>
+                        <tr>
+                        <th>Articulo</th>
+                        <th>Tipo</th>
+                        <th>Valor Unidad</th>
+                        <th>Valor Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for alquiler_detail in alquiler_parte_uno%}
+                        <tr>
+                            <td>
+                                <div class="text-primary"><strong>{{ alquiler_detail.articulo.referencia }}</strong></div>
+                                {{ alquiler_detail.articulo.descripcion }}
+                            </td>
+                            <td>{{ alquiler_detail.articulo.nombre_tipo }}</td>
+                            <td>{{ alquiler_detail.precio }}</td>
+                            <td>{{ alquiler_detail.precio }}</td>
+                          </tr>
+                            {% endfor %}
+                    </tbody>
+                </table>
                 </td>
-                <td>{{ alquiler_detail.articulo.nombre_tipo }}</td>
-                <td>{{ alquiler_detail.precio }}</td>
-                <td>{{ alquiler_detail.precio }}</td>
-              </tr>
-                {% endfor %}
-
-          </table>
+                <td>
+                <table class="table table-invoice">
+                    <thead>
+                        <tr>
+                        <th>Articulo</th>
+                        <th>Tipo</th>
+                        <th>Valor Unidad</th>
+                        <th>Valor Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for alquiler_detail in alquiler_parte_dos%}
+                        <tr>
+                            <td>
+                                <div class="text-primary"><strong>{{ alquiler_detail.articulo.referencia }}</strong></div>
+                                {{ alquiler_detail.articulo.descripcion }}
+                            </td>
+                            <td>{{ alquiler_detail.articulo.nombre_tipo }}</td>
+                            <td>{{ alquiler_detail.precio }}</td>
+                            <td>{{ alquiler_detail.precio }}</td>
+                          </tr>
+                            {% endfor %}
+                    </tbody>
+                </table>
+                </td>
+            </table>
           </div><!-- table-responsive -->
-
             <table class="table table-total">
                 <tbody>
                     <tr>
@@ -120,31 +148,44 @@
                     </tr>
                 </tbody>
             </table>
-
-            <div class="mb40"></div>
-
+            <p class="small">ESTA NOTA DE COBRO SE ASIMILA EN TODOS SUS EFECTOS A LA LETRA DE CAMBIO SEGUN ART. 774 DEL C.C NOTA: DESPÚES DE SEPARADA LA PRENDA NO HAY DEVOLUCIÓN DE DINERO</p>
             <div class="row">
-                <div class="col-sw-5">
-                    <div class="row text-center"><h4>Quien Alquila  &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;  &nbsp; &nbsp; &nbsp;&nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        Quien Recibe &nbsp;  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;  &nbsp; &nbsp; &nbsp;;&nbsp;<i class="fa fa-square-o fa-5x"></i></h4></div>
+
+                <div class="col-xs-4">
+                    <div class="row"><hr></div>
+                    <div class="row small"><h5 class="text-center">Quien Alquila</h5></div>
                 </div>
+
+                <div class="col-xs-2">
+                </div>
+
+                <div class="col-xs-4">
+                    <div class="row"><hr></div>
+                    <div class="row small"><h5 class="text-center">Quien Recibe</h5></div>
+                </div>
+
+                <div class="col-xs-2">
+                    <i class="fa fa-square-o fa-5x"></i>
+                </div>
+            </div>
+
             </div>
 
             <div class="well">
                 <p class="text-justify small"> Declaro que en la fecha he recibido en buen estado las prendas de vestir descritas en este documento,
-                    las cuales estare devolviendo dentro de las 24 horas posteriores. la utilizacion del servicio objeto
-                    del presente documento me responsabilizo por los danos y prejuicios que pueda causar debido al mal
-                    uso de las prendas dano fisico accidental o voluntario y la demora de la entrega o devolucion de la
-                    misma para constancia y garantia de lo angterior suscribo el siguiente pagare.
+                    las cuales estaré devolviendo dentro de las 24 horas posteriores. la utilización del servicio objeto
+                    del presente documento me responsabilizo por los daños y prejuicios que pueda causar debido al mal
+                    uso de las prendas daña fisico accidental o voluntario y la demora de la entrega o devolución de la
+                    misma para constancia y garantía de lo anterior suscribo el siguiente pagaré.
                 </p>
                 <p class="small"><h4 class="small">Pagare No {{ alquiler.pk }}</h4></p>
-                <p class="text-justify small"> Yo, {{ alquiler.cliente.full_nombre }}, identificado como aparece al pie de la firma declaro -primero que he recibido
-                    de Melba Hernandez Flores prendas de vestir valoradas en la suma de: _______________, -segundo que
-                    dicha suma la pagare a Melba Hernandez Flores a su orden en sus oficinas en solo contado el dia {{ alquiler.fecha_entrega }}
-                    -terecero de aviso previo o notificacion al deudor -cuarto que en el caso de mora en el pago de la
-                    obligacion contenida en este titulo de sus accesorios se extinguira el plazo y se exigira el pago total
+                <p class="text-justify small"> Yo, {{ alquiler.cliente.full_nombre }}, identificado como aparece al pie de la firma declaro -primero. que he recibido
+                    de Melba Hernández Florez prendas de vestir valoradas en la suma de: _______________, ($________)-segundo. que
+                    dicha suma la pagaré a Melba Hernández Flores a su ordén, en sus oficinas en solo contado el día {{ alquiler.fecha_entrega }}
+                    -terecero. de aviso previo o notificación al deudor -cuarto. que en el caso de mora en el pago de la
+                    obligacion contenida en este titulo de sus accesorios se extinguira el plazo y se exigirá el pago total
                     de la deuda, reconociendo interes de mora a la tasa maxima certificada por la super intendencia bancaria
-                    asi como los gastos de cobranza tasado en el 20 % del valor del presente documento
+                    así como los gastos de cobranza tasado en el 20 % del valor del presente documento.
                 </p>
             </div>
             <div class="row">

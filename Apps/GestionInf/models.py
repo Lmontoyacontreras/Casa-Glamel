@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 
 from Apps.Inventario.models import Tipo
@@ -22,6 +23,7 @@ class Cliente(models.Model):
     telefono = models.IntegerField()
     correo = models.CharField(max_length=100)
     peligroso = models.BooleanField(default=False)
+    numeros_compras = models.IntegerField(default=0,blank=True, null=True)
 
     def __str__(self):
         return self.full_nombre

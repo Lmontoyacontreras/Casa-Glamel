@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.views.generic.edit import CreateView,DeleteView
 from django.views.generic import TemplateView,DetailView,ListView
@@ -10,6 +12,7 @@ from .forms import Alquiler_Form,Alquiler_Detail_Form
 from .models import Alquiler,Alquiler_Detail
 from Apps.Inventario.models import Articulo,Estado_Ropa
 from Apps.Reserva.models import Reserva,Reserva_Detail
+from Apps.GestionInf.models import Cliente
 
 class Alquiler_Ingresar(LoginRequiredMixin,CreateView):
     model = Alquiler
@@ -22,6 +25,9 @@ class Alquiler_Ingresar(LoginRequiredMixin,CreateView):
         form.instance.vendedor = user
         form.instance.multa=0
         form.instance.fecha_devolucion_dia=date.today()
+        cliente = Cliente.objects.get(pk=form.instance.cliente.pk)
+        cliente.numeros_compras += 1
+        cliente.save()
         return super(Alquiler_Ingresar,self).form_valid(form)
 
 class Alquiler_Detail_Ingresar(LoginRequiredMixin,DetailView):
@@ -32,6 +38,11 @@ class Alquiler_Detail_Ingresar(LoginRequiredMixin,DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(Alquiler_Detail_Ingresar, self).get_context_data(**kwargs)
+        definicion_cortesia = False
+        cliente = Cliente.objects.get(pk=self.get_object().cliente.pk)
+        if cliente.numeros_compras%10==0:
+            definicion_cortesia = True
+        context['cortesia'] = definicion_cortesia
         context['alquiler_detalle'] = Alquiler_Detail.objects.filter(alquiler=self.get_object())
         Alquiler_Detail_Filtro = Alquiler_Detail_Form()
         dia_min = self.get_object().fecha_entrega+timedelta(days=6)
@@ -89,8 +100,23 @@ class Alquiler_Factura(LoginRequiredMixin,DetailView):
 
     def get_context_data(self, **kwargs):
         cotext = super(Alquiler_Factura,self).get_context_data(**kwargs)
-        cotext['alquiler_detail'] = Alquiler_Detail.objects.filter(alquiler=self.get_object().pk)
+        #Ejemplo prueba
         alquiler_detail_suma = Alquiler_Detail.objects.filter(alquiler=self.get_object().pk)
+        cotext['alquiler_detail'] = alquiler_detail_suma
+        alquiler_parte_dos = []
+        alquiler_parte_uno = []
+        contador = 0
+        for recorrido_alquiler in alquiler_detail_suma:
+
+            if contador%2 == 0 :
+                alquiler_parte_uno.append(recorrido_alquiler)
+            else:
+                alquiler_parte_dos.append(recorrido_alquiler)
+            contador = contador+1
+
+        cotext['alquiler_parte_uno']=alquiler_parte_uno
+        cotext['alquiler_parte_dos']=alquiler_parte_dos
+
         suma = 0
         suma_original = 0
         for alquiler in alquiler_detail_suma:
@@ -108,7 +134,7 @@ class Alquiler_Factura(LoginRequiredMixin,DetailView):
         date_hoy = date.today()
         if alquiler.fecha_devolucion<date_hoy:
             numero = date_hoy-alquiler.fecha_devolucion
-            multa = numero*1000
+            multa = numero*2000
             alquiler.fecha_devolucion_dia=date_hoy
             multa=int(multa.days)
             alquiler.multa = multa

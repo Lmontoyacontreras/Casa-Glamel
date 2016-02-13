@@ -53,8 +53,12 @@
                             <tr>
                                 <td><strong>Abono</strong> </td>
                                 <td>{{ reserva.abono_inicial }}</td>
-                                <td><strong></strong></td>
-                                <td></td>
+                                <td><strong>Cortesia</strong></td>
+                                {% if not cortesia %}
+                                    <td><span class="label label-danger"><span class="glyphicon glyphicon-remove-circle"></span></span></td>
+                                {% else %}
+                                    <td><span class="label label-warning"><span class="glyphicon glyphicon-star"></span></span></td>
+                                {% endif %}
                             </tr>
                             <tr>
                                 <td><strong>Fecha de Entrega</strong> </td>
@@ -140,7 +144,7 @@
                 </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary" id="libardo">Agregar</button>
+            <button type="submit" class="btn btn-primary" id="libardo" onclick="this.disabled=true,this.form.submit();">Agregar</button>
           </div></form>
         </div><!-- modal-content -->
       </div><!-- modal-dialog -->

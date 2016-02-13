@@ -24,6 +24,9 @@ class IngresarReserva(LoginRequiredMixin,CreateView):
     def form_valid(self, form):
         user = self.request.user
         form.instance.vendedor = user
+        cliente = Cliente.objects.get(pk=form.instance.cliente.pk)
+        cliente.numeros_compras += 1
+        cliente.save()
         return super(IngresarReserva,self).form_valid(form)
 
 class Reserva_Abono(LoginRequiredMixin,UpdateView):
@@ -41,6 +44,11 @@ class Reserva_Detail_Ingresar(LoginRequiredMixin,DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(Reserva_Detail_Ingresar,self).get_context_data(**kwargs)
+        definicion_cortesia = False
+        cliente = Cliente.objects.get(pk=self.get_object().cliente.pk)
+        if cliente.numeros_compras%10==0:
+            definicion_cortesia = True
+        context['cortesia'] = definicion_cortesia
         context['reserva_detail']=Reserva_Detail.objects.filter(reserva=self.get_object())
         Reserva_Detail_Filtro = Reserva_Detail_Form()
         dia_max=self.get_object().fecha_reserva-timedelta(days=6)

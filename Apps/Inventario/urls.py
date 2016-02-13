@@ -24,5 +24,10 @@ urlpatterns = [
     url(r'^Articulo-Detail/(?P<pk>[0-9]+)/$', Articulo_Detail.as_view(), name='Articulo_Detail'),
     url(r'^Articulo-Eliminar/(?P<pk>[0-9]+)/$', Articulo_Eliminar.as_view(), name='Articulo_Eliminar'),
 
+    url(r'^objects/page(?P<page>[0-9]+)/$', Articulo_Lista.as_view()),
+
     url(r'^Inventario-Lista/$', Inventario_Lista.as_view(), name='Inventario_Lista'),
+    url(r'^objects/page(?P<page>[0-9]+)/$', Inventario_Lista.as_view()),
+
+
 ]

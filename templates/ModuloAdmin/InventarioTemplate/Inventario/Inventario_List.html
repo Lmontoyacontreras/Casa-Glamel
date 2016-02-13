@@ -21,58 +21,14 @@
         <div class="col-md-12 mb30">
         <!-- Nav tabs -->
         <ul class="nav nav-tabs nav-justified">
-          <li class="active"><a href="#home3" data-toggle="tab"><strong>Inventario Existente</strong></a></li>
-          <li><a href="#profile3" data-toggle="tab"><strong>Productos Disponible</strong></a></li>
+          <li class="active"><a href="#profile3" data-toggle="tab"><strong>Productos Disponible</strong></a></li>
           <li><a href="#about3" data-toggle="tab"><strong>Productos Alquilados</strong></a></li>
           <li><a href="#contact3" data-toggle="tab"><strong>Productos Dañados</strong></a></li>
         </ul>
 
         <!-- Tab panes -->
         <div class="tab-content">
-          <div class="tab-pane active" id="home3">
-                <div class="panel-heading">
-                    <h3>Todos los Articulos</h3>
-                  <div class="panel-btns">
-                    <a href="#" class="panel-close">&times;</a>
-                    <a href="#" class="minimize">&minus;</a>
-                  </div><!-- panel-btns -->
-                </div>
-                <div class="panel-body">
-                  <div class="clearfix mb30"></div>
-                  <br />
-                  <div class="table-responsive">
-                  <table class="table" id="table2">
-                      <thead>
-                         <tr>
-                            <th>Categoria</th>
-                            <th>Referencia</th>
-                            <th>Tipo</th>
-                            <th>Estado</th>
-                            <th>Talla</th>
-                             <th>Precio</th>
-                             <th></th>
-                         </tr>
-                      </thead>
-                      <tbody>
-                         {%for articulo in articulo%}
-                         <tr class="odd gradeX">
-                            <td>{{articulo.categoria_idcategoria}}</td>
-                             <td>{{articulo.referencia}}</td>
-                             <td>{{articulo.nombre_tipo}}</td>
-                             <td>{{articulo.nombre_estado}}</td>
-                             <td>{{articulo.talla}}</td>
-                             <td>{{articulo.precio}}</td>
-                            <td class="table-action">
-                              <a href="{% url 'Inventario:Articulo_Detail' articulo.pk %}">Ver Mas</i></a>
-                            </td>
-                         </tr>
-                         {%endfor%}
-                      </tbody>
-                   </table>
-                  </div><!-- table-responsive -->
-                </div>
-          </div>
-          <div class="tab-pane" id="profile3">
+          <div class="tab-pane active" id="profile3">
             <div class="row">
                 <div class="panel-heading">
                     <h3>Articulos Disponible</h3>
@@ -85,7 +41,7 @@
                   <div class="clearfix mb30"></div>
                   <br />
                   <div class="table-responsive">
-                  <table class="table" id="table3">
+                  <table class="table">
                       <thead>
                          <tr>
                             <th>Categoria</th>
@@ -113,6 +69,21 @@
                          {%endfor%}
                       </tbody>
                    </table>
+                  {% if is_paginated %}
+                        <div class="pagination">
+                            <span class="page-links">
+                                {% if page_obj.has_previous %}
+                                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                                {% endif %}
+                                <span class="page-current">
+                                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                                </span>
+                                {% if page_obj.has_next %}
+                                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                                {% endif %}
+                            </span>
+                        </div>
+                    {% endif %}
                   </div><!-- table-responsive -->
                 </div>
             </div>

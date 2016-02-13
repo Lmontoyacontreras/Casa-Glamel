@@ -80,6 +80,7 @@ class Articulo_Lista(LoginRequiredMixin,SuperuserRequiredMixin,ListView):
     login_url = '/'
     context_object_name = 'articulo'
     template_name = u'ModuloAdmin/InventarioTemplate/Articulo/articulo_list.html'
+    paginate_by = 10
 
 class Articulo_Detail(LoginRequiredMixin,SuperuserRequiredMixin,DetailView):
     model = Articulo
@@ -99,17 +100,17 @@ class Articulo_Eliminar(LoginRequiredMixin,SuperuserRequiredMixin,DeleteView):
     login_url = '/'
     context_object_name = 'articulo'
     template_name = u'ModuloAdmin/InventarioTemplate/Articulo/articulo_confirm_delete.html'
-    success_url = reverse_lazy('Inventario:Ariculo_Lista')
+    success_url = reverse_lazy('Inventario:Articulo_Ingresar')
 
 class Inventario_Lista(LoginRequiredMixin,SuperuserRequiredMixin,ListView):
-    model = Articulo
+    queryset = Articulo.objects.filter(nombre_estado=1, nombre_estado_ropa=1)
     login_url = '/'
-    context_object_name = 'articulo'
+    context_object_name = 'articulo_disponible'
     template_name = u'ModuloAdmin/InventarioTemplate/Inventario/Inventario_List.html'
+    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         context = super(Inventario_Lista,self).get_context_data(**kwargs)
-        context['articulo_disponible'] = Articulo.objects.filter(nombre_estado=1, nombre_estado_ropa=1)
         context['articulo_alquilado'] = Articulo.objects.filter(nombre_estado=1,nombre_estado_ropa=2)
         context['articulo_danado'] = Articulo.objects.filter(nombre_estado='2')
         return context

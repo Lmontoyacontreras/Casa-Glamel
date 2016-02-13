@@ -55,7 +55,7 @@ class Cliente_Form(forms.ModelForm):
 
     class Meta:
         model = Cliente
-        fields = ['full_nombre','identificacion','direccion','telefono','correo','peligroso']
+        fields = ['full_nombre','identificacion','direccion','telefono','correo','peligroso','numeros_compras']
         widgets = {
             'full_nombre':forms.TextInput(attrs={
                 'type':'text',
@@ -66,6 +66,12 @@ class Cliente_Form(forms.ModelForm):
                 'type':'text',
                 'class':'form-control',
                 'placeholder':'Ingrese el numero de identificacion'
+            }),
+
+            'numeros_compras':forms.TextInput(attrs={
+                'type':'text',
+                'class':'form-control',
+                'placeholder':'Numero de Compras'
             }),
             'direccion':forms.TextInput(attrs={
                 'type':'text',
